@@ -1,0 +1,48 @@
+.basic-error-page {
+  height: 100%;
+  min-height: 60vh;
+
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 100px 0;
+    font-size: 24px;
+
+    .desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+      font-size: 30px;
+      line-height: 30px;
+    }
+
+    i {
+      margin-right: 50px;
+      font-size: 120px;
+    }
+  }
+}
+
+@include sm-width() {
+  .basic-error-page {
+    i {
+      font-size: 60px;
+    }
+
+    .info {
+      flex-direction: column;
+      padding: 50px 0;
+      font-size: 18px;
+
+      .desc {
+        height: 60px;
+        margin-top: 20px;
+        font-size: 20px;
+      }
+    }
+  }
+}

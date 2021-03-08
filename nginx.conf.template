@@ -1,0 +1,67 @@
+proxy_hide_header Content-Disposition;
+
+server {
+    listen       80 default_server;
+    listen       [::]:80 default_server;
+    root         /usr/share/nginx/html; # dice | gts
+
+    #service worker
+    location = /sw.js {
+        add_header 'Cache-Control' 'no-store';
+    }
+
+    set $taEnabled ${TERMINUS_TA_ENABLE};
+    set $taUrl ${TERMINUS_TA_URL};
+    set $collectorUrl ${TERMINUS_TA_COLLECTOR_URL};
+    set $terminusKey ${TERMINUS_KEY};
+    location = /ta {
+        default_type application/javascript;
+        return 200 'window._taConfig={enabled:$taEnabled,ak:"$terminusKey",url:"$taUrl",collectorUrl:"$collectorUrl"}';
+    }
+
+
+    # compression
+    gzip on;
+    gzip_min_length   2k;
+    gzip_buffers      4 16k;
+    gzip_http_version 1.0;
+    gzip_comp_level   3;
+    gzip_types        text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+    gzip_vary on;
+
+    client_max_body_size 0;
+
+    #static files
+    location ~* ^.*\.(json|jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|ppt|txt|tar|mid|midi|wav|bmp|rtf|js)$ {
+        expires 30d;
+    }
+
+    location / {
+        index index.html;
+        try_files /index.html =404;
+    }
+
+    location /login-dice {
+        return 302 ${LOGIN_URL};
+    }
+
+    location /env {
+        default_type application/json;
+        return 200 '{"fullSite":${FULL_SITE}}';
+    }
+
+    set $OPENAPI_ADDR ${API_ADDR};
+    location /api {
+        proxy_pass              $OPENAPI_ADDR;
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    error_page 404 /404.html;
+        location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+    }
+}

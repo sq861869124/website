@@ -1,0 +1,15 @@
+.end-line {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 139px;
+    height: 124px;
+  }
+  @include sm-width() {
+    img {
+      width: 96px;
+      height: 84px;
+    }
+  }
+}

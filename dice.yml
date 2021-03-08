@@ -1,0 +1,46 @@
+version: 2
+services:
+  dice-site:
+    resources:
+      cpu: 0.1
+      max_cpu: 1
+      mem: 256
+    deployments:
+      replicas: 2
+      labels:
+        GROUP: "dice"
+    ports:
+      - 80
+    expose:
+      - 80
+    hosts: []
+    envs: {}
+    binds: []
+    health_check:
+      http:
+        port: 80
+        path: "/"
+        duration: 120
+environments:
+  development:
+    services:
+      dice-site:
+        resources:
+          mem: 256
+        deployments:
+          replicas: 1
+  test:
+    services:
+      dice-site:
+        resources:
+          mem: 256
+        deployments:
+          replicas: 1
+  staging:
+    services:
+      dice-site:
+        resources:
+          mem: 256
+        deployments:
+          replicas: 1
+addons: {}
