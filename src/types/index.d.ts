@@ -14,6 +14,18 @@ declare module 'highlight.js/lib/languages/*' {
   export default value;
 }
 
+declare module USER{
+  interface IUser{
+    avatar: string;
+    email:  string;
+    id:  string;
+    name:  string;
+    nick:  string;
+    phone:  string;
+    token:  string;
+  }
+}
+
 interface Window {
   _envs: {
     [k: string]: any

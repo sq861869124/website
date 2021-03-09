@@ -31,7 +31,7 @@ const LogAnalysis = () => {
                   <div className="icon-bg center-flex-box">
                     <CustomIcon type={icon}></CustomIcon>
                   </div>
-                  <div className="title mt36">{title}</div>
+                  <div className="title mt4">{title}</div>
                   <div className="desc mt8">{description}</div>
                 </div>
               )

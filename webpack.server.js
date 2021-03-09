@@ -1,10 +1,11 @@
 const path = require('path');
 const webpackConfig = require('./webpack.config');
+const fs  = require('fs');
 
-// const prodEnv = 'http://dice.dev.terminus.io';
-const prodEnv = 'https://terminus-org.app.terminus.io';
+const prodEnv = 'https://terminus-org.dev.terminus.io';
+// const prodEnv = 'https://terminus-org.app.terminus.io';
 
-const backendUrl = 'https://dice-site.app.terminus.io';
+const backendUrl = 'https://terminus-org.dev.terminus.io';
 const frontUrl = `local.${backendUrl.replace(/http(s?):\/\//, '')}`; // local与对应环境根域名一致
 const port = 8007;
 
@@ -21,6 +22,10 @@ const devServer = {
   watchContentBase: false,
   liveReload: false,
   hot: true,
+  https: {
+    key: fs.readFileSync('./cert/dev/server.key'),
+    cert: fs.readFileSync('./cert/dev/server.crt'),
+  },
   proxy: {
     '/api': {
       target: prodEnv,

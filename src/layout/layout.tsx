@@ -4,19 +4,22 @@ import Footer from '~/components/common/footer';
 import { SiteContext } from 'common/utils/site-context';
 import {withRouter} from 'react-router-dom'
 import classNames from 'classnames';
+import { RouteComponentProps } from 'react-router'
 
 import './layout.scss';
 
-const onlyMains = ['/login', '/regist']
+interface IProps extends RouteComponentProps{
+  children: React.ReactNode;
+  inOnlyMain(location:RouteComponentProps['location']): boolean;
+}
 
-const PageLayout = ({ children, location }: any) => {
+const PageLayout = ({ children, location, inOnlyMain }: IProps) => {
   const [headShow, setHeadShow] = React.useState(true);
 
   const changeHeadVisible = (vis: boolean) => {
     setHeadShow(vis);
   };
-  const onlyMain = onlyMains.includes(location.pathname)
-  console.log(location)
+  const onlyMain = inOnlyMain ? inOnlyMain(location): false
   const wrapperClassName = classNames({
     'dice-default-layout': true,
     'theme-dice': true,

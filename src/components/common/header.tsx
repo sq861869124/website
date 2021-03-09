@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { throttle } from 'lodash';
+import { throttle, isEmpty } from 'lodash';
 import classNames from 'classnames';
 import IntroMenu from './menu';
 import IntroMobileMenu from './menu-mobile';
-import { Icon as CustomIcon } from 'common';
 import LoginPanel from './loginPanel';
 import { Link } from 'react-router-dom';
 import { getScrollTop } from '~/common/utils';
+import UserInfo from '~/components/common/user-info';
+import userStore from '~/models/user';
 import './header.scss';
-import { useEnv } from '~/models/env';
 
 let mobileMenuOpen = false;
 
@@ -16,12 +16,14 @@ interface IProps {
   onChangeVisible(vis: boolean): void;
 }
 const Header = ({ onChangeVisible }: IProps) => {
-  const env = useEnv();
   let lastTop = React.useRef(getScrollTop());
   const [visible, setVisible] = React.useState(true);
   const [flexHeader, setFlexHeader] = React.useState(lastTop.current !== 0);
+  const userData = userStore.useStore(s=>s.user);
+  const {getCurrentUser} = userStore.effects;
 
   React.useEffect(() => {
+    getCurrentUser();
     lastTop.current = getScrollTop();
     // 刷新页面保留了滚动高度时，延时检查
     setTimeout(() => {
@@ -68,7 +70,7 @@ const Header = ({ onChangeVisible }: IProps) => {
           <img width={160} src={`/images/${logo}.svg`} alt=""/>
         </Link>
         <IntroMenu />
-        <LoginPanel />
+        {isEmpty(userData)? <LoginPanel />: <UserInfo data={userData}/>}
         <IntroMobileMenu onToggle={(visible: boolean) => mobileMenuOpen = visible} />
       </div>
     </header>

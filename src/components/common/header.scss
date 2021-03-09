@@ -18,6 +18,9 @@
     width: 1200px;
     margin: 0 auto;
   }
+  .user-info{
+    color: $white;
+  }
 
   &.flex-header {
     background-color: $white;
@@ -33,6 +36,9 @@
         color: $primary;
         border-color: $primary;
       }
+    }
+    .user-info{
+      color: $primary;
     }
   }
 

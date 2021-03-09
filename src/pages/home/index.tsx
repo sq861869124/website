@@ -25,7 +25,7 @@ const Home = () =>{
         <PageContent>
           <p className="title">您的团队在应用研发过程中还有什么困难？</p>
           <div className="center-flex-box btns mt36">
-            <div className="btn-item free-trial center-flex-box">免费试用</div>
+            <div className="btn-item free-trial center-flex-box" onClick={()=>{window.open('/login-dice')}}>免费试用</div>
             <div className="btn-item contact center-flex-box">联系我们</div>
           </div>
         </PageContent>

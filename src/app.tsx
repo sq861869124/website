@@ -10,21 +10,22 @@ import About from 'pages/about';
 import Login from 'pages/login';
 import Regist from 'pages/regist';
 import { NotFound } from './layout/common/error-page';
-import { useEnv } from './models/env';
 import './styles/global.scss';
+import {RouteComponentProps} from 'react-router'
 
 const history = createBrowserHistory();
 setGlobal('history', history);
+const onlyMain=['/login', '/regist']
 
 const App = () => {
-  const env = useEnv();
 
-  console.log(env)
-
+  const inOnlyMain = ({pathname}:RouteComponentProps['location']) => {
+    return onlyMain.includes(pathname)
+  }
 
   return (
     <Router history={history}>
-      <Layout onlyMain key={env.fullSite}>
+      <Layout inOnlyMain={inOnlyMain}>
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={Login}/>

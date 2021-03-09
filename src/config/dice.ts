@@ -15,9 +15,9 @@ export const getHeaderMenus = ({ docUrl }: any) => [
   },
   {
     name: '合作伙伴',
-    url: '/about',
+    url: '/about1',
   },
-  { name: 'Explore', url: '/about' },
+  { name: 'Explore', url: '/about2' },
 ];
 
 export const getFooterMenus = ({ docUrl }: any) => {

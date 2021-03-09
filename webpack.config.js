@@ -33,7 +33,7 @@ const createSprites = () => {
           ]
         },
         apiOptions: {
-          cssImageRef: `images/sprites/sprite-${item}.png`,
+          cssImageRef: `/images/sprites/sprite-${item}.png`,
           handlebarsHelpers: {
             half: (num) => `${parseInt(num) / 2}px`
           }

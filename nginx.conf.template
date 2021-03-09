@@ -32,7 +32,7 @@ server {
     client_max_body_size 0;
 
     #static files
-    location ~* ^.*\.(json|jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|ppt|txt|tar|mid|midi|wav|bmp|rtf|js)$ {
+    location ~* ^.*\.(json|jpg|jpeg|gif|svg|png|ico|css|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|ppt|txt|tar|mid|midi|wav|bmp|rtf|js)$ {
         expires 30d;
     }
 
