@@ -2,6 +2,7 @@ import React from 'react';
 import PageContent from '~/components/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
 import Accordion, {IListItem} from 'pages/home/accordion';
+import { CopmFadeInUp } from 'pages/component/animate-comp'
 
 const config: IListItem[] = [{
   icon: 'icon5_2',
@@ -31,14 +32,22 @@ const CiCd = () => {
     <div className="erda-home-cicd">
       <PageContent className="flex-box v-align-start two-column">
         <div className="erda-home-cicd-img images-column">
-          <ImgLazy width={620} height={531} className="cici-img" src="/images/home/Pic4.png"/>
+          <CopmFadeInUp>
+            <ImgLazy width={620} height={531} className="cici-img" src="/images/home/Pic4.png"/>
+          </CopmFadeInUp>
         </div>
         <div className="flex-1 pl28 text-column">
-          <div className="card-title">实现软件交付流程自动化的CI/CD</div>
-          <div className="card-desc mt24">
-            提供代码扫描构建、测试、部署的流水线服务，帮助您高效、持续部署您的应用
-          </div>
-          <Accordion defaultActiveKey="graphicalOrchestration" list={config} className="mt24"/>
+          <CopmFadeInUp>
+            <div className="card-title">实现软件交付流程自动化的CI/CD</div>
+          </CopmFadeInUp>
+          <CopmFadeInUp>
+            <div className="card-desc mt24">
+              提供代码扫描构建、测试、部署的流水线服务，帮助您高效、持续部署您的应用
+            </div>
+          </CopmFadeInUp>
+          <CopmFadeInUp>
+            <Accordion defaultActiveKey="graphicalOrchestration" list={config} className="mt24"/>
+          </CopmFadeInUp>
         </div>
       </PageContent>
     </div>

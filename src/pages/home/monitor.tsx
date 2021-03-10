@@ -2,6 +2,7 @@ import React from 'react';
 import PageContent from '~/components/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
 import Accordion, {IListItem} from 'pages/home/accordion';
+import { CopmFadeInUp } from 'pages/component/animate-comp'
 
 const config:IListItem[] = [{
   icon: 'icon91',
@@ -37,14 +38,22 @@ const Monitor = () => {
     <div className="erda-home-monitor">
       <PageContent className="flex-box v-align-start two-column">
         <div className="flex-1 pr40 text-column">
-          <div className="card-title">应用全方位性能<span className="card-title-height-light">监控</span></div>
-          <div className="card-desc mt24">
-            分布式系统的应用程序性能监视工具，为基于云原生（Docker，Kubernetes，Mesos）的微服务而量身定制，覆盖端到服务的完整链路。
-          </div>
-          <Accordion defaultActiveKey="noCodeIntrusionAllRoundMonitoring" list={config} className="mt24"/>
+          <CopmFadeInUp>
+            <div className="card-title">应用全方位性能<span className="card-title-height-light">监控</span></div>
+          </CopmFadeInUp>
+          <CopmFadeInUp>
+            <div className="card-desc mt24">
+              分布式系统的应用程序性能监视工具，为基于云原生（Docker，Kubernetes，Mesos）的微服务而量身定制，覆盖端到服务的完整链路。
+            </div>
+          </CopmFadeInUp>
+          <CopmFadeInUp>
+            <Accordion defaultActiveKey="noCodeIntrusionAllRoundMonitoring" list={config} className="mt24"/>
+          </CopmFadeInUp>
         </div>
         <div className="erda-home-monitor-img images-column">
-          <ImgLazy className="monitor-img" width={620} height={531} src="/images/home/Pic5.png"/>
+          <CopmFadeInUp>
+            <ImgLazy className="monitor-img" width={620} height={531} src="/images/home/Pic5.png"/>
+          </CopmFadeInUp>
         </div>
       </PageContent>
     </div>

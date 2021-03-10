@@ -1,6 +1,7 @@
 import React from 'react';
 import PageContent from '~/components/common/page-content';
 import {  SpriteIcons } from '~/common';
+import { CopmFadeInUp } from 'pages/component/animate-comp'
 
 const config: {title: string; icon: string; description: string}[] = [{
   icon: 'bug-manage',
@@ -23,22 +24,28 @@ const TestManage = () => {
   return (
     <div className="erda-home-test-manage">
       <PageContent>
-        <div className="card-title">
-          全程护航研发质量的<span className="card-title-height-light">测试管理</span>
-        </div>
-        <div className="card-desc mt20">
-          提供包含代码单元测试、代码安全测试、手工测试用例管理和接口自动化测试的全方位的测试管理能力
-        </div>
+        <CopmFadeInUp>
+          <div className="card-title">
+            全程护航研发质量的<span className="card-title-height-light">测试管理</span>
+          </div>
+        </CopmFadeInUp>
+        <CopmFadeInUp>
+          <div className="card-desc mt20">
+            提供包含代码单元测试、代码安全测试、手工测试用例管理和接口自动化测试的全方位的测试管理能力
+          </div>
+        </CopmFadeInUp>
         <div className="erda-home-test-manage-body flex-box v-align-start">
           {
             config.map(item=>{
               const {icon, description, title} = item;
               return (
-                <div key={title} className="item">
-                  <SpriteIcons path="home" className={`icon ${icon}`}/>
-                  <div className="title mt36">{title}</div>
-                  <div className="desc mt8">{description}</div>
-                </div>
+                <CopmFadeInUp key={title}>
+                  <div key={title} className="item">
+                    <SpriteIcons path="home" className={`icon ${icon}`}/>
+                    <div className="title mt36">{title}</div>
+                    <div className="desc mt8">{description}</div>
+                  </div>
+                </CopmFadeInUp>
               )
             })
           }
