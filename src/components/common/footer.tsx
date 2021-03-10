@@ -20,6 +20,8 @@ interface IFooterItem {
 interface ISubItem {
   name: string;
   img?: string;
+  width?:number;
+  height?:number;
   url?: string;
   className?: string;
   jumpOut?: boolean;
@@ -55,7 +57,7 @@ const FooterItem = ({ config, className = '' }: IProps) => {
       </div>
       {
         subList.map((sub: ISubItem) => {
-          const { img, name, url, jumpOut, className: subCls, props } = sub;
+          const { img, name, url, jumpOut, className: subCls, props, width, height } = sub;
           let link = name as any;
           if (url) {
             link = jumpOut
@@ -66,7 +68,7 @@ const FooterItem = ({ config, className = '' }: IProps) => {
             <React.Fragment key={name}>
               <IF check={!isMobile}>
                 <div key={name} className={`footer-item-sub ${subCls}`}>{link}</div>
-                {img ? <img src={img} className="footer-item-img" alt="footer-item-img" /> : null}
+                {img ? <img src={img} height={height} width={width} className="footer-item-img" alt="footer-item-img" /> : null}
                 <IF.ELSE />
                 <div key={name}
                   className={`footer-item-sub ${subCls}`}
@@ -80,7 +82,7 @@ const FooterItem = ({ config, className = '' }: IProps) => {
                     className={`g-img-enlarge-mobile ${imgVisible ? '' : 'hidden'}`}
                     onClick={() => setImgVisible(false)}
                   >
-                    <img src={img} className="footer-item-img" alt="footer-item-img" />
+                    <img src={img} height={height} width={width} className="footer-item-img" alt="footer-item-img" />
                   </div>
                 ) : null
                 }

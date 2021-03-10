@@ -59,7 +59,6 @@ const Header = ({ onChangeVisible }: IProps) => {
   const cls = classNames({
     'site-header': true,
     'unselectable': true,
-    // hide: !visible,
     'flex-header': flexHeader,
   });
   const logo = flexHeader ?   'logo-colorful' : 'logo-white'
@@ -67,7 +66,7 @@ const Header = ({ onChangeVisible }: IProps) => {
     <header className={cls}>
       <div className="site-header-wrap">
         <Link className="logo" aria-label="go to home page" to="/">
-          <img width={160} src={`/images/${logo}.svg`} alt=""/>
+          <img width={160} height={32} className="site-logo" src={`/images/${logo}.svg`} alt=""/>
         </Link>
         <IntroMenu />
         {isEmpty(userData)? <LoginPanel />: <UserInfo data={userData}/>}

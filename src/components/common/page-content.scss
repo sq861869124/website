@@ -1,5 +1,11 @@
-.erda-page-content{
+.erda-page-content {
   width: 1200px;
   margin: 0 auto;
   position: relative;
+}
+
+@include sm-width() {
+  .erda-page-content {
+    width: 100%;
+  }
 }

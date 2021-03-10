@@ -19,11 +19,12 @@ const PageLayout = ({ children, location, inOnlyMain }: IProps) => {
   const changeHeadVisible = (vis: boolean) => {
     setHeadShow(vis);
   };
-  const onlyMain = inOnlyMain ? inOnlyMain(location): false
+  const onlyMain = inOnlyMain ? inOnlyMain(location): false;
   const wrapperClassName = classNames({
     'dice-default-layout': true,
     'theme-dice': true,
-    'only-main': onlyMain
+    'only-main': onlyMain,
+
   });
   return (
     <SiteContext.Provider value={{ headShow }}>

@@ -3,6 +3,7 @@
     &-icon {
       width: 30px;
       height: 30px;
+      overflow: hidden;
 
       i {
         font-size: 30px;
@@ -12,6 +13,7 @@
     &-text {
       line-height: 32px;
       font-size: 20px;
+      font-weight: 600;
     }
   }
 
@@ -26,8 +28,8 @@
   .erda-accordion-body {
     font-size: 16px;
     color: rgba(40, 69, 95, .7);
-    font-size: 16px;
     line-height: 28px;
+    min-height: 56px;
   }
 
   .ant-collapse-item {

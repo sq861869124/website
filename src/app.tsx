@@ -1,39 +1,45 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { message } from 'antd';
+import { message, Spin } from 'antd';
 import Layout from './layout/layout';
 import { setGlobal } from './common/utils';
-
-import Home from 'pages/home';
-import About from 'pages/about';
-import Login from 'pages/login';
-import Regist from 'pages/regist';
 import { NotFound } from './layout/common/error-page';
 import './styles/global.scss';
-import {RouteComponentProps} from 'react-router'
+import { RouteComponentProps } from 'react-router'
+
+const Home = React.lazy(() => import('pages/home'));
+const ContactUs = React.lazy(() => import('pages/contact-us'));
+const Market = React.lazy(() => import('pages/market/market'));
+const ServiceDetail = React.lazy(() => import('pages/market/service-detail'));
+const DownloadPage = React.lazy(() => import('pages/market/download'));
+const LibraryDetail = React.lazy(() => import('pages/market/library-detail'));
+
 
 const history = createBrowserHistory();
 setGlobal('history', history);
-const onlyMain=['/login', '/regist']
+const onlyMain = [ '/login', '/regist', '/download' ]
 
 const App = () => {
 
-  const inOnlyMain = ({pathname}:RouteComponentProps['location']) => {
-    return onlyMain.includes(pathname)
+  const inOnlyMain = ({ pathname }: RouteComponentProps['location']) => {
+    return onlyMain.some(item => pathname.includes(item))
   }
 
   return (
     <Router history={history}>
       <Layout inOnlyMain={inOnlyMain}>
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/login" component={Login}/>
-          <Route exact path="/regist" component={Regist}/>
-          <Route exact path="/about" component={About}/>
-          <Route path="*" component={NotFound}/>
-        </Switch>
-
+        <Suspense fallback={<Spin spinning={true}></Spin>}>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/contact" component={ContactUs}/>
+            <Route exact path="/market/:type" component={Market}/>
+            <Route exact path="/market/:type/:serviceName" component={ServiceDetail}/>
+            <Route exact path="/download/:publishItemId" component={DownloadPage}/>
+            <Route exact path="/library/:publishItemId" component={LibraryDetail}/>
+            <Route path="*" component={NotFound}/>
+          </Switch>
+        </Suspense>
       </Layout>
     </Router>
   );

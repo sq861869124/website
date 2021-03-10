@@ -11,35 +11,55 @@
   background-color: transparent;
   //transition: transform 0.5s, background-color 0.3s ease-in-out;
   transition: transform 0.5s, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  &-wrap{
+
+  &-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 1200px;
     margin: 0 auto;
+    @include sm-width(){
+      margin: 0;
+    }
   }
-  .user-info{
+  .site-logo{
+    width: 160px;
+    height: 32px;
+  }
+
+  .user-info {
     color: $white;
   }
 
-  &.flex-header {
+  &.flex-header, &.not-home-header {
     background-color: $white;
-    box-shadow: 0 4px 16px 2px rgba(92,77,237,0.08);
-    .site-menu .ant-menu-horizontal .ant-menu-item a{
+
+    .site-menu .ant-menu-horizontal .ant-menu-item a {
       color: $primary;
     }
-    .site-loginpanel{
-      .login-item > a{
+
+    .site-loginpanel {
+      .login-item > a {
         color: $primary;
       }
-      .free-registration{
+
+      .free-registration {
         color: $primary;
         border-color: $primary;
       }
     }
-    .user-info{
+
+    .user-info {
       color: $primary;
     }
+  }
+
+  &.not-home-header {
+    box-shadow: none;
+  }
+
+  &.flex-header {
+    box-shadow: 0 4px 16px 2px rgba(92, 77, 237, 0.08);
   }
 
   &.hide {
@@ -68,6 +88,7 @@
     height: $mobile-header-height;
     padding: 14px 16px;
     background: $white;
+    width: 100vw;
 
     &.hide {
       transform: translateY(-$mobile-header-height);

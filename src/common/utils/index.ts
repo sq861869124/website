@@ -57,7 +57,7 @@ export const goTo = (path: string, ops: IGoToOps = {}) => {
   }
 };
 
-export function getCookies(k: string) {
+export function getCookies(k?: string) {
   const cookies = {};
   window.document.cookie.split(';').forEach((item) => {
     const [key, value] = item.split('=');

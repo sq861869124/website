@@ -6,6 +6,7 @@ $bannerBackgroundColor: #0F0921;
     text-align: center;
     line-height: 48px;
     font-size: 40px;
+    font-weight: 600;
 
     &-height-light {
       color: #5C4DED;
@@ -14,50 +15,62 @@ $bannerBackgroundColor: #0F0921;
 
   .card-desc {
     opacity: 0.7;
-    font-size: 20px;
+    font-size: 16px;
     color: #2F3C5F;
     text-align: center;
     line-height: 32px;
   }
 
-  .two-column{
-    .text-column{
+  .two-column {
+    .text-column {
       .card-title, .card-desc {
         text-align: left;
       }
+
       .list {
         .item {
-          height: 32px;
           line-height: 32px;
           font-size: 20px;
           color: #0D0C22;
         }
       }
     }
-    .images-column{
+
+    .images-column {
       width: 620px;
-      img{
+
+      img {
         width: 100%;
       }
     }
   }
 
   &-banner {
-    height: 720px;
-    //background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
-    background-image: url("/images/home/banner/background.svg");
-    background-size: 1280px 770px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: $bannerBackgroundColor;
+    height: 750px;
+    background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
     position: relative;
-    .earth{
+
+    &-mask {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto;
+      background-image: url("/images/home/banner/background.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .earth {
       width: 550px;
       height: 550px;
       position: absolute;
       right: 0;
       top: 100px;
-      img{
+
+      img {
         width: 100%;
       }
     }
@@ -92,49 +105,57 @@ $bannerBackgroundColor: #0F0921;
         }
       }
     }
-    &:after{
+
+    &:after {
       content: '';
       display: block;
       width: 100%;
       height: 60px;
-      background-color:$bannerBackgroundColor;
-      //background-color: #cccccc;
+      //background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
+      background-image: url("/images/home/banner/bannermask.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
       position: absolute;
-      border-radius: 0 0 100% 100%;
-      bottom: -60px;
+      bottom: -30px;
       left: 0;
     }
   }
 
   &-main-card {
     padding: 50px 70px;
-    margin-top: -40px;
+    margin-top: -70px;
     border-radius: 5px;
     background: #fff;
     box-shadow: 0 4px 16px 2px rgba(92, 77, 237, 0.08);
-    .img-wrapper{
+
+    .img-wrapper {
       text-align: center;
     }
   }
 
   &-pm {
     padding: 100px 0;
-    .img-wrapper{
+
+    .img-wrapper {
       position: relative;
       margin: 0 auto;
       width: 800px;
       height: 300px;
-      .erda-lazyload-img-wrap{
+
+      .erda-lazyload-img-wrap {
         position: absolute;
-        &.main-img{
+
+        &.main-img {
           top: 0;
           left: 0;
         }
-        &.male{
+
+        &.male {
           right: -30px;
           top: -20px;
         }
-        &.female{
+
+        &.female {
           right: 60px;
           bottom: -20px;
         }
@@ -151,30 +172,37 @@ $bannerBackgroundColor: #0F0921;
       height: 490px;
     }
   }
-  &-code-host{
-    .images-column{
+
+  &-code-host {
+    .images-column {
       margin-top: -20px;
     }
   }
 
   &-test-manage {
     padding: 100px 0;
-    &-body{
+
+    &-body {
       margin-top: 72px;
-      .item{
+
+      .item {
         width: 240px;
         text-align: center;
-        .icon{
+
+        .icon {
           width: 80px;
           height: 80px;
           //background-size: 100% 100%;
         }
-        .title{
+
+        .title {
           height: 28px;
           font-size: 20px;
           color: #0D0C22;
+          font-weight: 600;
         }
-        .desc{
+
+        .desc {
           font-size: 16px;
           color: rgba(47, 60, 95, .4);
           line-height: 28px;
@@ -182,73 +210,90 @@ $bannerBackgroundColor: #0F0921;
       }
     }
   }
-  &-cicd{
+
+  &-cicd {
     padding: 100px 0;
     background-color: #F7F9FF;
-    .images-column{
+
+    .images-column {
       margin-top: -30px;
     }
   }
-  &-monitor{
+
+  &-monitor {
     background: #ffffff;
     padding-bottom: 70px;
-    .images-column{
+
+    .images-column {
       margin-top: -56px;
     }
   }
-  &-log-analysis{
+
+  &-log-analysis {
     padding: 100px 0;
     background: #5C4DED;
-    .card-title{
+
+    .card-title {
       color: #ffffff;
     }
-    .card-desc{
-      color: rgba(255,255,255,.7);
+
+    .card-desc {
+      color: rgba(255, 255, 255, .7);
     }
-    &-body{
+
+    &-body {
       margin-top: 72px;
-      .item{
+
+      .item {
         width: 240px;
         text-align: center;
-        .icon-bg{
+
+        .icon-bg {
           margin: 0 auto;
           width: 115px;
           height: 85px;
-          background-image:url('/images/home/log-item-bg.png') ;
+          background-image: url('/images/home/log-item-bg.png');
           background-size: 100%;
-          i{
+
+          i {
             color: $white;
             font-size: 60px;
           }
         }
-        .icon{
+
+        .icon {
           width: 56px;
           height: 56px;
         }
-        .title{
+
+        .title {
           height: 28px;
           font-size: 20px;
           color: #ffffff;
         }
-        .desc{
+
+        .desc {
           font-size: 16px;
-          color: rgba(255,255,255,.8);
+          color: rgba(255, 255, 255, .8);
           line-height: 28px;
         }
       }
     }
   }
-  .contact-trial{
+
+  .contact-trial {
     padding: 130px 0;
-    .title{
+
+    .title {
       font-size: 36px;
       color: #0D0C22;
       text-align: center;
       line-height: 48px;
     }
-    .btns{
-      .btn-item{
-        margin:  0 10px;
+
+    .btns {
+      .btn-item {
+        margin: 0 10px;
         height: 48px;
         width: 140px;
         border-radius: 3px;
@@ -256,18 +301,21 @@ $bannerBackgroundColor: #0F0921;
         font-size: 18px;
         cursor: pointer;
       }
-      .free-trial{
+
+      .free-trial {
         background-image: linear-gradient(135deg, #5C4DED 0%, #402EEC 100%);
         color: #FFFFFF;
       }
-      .contact{
+
+      .contact {
         border: 1px solid #5C4DED;
         color: #5C4DED;
       }
     }
   }
+
   @include sm-width() {
-    .erda-page-content{
+    .erda-page-content {
       width: 90%;
       padding: 12px;
     }

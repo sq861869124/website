@@ -33,6 +33,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'style/[name].css',
+      ignoreOrder: true,
     }),
   ],
   optimization: {

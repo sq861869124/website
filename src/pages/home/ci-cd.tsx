@@ -1,10 +1,11 @@
 import React from 'react';
 import PageContent from '~/components/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
-import Accordion from 'pages/home/accordion';
+import Accordion, {IListItem} from 'pages/home/accordion';
 
-const config = [{
-  icon: 'icon51',
+const config: IListItem[] = [{
+  icon: 'icon5_2',
+  activeIcon: 'icon51',
   title: '图形化编排',
   key: 'graphicalOrchestration',
   description: '提供拖拽式的图形化编辑方式，让您免去学习成本，使 CI/CD 编辑变的更简单',
@@ -17,7 +18,7 @@ const config = [{
   icon: 'icon71',
   title: '全面的构建类型',
   key: 'comprehensiveBuildType',
-  description: '平台全面支持 Java、Go、Node、Pytohn 等各种开发语言框架，支持应用 Docker 镜像、Jar 包、移动应用安装包等软件包的构建',
+  description: '平台全面支持 Java、Go、Node、Python 等各种开发语言框架，支持应用 Docker 镜像、Jar 包、移动应用安装包等软件包的构建',
 },{
   icon: 'icon81',
   title: '丰富的发布管理',
@@ -30,11 +31,11 @@ const CiCd = () => {
     <div className="erda-home-cicd">
       <PageContent className="flex-box v-align-start two-column">
         <div className="erda-home-cicd-img images-column">
-          <ImgLazy className="cici-img" src="/images/home/Pic4.png"/>
+          <ImgLazy width={620} height={531} className="cici-img" src="/images/home/Pic4.png"/>
         </div>
         <div className="flex-1 pl28 text-column">
-          <div className="card-title">CI/CD</div>
-          <div className="card-desc">
+          <div className="card-title">实现软件交付流程自动化的CI/CD</div>
+          <div className="card-desc mt24">
             提供代码扫描构建、测试、部署的流水线服务，帮助您高效、持续部署您的应用
           </div>
           <Accordion defaultActiveKey="graphicalOrchestration" list={config} className="mt24"/>

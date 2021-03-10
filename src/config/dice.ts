@@ -5,8 +5,7 @@ export const getHeaderMenus = ({ docUrl }: any) => [
   },
   {
     name: '市场',
-    url: 'https://dice.terminus.io/market/addon',
-    jumpOut: true,
+    url: '/market/addon',
   },
   {
     name: '文档',
@@ -15,9 +14,10 @@ export const getHeaderMenus = ({ docUrl }: any) => [
   },
   {
     name: '合作伙伴',
-    url: '/about1',
+    url: '/',
+    status: 'unrealized'
   },
-  { name: 'Explore', url: '/about2' },
+  { name: 'Explore', url: '/' },
 ];
 
 export const getFooterMenus = ({ docUrl }: any) => {
@@ -26,8 +26,7 @@ export const getFooterMenus = ({ docUrl }: any) => {
       name: '关于',
       // icon: 'gy',
       subList: [
-        { name: '关于我们', url: '/about' },
-        // { name: '行业案例', url: '' },
+        { name: '关于我们', url: '/' },
       ],
     },
     resource: {
@@ -42,7 +41,9 @@ export const getFooterMenus = ({ docUrl }: any) => {
         {
           name: '微信公众号',
           img: '/images/common/wechat.jpg',
-          className: 'mb8'
+          className: 'mb8',
+          width: 80,
+          height: 80,
         },
       ],
     },
@@ -54,7 +55,6 @@ export const getFooterMenus = ({ docUrl }: any) => {
         { name: '流水线任务', url: 'https://dice.terminus.io/market/action', jumpOut: true },
         { name: '库', url: 'https://dice.terminus.io/market/library', jumpOut: true },
         { name: '移动应用', url: 'https://dice.terminus.io/market/mobile', jumpOut: true },
-        { name: 'API市场', url: 'https://dice.terminus.io/market/api', jumpOut: true },
       ],
     },
     email: {

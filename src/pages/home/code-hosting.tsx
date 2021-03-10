@@ -1,15 +1,16 @@
 import React from 'react';
 import PageContent from '~/components/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
-import Accordion from 'pages/home/accordion';
+import Accordion, {IListItem} from 'pages/home/accordion';
 
-const config = [{
+const config:IListItem[] = [{
   icon: 'icon1',
   title: '精细化权限管理',
   key: 'refinedAuthority',
   description: '根据项目、应用的用户角色、分支等不同纬度，细分了代码分支的访问和编辑的权限',
 },{
-  icon: 'icon21',
+  icon: 'icon2_2',
+  activeIcon: 'icon21',
   title: '分支规则管理',
   key: 'branchRule',
   description: '遵循 GitFlow 规范，平台沉淀分支和环境的约定关系同时， 支持用户自定义的分支规则配置',
@@ -31,13 +32,13 @@ const CodeHosting  = () => {
       <PageContent className="flex-box v-align-start two-column">
         <div className="flex-1 pr28 text-column">
           <div className="card-title">全方位的企业级<span className="card-title-height-light">代码托管</span></div>
-          <div className="card-desc">
+          <div className="card-desc mt24">
             基于 Git，为您提供全方位的企业级代码管理服务，让团队代码协作能够安全、高效进行的同时，遵循 GitFlow 规范的代码托管机制，助力应用的迭代快速开发和持续交付。
           </div>
           <Accordion defaultActiveKey="refinedAuthority" list={config} className="mt24"/>
         </div>
         <div className="images-column">
-          <ImgLazy className="code-branch" src="/images/home/Pic3.png"/>
+          <ImgLazy width={620} height={531} className="code-branch" src="/images/home/Pic3.png"/>
         </div>
       </PageContent>
     </div>

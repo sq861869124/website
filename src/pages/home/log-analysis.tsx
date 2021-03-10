@@ -21,7 +21,7 @@ const LogAnalysis = () => {
     <div className="erda-home-log-analysis">
       <PageContent>
         <div className="card-title">日志分析</div>
-        <div className="card-desc">通过日志分析，提供经营效率优化决策依据，改善应用程序和基础设施性能及运行时间，让您比以往任何时候更能深入了解您的应用程序和基础设施</div>
+        <div className="card-desc mt24">通过日志分析，提供经营效率优化决策依据，改善应用程序和基础设施性能及运行时间，让您比以往任何时候更能深入了解您的应用程序和基础设施</div>
         <div className="erda-home-log-analysis-body flex-box v-align-start">
           {
             config.map(item=>{

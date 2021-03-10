@@ -13,7 +13,7 @@ const config: {title: string; icon: string; description: string}[] = [{
 },{
   icon: 'data-bank',
   title: '数据银行',
-  description: '平台在测试数据源的管理基础之上，通过配置单可以通过 sql 文批量进行测试数据准备工作，配置单、接口测试用例可以通过图形化编排流水线无缝对接工作。'
+  description: '平台在测试数据源的管理基础之上，通过配置单可以通过 sql 大批量进行测试数据准备工作，配置单、接口测试用例可以通过图形化编排流水线无缝对接工作。'
 },{
   icon: 'full-link',
   title: '全链路管理',
@@ -24,7 +24,7 @@ const TestManage = () => {
     <div className="erda-home-test-manage">
       <PageContent>
         <div className="card-title">
-          满足研发对<span className="card-title-height-light">测试管理</span>需求
+          全程护航研发质量的<span className="card-title-height-light">测试管理</span>
         </div>
         <div className="card-desc mt20">
           提供包含代码单元测试、代码安全测试、手工测试用例管理和接口自动化测试的全方位的测试管理能力

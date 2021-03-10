@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getCookies } from 'common/utils';
 
 export const login = ():Promise<{url:string}> => {
   return axios({
@@ -18,8 +19,12 @@ export const getCurrentUser = ():Promise<IResponse<USER.IUser>> =>{
 }
 
 export const logout = ()=>{
+  const OPENAPICSRFTOKEN = getCookies('OPENAPI-CSRF-TOKEN');
   return axios({
     url: '/api/openapi/logout',
-    method: 'post'
+    method: 'post',
+    headers: {
+      'OPENAPI-CSRF-TOKEN': OPENAPICSRFTOKEN
+    }
   }).then(res => res.data)
 }

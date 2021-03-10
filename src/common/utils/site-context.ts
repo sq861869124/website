@@ -1,4 +1,7 @@
 import React from 'react';
-export const SiteContext = React.createContext({
+export interface IContent{
+  headShow: boolean
+}
+export const SiteContext = React.createContext<IContent>({
   headShow: true,
 });
