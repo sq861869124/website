@@ -15,7 +15,9 @@ const ServiceDetail = React.lazy(() => import('pages/market/service-detail'));
 const DownloadPage = React.lazy(() => import('pages/market/download'));
 const LibraryDetail = React.lazy(() => import('pages/market/library-detail'));
 
-
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 const history = createBrowserHistory();
 setGlobal('history', history);
 const onlyMain = [ '/login', '/regist', '/download' ]
