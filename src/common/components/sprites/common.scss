@@ -1,0 +1,70 @@
+@import "~/src/images/sprites/sprite-common.scss";
+
+.sprite-common {
+  display: inline-block;
+
+  // common
+  &.bty {
+    @include sprite($bty-2x);
+  }
+
+  &.bty2 {
+    @include sprite($bty2-2x);
+  }
+
+  &.btz {
+    @include sprite($btz-2x);
+  }
+
+  &.btz2 {
+    @include sprite($btz2-2x);
+  }
+
+  &.xbt {
+    @include sprite($xbt-2x);
+  }
+
+  &.alkfnl {
+    @include sprite($alkfnl-2x);
+  }
+
+  &.dsjs {
+    @include sprite($dsjs-2x);
+  }
+
+  &.hhy {
+    @include sprite($hhy-2x);
+  }
+
+  &.ksj {
+    @include sprite($ksj-2x);
+  }
+
+  &.lsxs {
+    @include sprite($lsxs-2x);
+  }
+
+  &.wfw {
+    @include sprite($wfw-2x);
+  }
+
+  &.ywnls {
+    @include sprite($ywnls-2x);
+  }
+
+  &.zjjs {
+    @include sprite($zjjs-2x);
+  }
+
+  &.k {
+    @include sprite($k-2x);
+  }
+
+  &.ydyy {
+    @include sprite($ydyy-2x);
+  }
+
+  &.api {
+    @include sprite($api-2x);
+  }
+}

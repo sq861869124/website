@@ -1,0 +1,17 @@
+{
+  "short_name": "Dice",
+  "name": "Dice Site",
+  "description": "Dice official site powered by terminus",
+  "icons": [
+    {
+      "src": "/static/favicon.ico",
+      "type": "image/png",
+      "sizes": "200x200"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#5d48df",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#5d48df"
+}

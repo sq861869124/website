@@ -1,0 +1,271 @@
+.title-container {
+  padding-top: 100px;
+  width: 100%;
+  min-height: 200px;
+
+  .title-section {
+    position: absolute;
+  }
+}
+
+.library-detail {
+  padding-top: 0 !important;
+  .full-width-header{
+    height: 330px;
+    background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
+  }
+
+  .title-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 12px;
+    padding-top: 75px;
+
+    .library-logo {
+      width: 60px;
+      height: 60px;
+      margin-top: 12px;
+      font-size: 60px;
+      color: $white;
+    }
+
+    .library-name {
+      color: $text-normal;
+      font-weight: bold;
+      font-size: 20px;
+      color: $white;
+    }
+
+    .library-desc {
+      margin-bottom: 32px;
+      color: $text-sub;
+      font-size: 14px;
+      line-height: 24px;
+      color: $white;
+    }
+
+    .library-img-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+
+      .img-list {
+        width: 100%;
+        height: 322px;
+        padding: 16px;
+        overflow: auto;
+        white-space: nowrap;
+        background-color: $bg-gray;
+        border: 1px solid $border-gray;
+        border-radius: $radius;
+
+        .img-ct {
+          width: 440px;
+          height: 288px;
+          margin-right: 12px;
+          cursor: zoom-in;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .library-info-wrap{
+    min-height: calc(100vh - 555px);
+  }
+
+  .library-info {
+    min-height: 100px;
+  }
+  .section-content{
+    min-height: 600px;
+  }
+
+  .library-versions {
+    .title-text {
+      height: 38px;
+      color: $text-normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 38px;
+    }
+
+    .sub-text {
+      margin-top: 4px;
+      padding-left: 12px;
+      color: $text-desc;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .version-button {
+      width: 70px;
+      color: $text-sub;
+      background: $white;
+      border: 0;
+
+      &:hover,
+      &.active {
+        color: $white;
+        background: $primary;
+      }
+    }
+
+    .version-info {
+      display: flex;
+      margin: 0 auto;
+      padding: 0 0 40px 0;
+
+      &-left {
+        flex: 1;
+        width: calc(100% - 240px);
+      }
+
+      &-right {
+        width: 240px;
+      }
+
+      .version-plans {
+        .detail-plan-tabs {
+          display: block;
+          width: 100%;
+        }
+
+        .ant-list {
+          background-color: $white;
+          border-radius: $radius;
+        }
+
+        .ant-list-item {
+          display: flex;
+          justify-content: space-between;
+          padding: 8px 12px;
+          color: $text-normal;
+
+          i {
+            color: $color-dark-3;
+          }
+        }
+      }
+    }
+
+    .version-shares {
+      margin-top: 32px;
+
+      .shares-item {
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        line-height: 40px;
+
+        i {
+          margin-top: 6px;
+          margin-right: 4px;
+          color: $color-dark-3;
+        }
+
+        .sub-text {
+          padding-left: 4px;
+        }
+      }
+    }
+
+    .version-configvars {
+      margin-top: 32px;
+
+      .version-config-container {
+        background: $white;
+        border-radius: $radius;
+
+        div {
+          padding: 12px;
+          border-bottom: 1px solid $color-dark-06;
+        }
+
+        &:last-child {
+          border: 0;
+        }
+      }
+    }
+  }
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-content {
+  height: 120px;
+  margin-top: -16px;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+  padding: 16px;
+  background: $white;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-bar {
+  border-color: $white;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  background: transparent;
+  border-color: transparent;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+  background: $white;
+  border-color: $white;
+}
+
+.loading-holder {
+  height: 50vh;
+}
+
+@include sm-width() {
+  .library-detail {
+    .library-detail-title-bg {
+      background-size: 375px 245px;
+    }
+
+    .title-content {
+      .library-logo {
+        margin-top: 36px;
+      }
+
+      .library-name {
+        font-size: 14px;
+      }
+
+      .library-desc {
+        margin-bottom: 16px;
+      }
+    }
+
+    .library-versions {
+      .version-info {
+        flex-direction: column;
+
+        &-left {
+          width: 100%;
+          margin-right: 0;
+          overflow: auto;
+        }
+
+        &-right {
+          width: 100%;
+
+          .version-shares,
+          .version-category,
+          .version-configvars {
+            margin-top: 24px;
+          }
+        }
+      }
+    }
+  }
+}

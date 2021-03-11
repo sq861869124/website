@@ -1,0 +1,23 @@
+.regist-container {
+  height: 100vh;
+  .form-wrap{
+    margin: 0 auto;
+    width: 380px;
+    box-shadow: 0 2px 10px 0 rgb(9 71 166 / 20%);
+    background: #fff;
+    margin-top: calc((100vh - 581px) / 2);
+    .login-button{
+      width: 100%;
+      border-radius: 2px;
+    }
+    .sign-in-column{
+      font-size: 12px;
+    }
+  }
+  @include sm-width() {
+    .form-wrap {
+      min-width: 380px;
+    }
+  }
+
+}

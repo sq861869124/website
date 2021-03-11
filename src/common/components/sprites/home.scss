@@ -1,0 +1,22 @@
+@import "~/src/images/sprites/sprite-home.scss";
+
+.sprite-home {
+  display: inline-block;
+
+  // about
+  &.auto-test {
+    @include sprite($auto-test);
+  }
+
+  &.bug-manage {
+    @include sprite($bug-manage);
+  }
+
+  &.data-bank {
+    @include sprite($data-bank);
+  }
+
+  &.full-link {
+    @include sprite($full-link);
+  }
+}

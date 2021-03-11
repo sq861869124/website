@@ -1,0 +1,18 @@
+@import "~/src/images/sprites/sprite-about.scss";
+
+.sprite-about {
+  display: inline-block;
+
+  // about
+  &.albb {
+    @include sprite($albb-2x);
+  }
+
+  &.jbzx {
+    @include sprite($jbzx-2x);
+  }
+
+  &.kskz {
+    @include sprite($kskz-2x);
+  }
+}

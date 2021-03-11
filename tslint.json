@@ -1,0 +1,24 @@
+{
+  "extends": ["@terminus/lint-config/typescript", "tslint-react-hooks"],
+  "linterOptions": {
+    "include": [
+      "src/"
+    ],
+    "exclude": [ // not work
+      "__mocks__"
+    ]
+  },
+  // 规则自定义
+  "rules": {
+    "no-unused-expression": [
+      true, "allow-fast-null-checks"
+    ],
+    "jsx-self-close": true,
+    "react-hooks-nesting": "error"
+  },
+  // 其他规则所在目录
+  "rulesDirectory": [
+    // 务必搭配tslint-eslint-rules使用
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
+}

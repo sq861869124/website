@@ -1,0 +1,67 @@
+extends: eslint-config-ali/react
+parserOptions:
+  typescript: true
+parser: babel-eslint
+plugins:
+  - react
+  - compat
+  - import
+  - jsx-a11y
+  - typescript
+  - react-hooks
+env:
+  es6: true
+  browser: true
+  node: true
+  jest: true
+settings:
+  import/resolver:
+    node:
+      moduleDirectory:
+        - node_modules
+        - app
+        - router
+        - router/modules
+rules:
+  arrow-body-style: 0
+  max-len: 0
+  no-unused-vars: 1
+  no-nested-ternary: 0
+  react/prop-types: 0
+  react/jsx-first-prop-new-line: 0
+  react/no-multi-comp: 0
+  react/jsx-filename-extension:
+    - 1
+    - extensions:
+      - '.js'
+      - '.jsx'
+      - '.tsx'
+  import/prefer-default-export: 0
+  import/no-named-as-default: 0
+  import/no-named-as-default-member: 0
+  react-hooks/rules-of-hooks: "error"
+  # react-hooks/exhaustive-deps: "warn"
+  # sort-imports:
+  #   - 1
+  #   - ignoreCase: false
+  #     ignoreDeclarationSort: false
+  #     ignoreMemberSort: false
+  #     memberSyntaxSortOrder:
+  #       - all
+  #       - multiple
+  #       - single
+  #       - none
+overrides:
+  files: ["*.tsx","*.ts"]
+  parser: typescript-eslint-parser
+  rules:
+    no-undef: 0
+    no-restricted-globals: 0
+    no-unused-vars: 0
+# globals:
+#   page: true,
+#   browser: true,
+#   context: true,
+#   jestPuppeteer: true,
+#   defaultTheme: true,
+#   baseUrl: true

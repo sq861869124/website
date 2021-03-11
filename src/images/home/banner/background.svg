@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2744px" height="2000px" viewBox="0 0 2744 2000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 11</title>
+    <defs>
+        <radialGradient cx="50%" cy="68.5575483%" fx="50%" fy="68.5575483%" r="136.06282%" gradientTransform="translate(0.500000,0.685575),scale(0.508621,1.000000),rotate(-58.425978),translate(-0.500000,-0.685575)" id="radialGradient-1">
+            <stop stop-color="#56A5F3" offset="0%"></stop>
+            <stop stop-color="#5656F3" offset="0%"></stop>
+            <stop stop-color="#3F41E8" offset="100%"></stop>
+        </radialGradient>
+        <filter x="-36.2%" y="-71.2%" width="172.4%" height="242.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="14" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <radialGradient cx="50%" cy="68.5575483%" fx="50%" fy="68.5575483%" r="142.255911%" gradientTransform="translate(0.500000,0.685575),scale(0.439446,1.000000),rotate(-54.574932),translate(-0.500000,-0.685575)" id="radialGradient-3">
+            <stop stop-color="#56A5F3" offset="0%"></stop>
+            <stop stop-color="#5656F3" offset="0%"></stop>
+            <stop stop-color="#3F41E8" offset="100%"></stop>
+        </radialGradient>
+        <filter x="-47.8%" y="-108.7%" width="195.5%" height="317.3%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="46" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="57.2315687%" y1="46.8917616%" x2="76.4432474%" y2="87.7392616%" id="linearGradient-5">
+            <stop stop-color="#2E2AE9" offset="0%"></stop>
+            <stop stop-color="#5452DC" stop-opacity="0.591031161" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-17.6%" y="-15.6%" width="135.3%" height="131.3%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="41.645459%" y1="28.5684976%" x2="11.8509571%" y2="14.1353889%" id="linearGradient-7">
+            <stop stop-color="#8400F6" offset="0%"></stop>
+            <stop stop-color="#8452DC" stop-opacity="0.11096106" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-17.6%" y="-15.2%" width="135.3%" height="130.3%" filterUnits="objectBoundingBox" id="filter-8">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="33.9413075%" y1="57.2624138%" x2="-1.13576363%" y2="86.540525%" id="linearGradient-9">
+            <stop stop-color="#3925F1" offset="0%"></stop>
+            <stop stop-color="#4441E5" stop-opacity="0.11096106" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-17.6%" y="-15.2%" width="135.3%" height="130.3%" filterUnits="objectBoundingBox" id="filter-10">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-4">
+            <path d="M1520.11028,659.674843 C1509.04031,630.900959 1433.13637,626.749012 1407.95413,656.13552 C1391.14461,675.751446 1487.79622,700.812297 1506.12097,693.79379 C1520.43905,688.309862 1524.99427,672.369676 1520.11028,659.674843 Z" id="Stroke-43备份-3" fill="url(#radialGradient-1)" opacity="0.402231852" filter="url(#filter-2)" transform="translate(1464.000000, 665.500000) scale(-1, 1) rotate(18.000000) translate(-1464.000000, -665.500000) "></path>
+            <path d="M767.502671,1176.37056 C759.367609,1181.63587 740.227789,1197.53315 749.674274,1216.02604 C756.909075,1230.18877 775.12359,1227.83536 792.657351,1217.12545 C810.190857,1206.41555 835.731655,1186.13615 849.599975,1206.86835 C866.56823,1232.23377 880.668067,1264.24787 905.777262,1238.54526 C933.130849,1210.54528 952.982854,1197.68264 984.587832,1194.18296 C1021.58825,1190.08557 1050.36467,1141.74838 1028.58182,1127.57521 C1005.84376,1112.7809 964.845709,1123.91891 950.162988,1152.01389 C945.089786,1161.7209 920.772505,1200.78147 869.114158,1178.35317 C811.988569,1153.55108 788.075805,1163.05461 767.502671,1176.37056 Z" id="Stroke-43" fill="url(#radialGradient-3)" opacity="0.699999988" filter="url(#filter-4)" transform="translate(891.614113, 1184.519665) scale(-1, -1) rotate(-16.000000) translate(-891.614113, -1184.519665) "></path>
+            <path d="M436.525653,968.369009 C826.554695,882.673052 857,623.289662 857,361.12865 C857,98.9676367 581.039272,19 436.525653,19 C292.012035,19 7,77.0476484 7,339.208661 C7,601.369674 46.4966118,1054.06497 436.525653,968.369009 Z" id="椭圆形" fill="url(#linearGradient-5)" opacity="0.3" filter="url(#filter-6)"></path>
+            <path d="M2271.52565,1948.03679 C2661.5547,1859.66283 2692,1592.17371 2692,1321.82017 C2692,1051.46663 2416.03927,969 2271.52565,969 C2127.01203,969 1842,1028.86164 1842,1299.21518 C1842,1569.56873 1881.49661,2036.41075 2271.52565,1948.03679 Z" id="椭圆形备份-2" fill="url(#linearGradient-7)" opacity="0.3" filter="url(#filter-8)"></path>
+            <path d="M2330.52565,1048.03679 C2720.5547,959.662835 2751,692.173714 2751,421.82017 C2751,151.466625 2475.03927,69 2330.52565,69 C2186.01203,69 1901,128.861637 1901,399.215182 C1901,669.568726 1940.49661,1136.41075 2330.52565,1048.03679 Z" id="椭圆形备份-3" fill="url(#linearGradient-9)" opacity="0.3" filter="url(#filter-10)"></path>
+        </g>
+    </g>
+</svg>

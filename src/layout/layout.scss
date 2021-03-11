@@ -1,0 +1,35 @@
+.dice-default-layout {
+  display: flex;
+  flex-direction: column;
+  background: $color-white-7;
+
+  .dice-site-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+
+    > section:first-child,
+    > div:first-child {
+      padding-top: $header-height;
+    }
+  }
+
+  &.only-main {
+    .dice-site-content {
+      > section:first-child,
+      > div:first-child {
+        padding-top: 0;
+      }
+    }
+  }
+
+  @include sm-width() {
+    .dice-site-content {
+      > section:first-child,
+      > div:first-child {
+        padding-top: $mobile-header-height;
+      }
+    }
+  }
+}

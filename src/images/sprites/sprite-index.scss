@@ -1,0 +1,328 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$alkf-2x-name: "alkf@2x";
+$alkf-2x-x: 136px;
+$alkf-2x-y: 310px;
+$alkf-2x-offset-x: -136px;
+$alkf-2x-offset-y: -310px;
+$alkf-2x-width: 64px;
+$alkf-2x-height: 64px;
+$alkf-2x-total-width: 492px;
+$alkf-2x-total-height: 378px;
+$alkf-2x-image: "images/sprites/sprite-index.png";
+$alkf-2x: (136px, 310px, -136px, -310px, 64px, 64px, 492px, 378px, "images/sprites/sprite-index.png", "alkf@2x", );
+$cicd-2x-name: "cicd@2x";
+$cicd-2x-x: 100px;
+$cicd-2x-y: 240px;
+$cicd-2x-offset-x: -100px;
+$cicd-2x-offset-y: -240px;
+$cicd-2x-width: 68px;
+$cicd-2x-height: 68px;
+$cicd-2x-total-width: 492px;
+$cicd-2x-total-height: 378px;
+$cicd-2x-image: "images/sprites/sprite-index.png";
+$cicd-2x: (100px, 240px, -100px, -240px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "cicd@2x", );
+$dmtg-2x-name: "dmtg@2x";
+$dmtg-2x-x: 168px;
+$dmtg-2x-y: 240px;
+$dmtg-2x-offset-x: -168px;
+$dmtg-2x-offset-y: -240px;
+$dmtg-2x-width: 68px;
+$dmtg-2x-height: 68px;
+$dmtg-2x-total-width: 492px;
+$dmtg-2x-total-height: 378px;
+$dmtg-2x-image: "images/sprites/sprite-index.png";
+$dmtg-2x: (168px, 240px, -168px, -240px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "dmtg@2x", );
+$dsj-2x-name: "dsj@2x";
+$dsj-2x-x: 200px;
+$dsj-2x-y: 310px;
+$dsj-2x-offset-x: -200px;
+$dsj-2x-offset-y: -310px;
+$dsj-2x-width: 64px;
+$dsj-2x-height: 64px;
+$dsj-2x-total-width: 492px;
+$dsj-2x-total-height: 378px;
+$dsj-2x-image: "images/sprites/sprite-index.png";
+$dsj-2x: (200px, 310px, -200px, -310px, 64px, 64px, 492px, 378px, "images/sprites/sprite-index.png", "dsj@2x", );
+$fwzl-2x-name: "fwzl@2x";
+$fwzl-2x-x: 236px;
+$fwzl-2x-y: 240px;
+$fwzl-2x-offset-x: -236px;
+$fwzl-2x-offset-y: -240px;
+$fwzl-2x-width: 68px;
+$fwzl-2x-height: 68px;
+$fwzl-2x-total-width: 492px;
+$fwzl-2x-total-height: 378px;
+$fwzl-2x-image: "images/sprites/sprite-index.png";
+$fwzl-2x: (236px, 240px, -236px, -240px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "fwzl@2x", );
+$gkzx-2x-name: "gkzx@2x";
+$gkzx-2x-x: 360px;
+$gkzx-2x-y: 0px;
+$gkzx-2x-offset-x: -360px;
+$gkzx-2x-offset-y: 0px;
+$gkzx-2x-width: 68px;
+$gkzx-2x-height: 68px;
+$gkzx-2x-total-width: 492px;
+$gkzx-2x-total-height: 378px;
+$gkzx-2x-image: "images/sprites/sprite-index.png";
+$gkzx-2x: (360px, 0px, -360px, 0px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "gkzx@2x", );
+$hhy-f-2x-name: "hhy-f@2x";
+$hhy-f-2x-x: 0px;
+$hhy-f-2x-y: 0px;
+$hhy-f-2x-offset-x: 0px;
+$hhy-f-2x-offset-y: 0px;
+$hhy-f-2x-width: 120px;
+$hhy-f-2x-height: 120px;
+$hhy-f-2x-total-width: 492px;
+$hhy-f-2x-total-height: 378px;
+$hhy-f-2x-image: "images/sprites/sprite-index.png";
+$hhy-f-2x: (0px, 0px, 0px, 0px, 120px, 120px, 492px, 378px, "images/sprites/sprite-index.png", "hhy-f@2x", );
+$hhy-2x-name: "hhy@2x";
+$hhy-2x-x: 120px;
+$hhy-2x-y: 0px;
+$hhy-2x-offset-x: -120px;
+$hhy-2x-offset-y: 0px;
+$hhy-2x-width: 120px;
+$hhy-2x-height: 120px;
+$hhy-2x-total-width: 492px;
+$hhy-2x-total-height: 378px;
+$hhy-2x-image: "images/sprites/sprite-index.png";
+$hhy-2x: (120px, 0px, -120px, 0px, 120px, 120px, 492px, 378px, "images/sprites/sprite-index.png", "hhy@2x", );
+$jqgl-2x-name: "jqgl@2x";
+$jqgl-2x-x: 360px;
+$jqgl-2x-y: 68px;
+$jqgl-2x-offset-x: -360px;
+$jqgl-2x-offset-y: -68px;
+$jqgl-2x-width: 68px;
+$jqgl-2x-height: 68px;
+$jqgl-2x-total-width: 492px;
+$jqgl-2x-total-height: 378px;
+$jqgl-2x-image: "images/sprites/sprite-index.png";
+$jqgl-2x: (360px, 68px, -360px, -68px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "jqgl@2x", );
+$ksj-f-2x-name: "ksj-f@2x";
+$ksj-f-2x-x: 0px;
+$ksj-f-2x-y: 120px;
+$ksj-f-2x-offset-x: 0px;
+$ksj-f-2x-offset-y: -120px;
+$ksj-f-2x-width: 120px;
+$ksj-f-2x-height: 120px;
+$ksj-f-2x-total-width: 492px;
+$ksj-f-2x-total-height: 378px;
+$ksj-f-2x-image: "images/sprites/sprite-index.png";
+$ksj-f-2x: (0px, 120px, 0px, -120px, 120px, 120px, 492px, 378px, "images/sprites/sprite-index.png", "ksj-f@2x", );
+$ksj-2x-name: "ksj@2x";
+$ksj-2x-x: 120px;
+$ksj-2x-y: 120px;
+$ksj-2x-offset-x: -120px;
+$ksj-2x-offset-y: -120px;
+$ksj-2x-width: 120px;
+$ksj-2x-height: 120px;
+$ksj-2x-total-width: 492px;
+$ksj-2x-total-height: 378px;
+$ksj-2x-image: "images/sprites/sprite-index.png";
+$ksj-2x: (120px, 120px, -120px, -120px, 120px, 120px, 492px, 378px, "images/sprites/sprite-index.png", "ksj@2x", );
+$kzsc-2x-name: "kzsc@2x";
+$kzsc-2x-x: 360px;
+$kzsc-2x-y: 136px;
+$kzsc-2x-offset-x: -360px;
+$kzsc-2x-offset-y: -136px;
+$kzsc-2x-width: 68px;
+$kzsc-2x-height: 68px;
+$kzsc-2x-total-width: 492px;
+$kzsc-2x-total-height: 378px;
+$kzsc-2x-image: "images/sprites/sprite-index.png";
+$kzsc-2x: (360px, 136px, -360px, -136px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "kzsc@2x", );
+$lsx-2x-name: "lsx@2x";
+$lsx-2x-x: 264px;
+$lsx-2x-y: 310px;
+$lsx-2x-offset-x: -264px;
+$lsx-2x-offset-y: -310px;
+$lsx-2x-width: 64px;
+$lsx-2x-height: 64px;
+$lsx-2x-total-width: 492px;
+$lsx-2x-total-height: 378px;
+$lsx-2x-image: "images/sprites/sprite-index.png";
+$lsx-2x: (264px, 310px, -264px, -310px, 64px, 64px, 492px, 378px, "images/sprites/sprite-index.png", "lsx@2x", );
+$sjrw-2x-name: "sjrw@2x";
+$sjrw-2x-x: 360px;
+$sjrw-2x-y: 204px;
+$sjrw-2x-offset-x: -360px;
+$sjrw-2x-offset-y: -204px;
+$sjrw-2x-width: 68px;
+$sjrw-2x-height: 68px;
+$sjrw-2x-total-width: 492px;
+$sjrw-2x-total-height: 378px;
+$sjrw-2x-image: "images/sprites/sprite-index.png";
+$sjrw-2x: (360px, 204px, -360px, -204px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "sjrw@2x", );
+$stjr-2x-name: "stjr@2x";
+$stjr-2x-x: 0px;
+$stjr-2x-y: 310px;
+$stjr-2x-offset-x: 0px;
+$stjr-2x-offset-y: -310px;
+$stjr-2x-width: 68px;
+$stjr-2x-height: 68px;
+$stjr-2x-total-width: 492px;
+$stjr-2x-total-height: 378px;
+$stjr-2x-image: "images/sprites/sprite-index.png";
+$stjr-2x: (0px, 310px, 0px, -310px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "stjr@2x", );
+$wfw-f-2x-name: "wfw-f@2x";
+$wfw-f-2x-x: 240px;
+$wfw-f-2x-y: 0px;
+$wfw-f-2x-offset-x: -240px;
+$wfw-f-2x-offset-y: 0px;
+$wfw-f-2x-width: 120px;
+$wfw-f-2x-height: 120px;
+$wfw-f-2x-total-width: 492px;
+$wfw-f-2x-total-height: 378px;
+$wfw-f-2x-image: "images/sprites/sprite-index.png";
+$wfw-f-2x: (240px, 0px, -240px, 0px, 120px, 120px, 492px, 378px, "images/sprites/sprite-index.png", "wfw-f@2x", );
+$wfw-2x-name: "wfw@2x";
+$wfw-2x-x: 240px;
+$wfw-2x-y: 120px;
+$wfw-2x-offset-x: -240px;
+$wfw-2x-offset-y: -120px;
+$wfw-2x-width: 120px;
+$wfw-2x-height: 120px;
+$wfw-2x-total-width: 492px;
+$wfw-2x-total-height: 378px;
+$wfw-2x-image: "images/sprites/sprite-index.png";
+$wfw-2x: (240px, 120px, -240px, -120px, 120px, 120px, 492px, 378px, "images/sprites/sprite-index.png", "wfw@2x", );
+$wfwyf-2x-name: "wfwyf@2x";
+$wfwyf-2x-x: 328px;
+$wfwyf-2x-y: 310px;
+$wfwyf-2x-offset-x: -328px;
+$wfwyf-2x-offset-y: -310px;
+$wfwyf-2x-width: 64px;
+$wfwyf-2x-height: 64px;
+$wfwyf-2x-total-width: 492px;
+$wfwyf-2x-total-height: 378px;
+$wfwyf-2x-image: "images/sprites/sprite-index.png";
+$wfwyf-2x: (328px, 310px, -328px, -310px, 64px, 64px, 492px, 378px, "images/sprites/sprite-index.png", "wfwyf@2x", );
+$xzxg-2x-name: "xzxg@2x";
+$xzxg-2x-x: 0px;
+$xzxg-2x-y: 240px;
+$xzxg-2x-offset-x: 0px;
+$xzxg-2x-offset-y: -240px;
+$xzxg-2x-width: 100px;
+$xzxg-2x-height: 70px;
+$xzxg-2x-total-width: 492px;
+$xzxg-2x-total-height: 378px;
+$xzxg-2x-image: "images/sprites/sprite-index.png";
+$xzxg-2x: (0px, 240px, 0px, -240px, 100px, 70px, 492px, 378px, "images/sprites/sprite-index.png", "xzxg@2x", );
+$ywnl-2x-name: "ywnl@2x";
+$ywnl-2x-x: 428px;
+$ywnl-2x-y: 0px;
+$ywnl-2x-offset-x: -428px;
+$ywnl-2x-offset-y: 0px;
+$ywnl-2x-width: 64px;
+$ywnl-2x-height: 64px;
+$ywnl-2x-total-width: 492px;
+$ywnl-2x-total-height: 378px;
+$ywnl-2x-image: "images/sprites/sprite-index.png";
+$ywnl-2x: (428px, 0px, -428px, 0px, 64px, 64px, 492px, 378px, "images/sprites/sprite-index.png", "ywnl@2x", );
+$zjj-2x-name: "zjj@2x";
+$zjj-2x-x: 428px;
+$zjj-2x-y: 64px;
+$zjj-2x-offset-x: -428px;
+$zjj-2x-offset-y: -64px;
+$zjj-2x-width: 64px;
+$zjj-2x-height: 64px;
+$zjj-2x-total-width: 492px;
+$zjj-2x-total-height: 378px;
+$zjj-2x-image: "images/sprites/sprite-index.png";
+$zjj-2x: (428px, 64px, -428px, -64px, 64px, 64px, 492px, 378px, "images/sprites/sprite-index.png", "zjj@2x", );
+$znyw-2x-name: "znyw@2x";
+$znyw-2x-x: 68px;
+$znyw-2x-y: 310px;
+$znyw-2x-offset-x: -68px;
+$znyw-2x-offset-y: -310px;
+$znyw-2x-width: 68px;
+$znyw-2x-height: 68px;
+$znyw-2x-total-width: 492px;
+$znyw-2x-total-height: 378px;
+$znyw-2x-image: "images/sprites/sprite-index.png";
+$znyw-2x: (68px, 310px, -68px, -310px, 68px, 68px, 492px, 378px, "images/sprites/sprite-index.png", "znyw@2x", );
+$spritesheet-width: 492px;
+$spritesheet-height: 378px;
+$spritesheet-image: "images/sprites/sprite-index.png";
+$spritesheet-sprites: ($alkf-2x, $cicd-2x, $dmtg-2x, $dsj-2x, $fwzl-2x, $gkzx-2x, $hhy-f-2x, $hhy-2x, $jqgl-2x, $ksj-f-2x, $ksj-2x, $kzsc-2x, $lsx-2x, $sjrw-2x, $stjr-2x, $wfw-f-2x, $wfw-2x, $wfwyf-2x, $xzxg-2x, $ywnl-2x, $zjj-2x, $znyw-2x, );
+$spritesheet: (492px, 378px, "images/sprites/sprite-index.png", $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  @include sprite-background-size($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

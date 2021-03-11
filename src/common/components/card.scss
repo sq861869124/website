@@ -1,0 +1,25 @@
+.card-item {
+  display: inline-flex;
+  height: 100%;
+  padding: 20px;
+  background-color: $color-white-9;
+  border-radius: 4px;
+
+  .img {
+    margin-right: 12px;
+  }
+
+  .name {
+    margin-bottom: 8px;
+    color: $text-normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 26px;
+  }
+
+  .desc {
+    color: $color-dark-5;
+    font-size: 0.875rem;
+    line-height: 22px;
+  }
+}

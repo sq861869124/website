@@ -1,0 +1,17 @@
+@mixin sm-width() {
+  @media screen and (max-width: 48rem) {
+    @content;
+  }
+}
+
+@mixin bgImage($path, $name, $isMobile: false) {
+  background-image: url("/images/#{$path}/#{$name}@2x.png");
+  @if $isMobile {
+    @include sm-width() {
+      background-image: url("/images/#{$path}/#{$name}-m@2x.png");
+    }
+  }
+}
+
+@mixin bgImagePosition() {
+}
