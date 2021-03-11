@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar, Popover } from 'antd';
-import {Link} from 'react-router-dom'
 import userStore from '~/models/user';
 import './user-info.scss'
 
@@ -8,9 +7,12 @@ const UserInfo = ({ data }: { data: USER.IUser }) => {
   const logout = () => {
     userStore.effects.logout()
   }
+  const goToDice = () =>{
+    window.open('/login-dice')
+  }
   const content = (
     <div>
-      <Link className="erda-user-info-menu-item" to="/login-dice">进入平台</Link>
+      <div className="erda-user-info-menu-item" onClick={goToDice}>进入平台</div>
       <div className="erda-user-info-menu-item mt8" onClick={logout}>退出登录</div>
     </div>
   )

@@ -1,24 +1,27 @@
 import axios from 'axios';
 import { getCookies } from 'common/utils';
 
-export const login = ():Promise<{url:string}> => {
+export const login = (): Promise<{ url: string }> => {
   return axios({
     url: '/api/openapi/login',
     method: 'get'
-  }).then(res => res.data)
+  }).then(res => {
+    console.log(res)
+    return res.data
+  })
 }
 
-export const getCurrentUser = ():Promise<IResponse<USER.IUser>> =>{
+export const getCurrentUser = (): Promise<IResponse<USER.IUser>> => {
   return axios({
     url: '/api/users/me',
     params: {
       HIDDEN_MESSAGE_REQUEST: true
     },
     method: 'get'
-  }).then(res => res.data).catch(e=>e)
+  }).then(res => res.data).catch(e => e)
 }
 
-export const logout = ()=>{
+export const logout = (): Promise<{ url: string }> => {
   const OPENAPICSRFTOKEN = getCookies('OPENAPI-CSRF-TOKEN');
   return axios({
     url: '/api/openapi/logout',
