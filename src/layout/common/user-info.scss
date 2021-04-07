@@ -1,0 +1,15 @@
+.erda-header-user-wrap {
+  .ant-popover-inner-content {
+    padding: 0;
+
+    .erda-user-info-menu-item {
+      color: $color-dark-8;
+      cursor: pointer;
+
+      &:hover {
+        color: $white;
+        background-color: $primary;
+      }
+    }
+  }
+}

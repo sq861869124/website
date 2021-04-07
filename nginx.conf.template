@@ -45,12 +45,18 @@ server {
         return 302 ${LOGIN_URL};
     }
 
-    location /env {
-        default_type application/json;
-        return 200 '{"fullSite":${FULL_SITE}}';
+    set $OPENAPI_ADDR ${API_ADDR};
+    location /api/user/web/login/logout {
+      proxy_pass              ${UC_LOGIN_URL};
+      proxy_set_header        X-Real-IP $remote_addr;
+      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+    location /api/example {
+      proxy_pass              ${OFFICIAL_ADDR};
+      proxy_set_header        X-Real-IP $remote_addr;
+      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 
-    set $OPENAPI_ADDR ${API_ADDR};
     location /api {
         proxy_pass              $OPENAPI_ADDR;
         proxy_set_header        X-Real-IP $remote_addr;

@@ -1,5 +1,5 @@
 .title-container {
-  padding-top: 100px;
+  //padding-top: 100px;
   width: 100%;
   min-height: 200px;
 
@@ -10,9 +10,10 @@
 
 .library-detail {
   padding-top: 0 !important;
-  .full-width-header{
+
+  .full-width-header {
     height: 330px;
-    background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
+    @include pageHeaderBg();
   }
 
   .title-content {
@@ -30,23 +31,22 @@
       width: 60px;
       height: 60px;
       margin-top: 12px;
-      font-size: 60px;
       color: $white;
+      font-size: 60px;
     }
 
     .library-name {
-      color: $text-normal;
+      color: $white;
       font-weight: bold;
       font-size: 20px;
-      color: $white;
     }
 
     .library-desc {
+      min-height: 24px;
       margin-bottom: 32px;
-      color: $text-sub;
+      color: $white;
       font-size: 14px;
       line-height: 24px;
-      color: $white;
     }
 
     .library-img-container {
@@ -78,15 +78,16 @@
     }
   }
 
-  .library-info-wrap{
-    min-height: calc(100vh - 555px);
+  .library-info-wrap {
+    min-height: calc(100vh - (235px + #{$footer-height}));
   }
 
   .library-info {
     min-height: 100px;
   }
-  .section-content{
-    min-height: 600px;
+
+  .section-content {
+    min-height: 200px;
   }
 
   .library-versions {
@@ -112,8 +113,7 @@
       background: $white;
       border: 0;
 
-      &:hover,
-      &.active {
+      &:hover, &.active {
         color: $white;
         background: $primary;
       }
@@ -242,6 +242,7 @@
       }
 
       .library-desc {
+        min-height: 24px;
         margin-bottom: 16px;
       }
     }
@@ -259,9 +260,7 @@
         &-right {
           width: 100%;
 
-          .version-shares,
-          .version-category,
-          .version-configvars {
+          .version-shares, .version-category, .version-configvars {
             margin-top: 24px;
           }
         }

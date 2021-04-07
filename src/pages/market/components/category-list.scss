@@ -1,5 +1,4 @@
-.fixed-with-head,
-.fixed-with-window {
+.fixed-with-head, .fixed-with-window {
   .service-category-list {
     position: fixed;
     bottom: 10px;
@@ -53,8 +52,7 @@
 }
 
 @include sm-width() {
-  .fixed-with-head,
-  .fixed-with-window {
+  .fixed-with-head, .fixed-with-window {
     .service-category-list {
       position: unset;
       top: unset;

@@ -1,0 +1,223 @@
+.erda-customer-case {
+  background: #f5f7ff;
+
+  .full-width-header {
+    height: 330px;
+    @include pageHeaderBg();
+  }
+
+  .case-body {
+    min-height: calc(100vh - (330px + #{$footer-height}));
+    padding: 0 100px;
+  }
+
+  .nav-wrapper {
+    height: 64px;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    background: $white;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+
+    .nav-items {
+      justify-content: space-around;
+      width: 100%;
+
+      .item {
+        padding: .625rem 1rem;
+        color: rgba(47, 60, 95, 1);
+        font-size: 1rem;
+        line-height: 1rem;
+        cursor: pointer;
+
+        &.active {
+          color: $primary;
+          background: rgba(92, 77, 237, .08);
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+  .article-wrap {
+    .article-item {
+      height: 18.5rem;
+      margin-bottom: 1.25rem;
+      background: $white;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+      cursor: pointer;
+
+      &-left {
+        width: 30%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+        border-radius: 6px 0 0 6px;
+      }
+
+      &-right {
+        .name {
+          padding: 1.625rem 0;
+          color: $primary;
+          font-weight: 700;
+          font-size: 1.25rem;
+          border-bottom: 2px solid #ececec;
+        }
+
+        .title {
+          margin-bottom: .8rem;
+          color: #0d0c22;
+          font-weight: 500;
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+
+        .desc {
+          color: rgba(47, 60, 95, .7);
+          font-size: .875rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .load-more {
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    margin-bottom: 1.25rem;
+    color: $primary;
+    text-align: center;
+    border: 1px solid $primary;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &-detail {
+    background: #f5f7ff;
+
+    .full-width-header {
+      height: 72px;
+      background-image: radial-gradient(28% 104%, #3d33a7 1%, #2a0c5a 100%);
+    }
+
+    .detail-body {
+      min-height: calc(100vh - (72px + #{$footer-height}));
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0 100px;
+
+      .detail-content {
+        padding: 3rem 9rem;
+        background: $white;
+        box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+
+        img {
+          width: 100% !important;
+        }
+
+        h3 {
+          margin: 1.5rem 0;
+          color: #0d0c22;
+          font-weight: 700;
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+        }
+
+        h4 {
+          margin: 1.25rem 0;
+          color: rgba(47, 60, 95, .8) !important;
+          font-weight: 700;
+          font-size: 1rem !important;
+          line-height: 1.25rem;
+        }
+
+        p {
+          margin: 1rem 0;
+          color: #757a95 !important;
+          font-size: 1rem !important;
+          line-height: 1.5rem !important;
+        }
+      }
+    }
+  }
+
+  @include sm-width() {
+    .case-body {
+      padding: 0 1.25rem;
+    }
+
+    .nav-wrapper {
+      .nav-items {
+        flex-wrap: wrap;
+        justify-content: start;
+        padding: 4px 12px;
+
+        .item {
+          position: relative;
+          margin: 0 .5rem;
+
+          &.active {
+            background: transparent;
+
+            &:after {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              display: block;
+              width: 100%;
+              height: .5rem;
+              background-image: linear-gradient(
+                270deg,
+                rgba(149, 133, 247, 0) 0%,
+                #5c4ded 100%
+              );
+              content: "";
+            }
+          }
+        }
+      }
+    }
+
+    .article-wrap {
+      .article-item {
+        flex-wrap: wrap;
+        height: auto;
+
+        &-left {
+          width: 100%;
+          height: 13.375rem;
+          margin-right: 0 !important;
+          border-radius: 6px 6px 0 0;
+        }
+
+        &-right {
+          padding: 0 1.25rem 1.875rem !important;
+        }
+      }
+    }
+
+    &-detail {
+      .full-width-header {
+        height: 60px;
+      }
+
+      .erda-page-content {
+        margin-top: 1.25rem !important;
+        padding: 0 1.25rem !important;
+
+        .detail-content {
+          padding: 0 1.25rem !important;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

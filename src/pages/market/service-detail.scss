@@ -1,7 +1,7 @@
 .title-container {
-  padding-top: 0 !important;
   width: 100%;
   min-height: 200px;
+  padding-top: 0 !important;
 
   .title-section {
     position: absolute;
@@ -10,10 +10,12 @@
 
 .service-detail {
   padding-top: 0 !important;
-  .full-width-header{
+
+  .full-width-header {
     height: 330px;
-    background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
+    @include pageHeaderBg();
   }
+
   .service-detail-title-bg {
     height: 360px;
     background-repeat: no-repeat;
@@ -35,22 +37,21 @@
       width: 60px;
       height: 60px;
       margin-top: 12px;
-      font-size: 60px;
       color: $white;
+      font-size: 60px;
     }
 
     .service-name {
-      color: $text-normal;
+      color: $white;
       font-weight: bold;
       font-size: 20px;
-      color: $white;
     }
 
     .service-desc {
       margin-bottom: 32px;
+      color: $white;
       font-size: 14px;
       line-height: 24px;
-      color: $white;
     }
 
     .service-img-container {
@@ -82,8 +83,8 @@
     }
   }
 
-  .service-info-wrap{
-    min-height: calc(100vh - 555px);
+  .service-info-wrap {
+    min-height: calc(100vh - (235px + #{$footer-height}));
   }
 
   .service-info {
@@ -113,8 +114,7 @@
       background: $white;
       border: 0;
 
-      &:hover,
-      &.active {
+      &:hover, &.active {
         color: $white;
         background: $primary;
       }
@@ -261,9 +261,7 @@
         &-right {
           width: 100%;
 
-          .version-shares,
-          .version-category,
-          .version-configvars {
+          .version-shares, .version-category, .version-configvars {
             margin-top: 24px;
           }
         }

@@ -1,23 +1,28 @@
 .erda-contact-us {
   padding-top: 0 !important;
-  .full-width-header{
-    background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
+
+  .full-width-header {
+    @include pageHeaderBg();
   }
-  &-header{
+
+  &-header {
     height: 330px;
     text-align: center;
-    .title-name{
-      text-align: center;
+
+    .title-name {
       color: $white;
       font-weight: bold;
       line-height: 1.75rem;
+      text-align: center;
     }
-    .title-desc{
+
+    .title-desc {
       color: $white;
     }
   }
-  .form-wrap{
-    margin:  20px auto;
+
+  .form-wrap {
     max-width: 600px;
+    margin: 20px auto;
   }
 }

@@ -1,4 +1,18 @@
-import React, {useContext} from 'react';
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Tab } from './components/tab';
 import { IF, EmptyHolder } from '~/common';
@@ -9,7 +23,7 @@ import { LoadMore } from '~/common/components/load-more';
 import { CategoryList } from './components/category-list';
 import { goTo, handleError } from '~/common/utils';
 import { NotFound } from 'layout/common/error-page';
-import { SiteContext, IContent } from 'common/utils/site-context';
+import { useSiteEnv } from '~/models/env';
 import { Spin } from 'antd';
 import axios from 'axios';
 
@@ -24,10 +38,10 @@ const toEn = {
 };
 
 const toCh = {
-  'addon': '扩展服务',
-  'action': '流水线任务',
-  'library': '库',
-  'mobile': '移动应用',
+  addon: '扩展服务',
+  action: '流水线任务',
+  library: '库',
+  mobile: '移动应用',
 };
 
 const tabList = [
@@ -49,7 +63,7 @@ const tabList = [
     name: '移动应用',
     key: 'mobile',
     icon: 'ydyy2x',
-  }
+  },
 ];
 
 
@@ -64,7 +78,7 @@ const ServiceMarket = ({ match }: any) => {
   const [hasMore, setHasmore] = React.useState(false);
   const types = Object.keys(data || {});
   const [activeTab, setActiveTab] = React.useState(routeType || toEn[types[0]]);
-  const { headShow } = useContext<IContent>(SiteContext)
+  const [, setHeader] = useSiteEnv();
   const getExtensionList = () => {
     if (Object.keys(data).includes(toCh[activeTab])) {
       return;
@@ -86,7 +100,7 @@ const ServiceMarket = ({ match }: any) => {
       });
   };
 
-  const getPublishItems = (type: 'LIBRARY' | 'MOBILE' | 'API', pageSize: number, pageNo: number)  => {
+  const getPublishItems = (type: 'LIBRARY' | 'MOBILE' | 'API', pageSize: number, pageNo: number) => {
     setIsLoading(true);
     return axios
       .get('/api/publish-items', {
@@ -95,12 +109,12 @@ const ServiceMarket = ({ match }: any) => {
           type,
           pageSize,
           pageNo,
-        }
+        },
       })
       .then((response: any) => {
         const body = response.data;
         if (body.success) {
-          const { list , total } = body.data as {list: IPublishItemCard[], total: number};
+          const { list, total } = body.data as {list: IPublishItemCard[]; total: number};
           setPublishItems((prevState: IPublishItemCard[]) => {
             const tempList = [...prevState, ...list];
             setHasmore(tempList.length < total);
@@ -119,7 +133,7 @@ const ServiceMarket = ({ match }: any) => {
   React.useEffect(() => {
     if (['addon', 'action'].includes(activeTab)) {
       getExtensionList();
-    }else {
+    } else {
       const type = activeTab.toUpperCase();
       setPublishItems([]);
       initPageNo = 1;
@@ -129,12 +143,12 @@ const ServiceMarket = ({ match }: any) => {
 
   const load = () => {
     const type = activeTab.toUpperCase();
-    initPageNo ++;
+    initPageNo++;
     return getPublishItems(type, 10, initPageNo);
   };
 
   React.useEffect(() => {
-    //初始化category获焦
+    // 初始化category获焦
     const curType = match.params.type;
     const cData = data[toCh[curType]] || {};
     const _categorys = Object.keys(cData) || [];
@@ -164,10 +178,10 @@ const ServiceMarket = ({ match }: any) => {
     setActiveTab(match.params.type || tabList[0].key);
   }, [match.params.type]);
 
-  const handleClick = React.useCallback(({type, id}: IPublishItemCard) => {
+  const handleClick = React.useCallback(({ type, id }: IPublishItemCard) => {
     if (type === 'MOBILE') {
-      goTo(`/download/${id}`, {jumpOut: true});
-    }else {
+      goTo(`/download/${id}`, { jumpOut: true });
+    } else {
       goTo(`/library/${id}`);
     }
   }, []);
@@ -175,7 +189,7 @@ const ServiceMarket = ({ match }: any) => {
   const curData = data[toCh[activeTab]] || {};
   let detail = <NotFound />;
   const isAddonAction = ['addon', 'action'].includes(activeTab);
-  let categoryRefMap = {};
+  const categoryRefMap = {};
   let subTypes = [] as string[];
   if (isAddonAction) {
     if (Array.isArray(curData)) {
@@ -183,32 +197,32 @@ const ServiceMarket = ({ match }: any) => {
     } else {
       subTypes = Object.keys(curData || {});
       detail = (
-      <div className="detail">
-        {subTypes.map((subType: string) => {
-          categoryRefMap[subType] = React.createRef();
-          const subList = (curData[subType] || []).map((a: any) => {
-            return { type: activeTab, ...a };
-          });
-          return (
-            <React.Fragment key={subType}>
-              <div
-                className="service-category-title"
-                ref={categoryRefMap[subType]}
-              >
-                {subType}
-              </div>
-              {subList.length ? (
-                <ServiceCardList list={subList} />
-              ) : (
+        <div className="detail">
+          {subTypes.map((subType: string) => {
+            categoryRefMap[subType] = React.createRef();
+            const subList = (curData[subType] || []).map((a: any) => {
+              return { type: activeTab, ...a };
+            });
+            return (
+              <React.Fragment key={subType}>
+                <div
+                  className="service-category-title"
+                  ref={categoryRefMap[subType]}
+                >
+                  {subType}
+                </div>
+                {subList.length ? (
+                  <ServiceCardList list={subList} />
+                ) : (
                   <EmptyHolder relative />
                 )}
-            </React.Fragment>
-          );
-        })}
-      </div>
-    );
+              </React.Fragment>
+            );
+          })}
+        </div>
+      );
     }
-  }else {
+  } else {
     if (activeTab === 'api') {
       subTypes = ['其他'];
       categoryRefMap['其他'] = React.createRef();
@@ -248,7 +262,17 @@ const ServiceMarket = ({ match }: any) => {
       behavior: 'smooth',
     });
   };
-  let  cls = pageYOffset >= 255 ? 'fixed-with-head' : '';
+  let cls = '';
+  if (pageYOffset >= 255) {
+    setHeader({
+      headerShadow: false,
+    });
+    cls = 'fixed-with-head';
+  } else {
+    setHeader({
+      headerShadow: true,
+    });
+  }
   cls += isAddonAction ? '' : activeTab !== 'api' ? ' no-margin-left' : '';
 
 
@@ -256,11 +280,9 @@ const ServiceMarket = ({ match }: any) => {
     <div className="erda-market">
       <Spin spinning={isloading}>
         <div className={`market gray-bg vh-70 ${cls}`}>
-          <div className="full-width-header">
-            <div className="market-header v-flex-box">
-              <p className="title-name">服务市场</p>
-              <p className="title-desc mt16 fz16">为您的应用开发提供所需的微服务、中间件服务、业务插件能力、流水线任务、大数据任务等能力</p>
-            </div>
+          <div className="full-width-header v-flex-box">
+            <p className="title">服务市场</p>
+            <p className="title-desc mt16 fz16">为您的应用开发提供所需的微服务、中间件服务、业务插件能力、流水线任务、大数据任务等能力</p>
           </div>
           <Tab list={tabList} activeKey={activeTab} onClick={clickTab} />
           <div className="market-content">
@@ -274,7 +296,7 @@ const ServiceMarket = ({ match }: any) => {
             {detail}
           </div>
           {
-            isAddonAction ? null : <LoadMore isLoading={isloading} hasMore={hasMore} load={load}/>
+            isAddonAction ? null : <LoadMore isLoading={isloading} hasMore={hasMore} load={load} />
           }
         </div>
       </Spin>

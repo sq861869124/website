@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import * as React from 'react';
 import classnames from 'classnames';
 import { Icon as CustomIcon, TouchContainer } from 'common';
@@ -22,7 +36,7 @@ interface IState {
 }
 
 class Swiper extends React.PureComponent<IProps, IState> {
-  public state = {
+  state = {
     index: 0,
   };
 
@@ -34,52 +48,51 @@ class Swiper extends React.PureComponent<IProps, IState> {
 
   private total: number = this.props.dataList.length || 0;
 
-  public componentDidMount() {
+  componentDidMount() {
     this.run();
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.stop();
   }
 
-  public run = () => {
-    const {autoRun = true} = this.props;
+  run = () => {
+    const { autoRun = true } = this.props;
     const doRun = () => {
       const { index } = this.state;
       const nextIndex = index + 1 > (this.total - 1) ? 0 : index + 1;
       this.changeIndex(nextIndex);
     };
-    autoRun && (this.st = setInterval(() => {doRun(); }, this.duration * 1000));
-  }
+    autoRun && (this.st = setInterval(() => { doRun(); }, this.duration * 1000));
+  };
 
 
-
-  public stop = () => {
+  stop = () => {
     this.st && clearInterval(this.st);
-  }
+  };
 
-  public changeIndex = (index: number) => {
+  changeIndex = (index: number) => {
     this.stop();
     this.setState({ index }, () => {
       this.swiper.style.left = `${this.state.index * -100}%`;
     });
     this.run();
-  }
+  };
 
-  public goNext = () => {
+  goNext = () => {
     const { index } = this.state;
     const nextIndex = index + 1 > (this.total - 1) ? 0 : index + 1;
     this.changeIndex(nextIndex);
-  }
+  };
 
-  public goPre = () => {
+  goPre = () => {
     const { index } = this.state;
-    const nextIndex = index - 1 < 0  ? (this.total - 1) : index - 1;
+    const nextIndex = index - 1 < 0 ? (this.total - 1) : index - 1;
     this.changeIndex(nextIndex);
-  }
+  };
 
-  public render() {
-    const { dataList, className = '', visible= true, withTouch= false, Footer = null, fullScreen } = this.props;
+  render() {
+    const { dataList, className = '', visible = true, withTouch = false, Footer = null, fullScreen } = this.props;
     const { index } = this.state;
     // 现在只有一个，先关闭切换
     const onlyOne = true;
@@ -87,7 +100,7 @@ class Swiper extends React.PureComponent<IProps, IState> {
       className,
       'swiper-container',
       fullScreen && 'g-img-enlarge-mobile',
-      !visible && 'hidden'
+      !visible && 'hidden',
     );
 
     const Ele = (
@@ -100,10 +113,10 @@ class Swiper extends React.PureComponent<IProps, IState> {
                 <div className={`swiper-item ${index === idx ? 'swiper-item-show' : ''}`} key={idx}>
                   {
                     onlyOne ? Comp :
-                    React.cloneElement(Comp, {
-                      onMouseOver: this.stop,
-                      onMouseOut: this.run,
-                    })
+                      React.cloneElement(Comp, {
+                        onMouseOver: this.stop,
+                        onMouseOut: this.run,
+                      })
                   }
                 </div>
               );
@@ -114,7 +127,7 @@ class Swiper extends React.PureComponent<IProps, IState> {
           {
             Footer
               ?
-              <Footer checked={index} length={dataList.length} changeIndex={this.changeIndex} duration={this.duration} />
+                <Footer checked={index} length={dataList.length} changeIndex={this.changeIndex} duration={this.duration} />
               :
               dataList.map((_, idx) => {
                 return (

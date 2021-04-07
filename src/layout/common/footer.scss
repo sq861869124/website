@@ -1,0 +1,137 @@
+.site-footer {
+  z-index: 10;
+  min-height: $footer-height;
+  background: #171717;
+
+  a {
+    color: $color-white-6;
+
+    &:hover {
+      color: $color-white-6;
+    }
+  }
+
+  .footer-content {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 2.25rem 0;
+    @include sm-width() {
+      display: block;
+      padding: 0;
+    }
+  }
+
+  .footer-links {
+    width: 1200px;
+    margin: 0 auto;
+
+    .title, .item {
+      color: $color-white-6;
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .footer-item {
+    display: inline-block;
+    width: 9.375rem;
+    @include sm-width() {
+      display: block;
+      width: 100%;
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 4);
+    }
+
+    .footer-item-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      color: $white;
+      font-size: 1rem;
+      @include sm-width() {
+        font-size: 16px;
+      }
+
+      i {
+        font-size: 26px;
+        line-height: 26px;
+      }
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      span {
+        display: inline-block;
+      }
+    }
+
+    .footer-item-sub {
+      margin-bottom: 1rem;
+      color: $color-white-6;
+      font-size: 14px;
+      line-height: 1.5rem;
+      @include sm-width() {
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+    }
+
+    .footer-item-img {
+      display: inline-block;
+      width: 5rem;
+      height: 5rem;
+      border: 1px solid #ececee;
+    }
+  }
+
+  .footer-left {
+    display: flex;
+    flex: 1;
+    @include sm-width() {
+      display: block;
+    }
+  }
+
+  .footer-right {
+    width: 400px;
+
+    .footer-item {
+      display: block;
+      width: auto;
+
+      .footer-item-title {
+        margin-bottom: 8px;
+      }
+    }
+
+    .main-link {
+      .scan-code-wrap {
+        .description {
+          color: $color-white-6;
+        }
+      }
+    }
+
+    .sub-link {
+      .link-item {
+        i {
+          color: $color-white-6;
+          font-size: 20px;
+        }
+      }
+    }
+
+    @include sm-width() {
+      display: block;
+    }
+  }
+}

@@ -2,8 +2,7 @@
   position: relative;
   overflow: hidden;
 
-  &.g-img-enlarge,
-  &.g-img-enlarge-mobile {
+  &.g-img-enlarge, &.g-img-enlarge-mobile {
     height: 100vh !important;
 
     .swiper-box {

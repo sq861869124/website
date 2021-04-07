@@ -27,17 +27,20 @@ const devServer = {
     cert: fs.readFileSync('./cert/dev/server.crt'),
   },
   proxy: {
+    '/api/example/**':{
+      target: 'https://terminus.io',
+      changeOrigin: true,
+      secure: false
+    },
+    '/api/user/web/login/logout':{
+      target: 'https://uc.dev.terminus.io',
+      changeOrigin: true,
+      secure: false
+    },
     '/api': {
       target: prodEnv,
       changeOrigin: true,
       secure: false
-    },
-    '/env': {
-      target: prodEnv,
-      secure: false,
-      onProxyRes(proxyRes, req, res) {
-        res.json({ "fullSite": true });
-      },
     },
   },
   allowedHosts: [

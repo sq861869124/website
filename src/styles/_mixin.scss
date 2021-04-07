@@ -13,5 +13,37 @@
   }
 }
 
+@mixin pageHeaderBg() {
+  background-image: url(/images/common/case-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .title {
+    padding: 0 1.25rem;
+    color: $white;
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    text-align: center;
+  }
+
+  .title-desc {
+    margin-top: 1rem;
+    padding: 0 1.25rem;
+    color: $white;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+  @include sm-width() {
+    .title {
+      padding: 1.25rem 1.25rem 0;
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}
+
 @mixin bgImagePosition() {
 }

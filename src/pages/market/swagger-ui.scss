@@ -47,8 +47,7 @@ $line-height: 3.5rem;
         border-radius: 3px;
         cursor: pointer;
 
-        &.active,
-        &:hover {
+        &.active, &:hover {
           background-color: $color-active-bg;
         }
       }

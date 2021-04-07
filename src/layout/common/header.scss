@@ -1,0 +1,143 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: $header-height;
+  padding: .625rem 2.5rem;
+  background-color: transparent;
+  //transition: transform 0.5s, background-color 0.3s ease-in-out;
+  transition: transform .5s,
+    background-color .5s ease-in-out,
+    color .5s ease-in-out;
+
+  &-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    margin: 0 auto;
+    @include sm-width() {
+      margin: 0;
+    }
+  }
+
+  .site-logo {
+    width: 160px;
+    //height: 32px;
+  }
+
+  .user-info {
+    color: $color-white-8;
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .site-logo {
+    color: $white;
+    transition: all .3s;
+  }
+
+  &.white-header, &.flex-header, &.not-home-header {
+    background-color: $white;
+
+    .site-logo {
+      color: $primary;
+    }
+
+    .site-menu .ant-menu-horizontal .ant-menu-submenu,
+    .site-menu .ant-menu-horizontal .ant-menu-item a {
+      color: rgba($primary, .7);
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .site-loginpanel {
+      .login-item > a {
+        color: rgba($primary, .7);
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      .free-registration {
+        color: rgba($primary, .7);
+        border-color: rgba($primary, .7);
+
+        &:hover {
+          color: $white;
+          background: $primary;
+          border-color: $primary;
+        }
+      }
+    }
+
+    .user-info {
+      color: $color-dark-2;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &.not-home-header {
+    box-shadow: none;
+  }
+
+  &.flex-header {
+    box-shadow: 0 4px 16px 2px rgba(92, 77, 237, .08);
+
+    &.no-shadow {
+      border-bottom: 1px solid #c9c9c9;
+      box-shadow: none;
+    }
+  }
+
+  &.hide {
+    transform: translateY(-$header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    transition: all .3s;
+
+    i {
+      margin-right: 5px;
+      font-size: 40px;
+    }
+
+    span {
+      color: $primary;
+      font-size: 28px;
+      font-family: LiGothicMed;
+    }
+  }
+
+  @include sm-width() {
+    width: 100vw;
+    height: $mobile-header-height;
+    padding: 14px 16px;
+
+    &.hide {
+      transform: translateY(-$mobile-header-height);
+    }
+
+    .logo {
+      span {
+        display: none;
+      }
+    }
+  }
+}

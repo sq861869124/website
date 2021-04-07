@@ -1,0 +1,46 @@
+.case-detail {
+  .case-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 420px;
+      height: 242px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+
+    &-img {
+      width: 640px;
+      height: 150px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@include sm-width() {
+  .case-detail {
+    .case-title {
+      img {
+        width: 336px;
+        height: 194px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .content-block {
+      &-img {
+        width: 100%;
+        height: 100px;
+      }
+    }
+  }
+}

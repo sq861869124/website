@@ -1,36 +1,27 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import React from 'react';
 import { useSetState, useUnmount } from 'react-use';
+import { isFunction } from 'lodash';
+
 type UpdateFn<T> = (patch: Partial<T> | ((prevState: T) => Partial<T>)) => void;
 type UpdatePartFn<U> = (patch: U | Function) => void;
 
 type UpdaterFn<T> = {
   [K in keyof T]: UpdatePartFn<T[K]>
 };
-
-// 测试 useUpdate 类型
-// const Test = () => {
-//   const [state, updater] = useUpdate({
-//     str: '',
-//     num: 0,
-//     bool: true,
-//     undef: undefined,
-//     nul: null,
-//     strList: ['one', 'two'],
-//     numList: [1, 2],
-//     multiList: ['one', 1, false], // 允许包含的类型
-//     emptyList: [], // 允许任何数组对象
-//     emptyObj: {}, // 允许任何对象
-//     obj: { k: 'v', n: 2 }, // 允许相同形状对象
-//     objList: [{ ok: true, msg: 'yes' }], // 允许设置任意对象
-//   });
-//   updater.nul({ any: true });
-//   updater.multiList([1, '']);
-//   updater.emptyList([1, '']);
-//   updater.emptyObj({ a: 2 });
-//   updater.objList([{ ok: false, msg: '' }]);
-//   return null;
-// };
-
 
 type NullableValue<T> = {
   [K in keyof T]: T[K] extends null ? null | Record<string, any> // 初始状态里对象值可能是null
@@ -49,14 +40,20 @@ type ResetFn = () => void;
  */
 export const useUpdate = <T extends object>(
   initState: NullableValue<T>
-): [NullableValue<T>, UpdaterFn<NullableValue<T>>, UpdateFn<NullableValue<T>>, ResetFn] => {
-  const [state, _update] = useSetState<NullableValue<T>>(initState || {});
+): [ NullableValue<T>, UpdaterFn<NullableValue<T>>, UpdateFn<NullableValue<T>>, ResetFn ] => {
+  const [ state, _update ] = useSetState<NullableValue<T>>(initState || {});
   // 使用ref，避免updater的更新方法中，在闭包里使用上次的state
   const ref = React.useRef(state);
   const updateRef = React.useRef(_update);
   ref.current = state;
 
-  const update: any = React.useCallback((args: any) => updateRef.current(args), []);
+  const update: any = React.useCallback((args: any) => {
+    if (isFunction(args)) {
+      return updateRef.current(prev => args(prev))
+    } else {
+      return updateRef.current(args)
+    }
+  }, []);
 
   const updater: any = React.useMemo(() => {
     const result = {};
@@ -70,11 +67,12 @@ export const useUpdate = <T extends object>(
     return result;
   }, []);
 
-  const reset = React.useCallback(() => updateRef.current(initState), [initState]);
+  const reset = React.useCallback(() => updateRef.current(initState), [ initState ]);
 
   useUnmount(() => {
-    updateRef.current = () => {};
+    updateRef.current = () => {
+    };
   });
 
-  return [state, updater, update, reset];
+  return [ state, updater, update, reset ];
 };

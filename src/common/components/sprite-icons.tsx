@@ -1,19 +1,35 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import * as React from 'react';
 import Common from './sprites/common';
 import About from './sprites/about';
 import Home from './sprites/home';
+import Why from './sprites/why';
 
 const SpriteMap = {
   about: About,
   common: Common,
-  home: Home
+  home: Home,
+  why: Why,
 };
 
 interface IProps{
   path: string;
   [pro: string]: any;
 }
-export const SpriteIcons = ({path, ...rest}: IProps) => {
+export const SpriteIcons = ({ path, ...rest }: IProps) => {
   const Comp = SpriteMap[path];
   return <Comp {...rest} />;
 };

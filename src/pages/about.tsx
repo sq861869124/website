@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import * as React from 'react';
 import { PageSection, CustomImg, SpriteIcons } from '~/common';
 import { SectionTitle } from '../common/components/page-sections';
@@ -7,7 +21,7 @@ import './about.scss';
 const diceAboutData = {
   introduction: {
     space: 80,
-    title: <SectionTitle title="企业简介" beautify className="mb20" colorful/>,
+    title: <SectionTitle title="企业简介" beautify className="mb20" colorful />,
     desc: (
       <>
         <div>
@@ -20,10 +34,10 @@ const diceAboutData = {
     ),
   },
   aboutDice: {
-    title: <SectionTitle title="关于Dice" beautify className="mb20" colorful/>,
+    title: <SectionTitle title="关于Dice" beautify className="mb20" colorful />,
     desc: (
       <div className="mb32">
-        企业数字化平台（Dice）是自研的云原生PaaS平台，支撑了所有的业务产品和解决方案。Dice
+        企业数字化平台（Erda Cloud）是自研的云原生PaaS平台，支撑了所有的业务产品和解决方案。Erda Cloud
         作为企业构建核心业务系统的IT底座，可以帮助企业加快数字化转型步伐，主要表现为：
       </div>
     ),
@@ -46,7 +60,7 @@ const diceAboutData = {
   },
   serviceCase: {
     space: 80,
-    title: <SectionTitle title="服务案例" beautify className="mb20" colorful/>,
+    title: <SectionTitle title="服务案例" beautify className="mb20" colorful />,
     desc:
       '截至2019年，我们已经服务了众多行业龙头企业，包括以万科、海尔、兖矿集团为代表的世界500强企业；以海信、中南置地、华帝为代表的中国500强企业；以及以新华书店网上商城为代表的国有企业等。',
   },
@@ -60,7 +74,7 @@ const SectionRender = ({
   children = null,
   ...rest
 }: {
-  title: any,
+  title: any;
   desc: any;
   children?: any;
 }) => {

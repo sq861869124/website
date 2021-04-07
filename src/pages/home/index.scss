@@ -1,74 +1,55 @@
-$bannerBackgroundColor: #0F0921;
 .erda-home {
-  background-color: #fff;
+  background-color: #ffffff;
 
   .card-title {
-    text-align: center;
-    line-height: 48px;
-    font-size: 40px;
     font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    text-align: center;
 
     &-height-light {
-      color: #5C4DED;
+      color: #5c4ded;
     }
   }
 
   .card-desc {
-    opacity: 0.7;
-    font-size: 16px;
-    color: #2F3C5F;
+    color: rgba(40, 60, 95, .7);
+    font-size: 1rem;
+    line-height: 2rem;
     text-align: center;
-    line-height: 32px;
-  }
 
-  .two-column {
-    .text-column {
-      .card-title, .card-desc {
-        text-align: left;
-      }
-
-      .list {
-        .item {
-          line-height: 32px;
-          font-size: 20px;
-          color: #0D0C22;
-        }
-      }
-    }
-
-    .images-column {
-      width: 620px;
-
-      img {
-        width: 100%;
-      }
+    .link-to {
+      display: inline-block;
+      font-size: 14px;
+      text-decoration: underline;
     }
   }
 
   &-banner {
-    height: 750px;
-    background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
     position: relative;
+    height: 750px;
+    padding-top: 210px;
+    background-image: radial-gradient(28% 104%, #3d33a7 1%, #2a0c5a 100%);
 
     &-mask {
-      height: 100%;
-      width: 100%;
-      margin: 0 auto;
-      background-image: url("/images/home/banner/background.svg");
-      background-repeat: no-repeat;
-      background-position: center;
       position: absolute;
       top: 0;
       left: 50%;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      background-image: url(/images/home/banner/background.svg);
+      background-repeat: no-repeat;
+      background-position: center;
       transform: translateX(-50%);
     }
 
     .earth {
+      position: absolute;
+      top: -110px;
+      right: 0;
       width: 550px;
       height: 550px;
-      position: absolute;
-      right: 0;
-      top: 100px;
 
       img {
         width: 100%;
@@ -76,57 +57,57 @@ $bannerBackgroundColor: #0F0921;
     }
 
     &-title {
-      padding-top: 210px;
+      color: #f7f9ff;
+      font-weight: bolder;
       font-size: 60px;
-      color: #F7F9FF;
       line-height: 72px;
     }
 
     &-desc {
+      width: 665px;
+      color: #f7f9ff;
+      font-size: 20px;
       line-height: 32px;
-      font-size: 24px;
-      color: #F7F9FF;
-
     }
 
     &-free-trial {
       &.ant-btn {
-        height: 48px;
         width: 130px;
-        background: #FFFFFF;
-        border: 1px solid #FFFFFF;
-        border-radius: 3px;
+        height: 48px;
+        color: #1c1370;
         font-size: 18px;
-        color: #1C1370;
+        background: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 3px;
 
         &:hover, &:focus {
-          background: #FFFFFF;
-          border: 1px solid #FFFFFF;
+          background: #ffffff;
+          border: 1px solid #ffffff;
         }
       }
     }
 
     &:after {
-      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
       display: block;
       width: 100%;
       height: 60px;
       //background-image: radial-gradient(28% 104%, #3D33A7 1%, #2A0C5A 100%);
-      background-image: url("/images/home/banner/bannermask.png");
+      background-image: url(/images/home/banner/bannermask.png);
       background-repeat: no-repeat;
       background-size: 100%;
-      position: absolute;
-      bottom: -30px;
-      left: 0;
+      content: "";
     }
   }
 
   &-main-card {
-    padding: 50px 70px;
     margin-top: -70px;
+    padding: 50px 70px;
+    background: #ffffff;
     border-radius: 5px;
-    background: #fff;
-    box-shadow: 0 4px 16px 2px rgba(92, 77, 237, 0.08);
+    box-shadow: 0 4px 16px 2px rgba(92, 77, 237, .08);
 
     .img-wrapper {
       text-align: center;
@@ -134,13 +115,13 @@ $bannerBackgroundColor: #0F0921;
   }
 
   &-pm {
-    padding: 100px 0;
+    padding: 80px 0;
 
     .img-wrapper {
       position: relative;
-      margin: 0 auto;
       width: 800px;
       height: 300px;
+      margin: 0 auto;
 
       .erda-lazyload-img-wrap {
         position: absolute;
@@ -151,36 +132,20 @@ $bannerBackgroundColor: #0F0921;
         }
 
         &.male {
-          right: -30px;
           top: -20px;
+          right: -30px;
         }
 
         &.female {
           right: 60px;
-          bottom: -20px;
+          bottom: -40px;
         }
       }
     }
   }
 
-  &-code-host, &-monitor {
-    padding: 100px 0;
-    background-color: #F7F9FF;
-
-    &-img {
-      width: 600px;
-      height: 490px;
-    }
-  }
-
-  &-code-host {
-    .images-column {
-      margin-top: -20px;
-    }
-  }
-
   &-test-manage {
-    padding: 100px 0;
+    padding: 80px 0;
 
     &-body {
       margin-top: 72px;
@@ -197,84 +162,14 @@ $bannerBackgroundColor: #0F0921;
 
         .title {
           height: 28px;
-          font-size: 20px;
-          color: #0D0C22;
+          color: #0d0c22;
           font-weight: 600;
-        }
-
-        .desc {
-          font-size: 16px;
-          color: rgba(47, 60, 95, .4);
-          line-height: 28px;
-        }
-      }
-    }
-  }
-
-  &-cicd {
-    padding: 100px 0;
-    background-color: #F7F9FF;
-
-    .images-column {
-      margin-top: -30px;
-    }
-  }
-
-  &-monitor {
-    background: #ffffff;
-    padding-bottom: 70px;
-
-    .images-column {
-      margin-top: -56px;
-    }
-  }
-
-  &-log-analysis {
-    padding: 100px 0;
-    background: #5C4DED;
-
-    .card-title {
-      color: #ffffff;
-    }
-
-    .card-desc {
-      color: rgba(255, 255, 255, .7);
-    }
-
-    &-body {
-      margin-top: 72px;
-
-      .item {
-        width: 240px;
-        text-align: center;
-
-        .icon-bg {
-          margin: 0 auto;
-          width: 115px;
-          height: 85px;
-          background-image: url('/images/home/log-item-bg.png');
-          background-size: 100%;
-
-          i {
-            color: $white;
-            font-size: 60px;
-          }
-        }
-
-        .icon {
-          width: 56px;
-          height: 56px;
-        }
-
-        .title {
-          height: 28px;
           font-size: 20px;
-          color: #ffffff;
         }
 
         .desc {
+          color: rgba(47, 60, 95, .4);
           font-size: 16px;
-          color: rgba(255, 255, 255, .8);
           line-height: 28px;
         }
       }
@@ -282,42 +177,145 @@ $bannerBackgroundColor: #0F0921;
   }
 
   .contact-trial {
-    padding: 130px 0;
+    padding: 100px 0;
+    background: #5c4ded;
 
     .title {
+      color: $white;
+      font-weight: 600;
       font-size: 36px;
-      color: #0D0C22;
-      text-align: center;
       line-height: 48px;
+      text-align: center;
     }
 
     .btns {
       .btn-item {
-        margin: 0 10px;
-        height: 48px;
         width: 140px;
-        border-radius: 3px;
-        text-align: center;
+        height: 48px;
+        margin: 0 10px;
         font-size: 18px;
+        text-align: center;
+        border-radius: 3px;
         cursor: pointer;
       }
 
       .free-trial {
-        background-image: linear-gradient(135deg, #5C4DED 0%, #402EEC 100%);
-        color: #FFFFFF;
+        color: $primary;
+        background: $white;
       }
 
       .contact {
-        border: 1px solid #5C4DED;
-        color: #5C4DED;
+        color: $white;
+        border: 1px solid $white;
+
+        &:hover {
+          color: $primary;
+          background: $white;
+        }
       }
     }
   }
 
   @include sm-width() {
-    .erda-page-content {
-      width: 90%;
-      padding: 12px;
+    .text-column {
+      .card-title, .card-desc {
+        text-align: center;
+      }
+    }
+
+    .code-repositories .monitor, .cicd, .log-analysis {
+      padding: 2.5rem 0;
+    }
+
+    .contact-trial {
+      padding: 3.75rem 0;
+
+      .title {
+        font-size: 1.75rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    .card-title {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+
+    .card-desc {
+      line-height: 1.75rem;
+    }
+
+    .erda-home {
+      &-banner {
+        height: 31.5rem;
+        padding: 1.25rem;
+        padding-top: 7rem;
+
+        .earth {
+          display: none;
+        }
+
+        &-title {
+          font-size: 2.5rem;
+        }
+
+        &-desc {
+          width: 100%;
+          font-size: 1rem;
+        }
+
+        &:after {
+          bottom: -.625rem;
+          height: 30px;
+          background-size: 100% 30px;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+
+      &-main-card {
+        width: calc(100vw - 2.5rem);
+        margin-top: -2.25rem;
+        padding: 1.875rem 1.25rem;
+      }
+
+      &-pm {
+        width: 100%;
+        padding: 2.5rem 0;
+
+        .img-wrapper {
+          width: 100%;
+          height: auto;
+          margin-top: 1.25rem !important;
+
+          .erda-lazyload-img-wrap {
+            &.main-img {
+              position: relative;
+              margin: 0 -.625rem;
+            }
+          }
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &-test-manage {
+        padding: 2.5rem 0;
+
+        &-body {
+          flex-wrap: wrap;
+          justify-content: center;
+          margin-top: 2rem;
+
+          .item {
+            margin-top: 2.5rem;
+          }
+        }
+      }
     }
   }
 }

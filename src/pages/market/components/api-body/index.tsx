@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import React from 'react';
 import { Radio, Select, Input, Button } from 'antd';
 import { map, isString } from 'lodash';
@@ -27,21 +41,21 @@ const ValMap = {
           editKey: true,
           key: '',
           value: '',
-          desc: ''
+          desc: '',
         }}
         onChange={(_key, value, autoSave) => {
           updateBody('content', value, autoSave);
         }}
-        itemMap={[ {
+        itemMap={[{
           type: 'key',
           props: {
             placeholder: '参数名',
           },
-          getProps: ({editKey}: {editKey: boolean}) => {
+          getProps: ({ editKey }: {editKey: boolean}) => {
             return {
               disabled: !editKey,
             };
-          }
+          },
         }, {
           type: 'value',
           props: {
@@ -52,14 +66,14 @@ const ValMap = {
           props: {
             placeholder: '描述',
           },
-        } ]}
+        }]}
       />
     );
   },
   raw: (props: any) => {
     const { data, updateBody }: any = props;
     const val = isString(data.content) ? data.content : '';
-    return <Input.TextArea rows={4} value={val} onChange={e => updateBody('content', e.target.value)} />;
+    return <Input.TextArea rows={4} value={val} onChange={(e) => updateBody('content', e.target.value)} />;
   },
   'JSON(application/json)': (props: any) => <TestJsonEditor {...props} />,
 };
@@ -90,8 +104,8 @@ const TestJsonEditor = (props: any) => {
 };
 
 const APIBody = (props: any) => {
-  const { data= {}, onChange } = props;
-  const isRaw = ![ 'none', BasicForm ].includes(data.type);
+  const { data = {}, onChange } = props;
+  const isRaw = !['none', BasicForm].includes(data.type);
   const realType = data.type;
 
   const updateBody = (key: string, val: any, autoSave?: boolean) => {
@@ -112,7 +126,7 @@ const APIBody = (props: any) => {
           break;
         default:
       }
-    }else if (key === 'type') {
+    } else if (key === 'type') {
       newBody.content = '';
     }
     onChange('body', newBody, autoSave, () => {});
@@ -127,7 +141,7 @@ const APIBody = (props: any) => {
   return (
     <div className="case-api-body">
       <div className="body-type-chosen mb8 px12">
-        <Radio.Group onChange={e => changeType(e.target.value)} value={isRaw ? 'raw' : realType} disabled={!data.isAdd}>
+        <Radio.Group onChange={(e) => changeType(e.target.value)} value={isRaw ? 'raw' : realType} disabled={!data.isAdd}>
           <Radio value={'none'}>none</Radio>
           <Radio value={BasicForm}>x-www-form-urlencoded</Radio>
           <Radio value={'raw'}>raw</Radio>
@@ -142,7 +156,7 @@ const APIBody = (props: any) => {
               value={realType}
               dropdownMatchSelectWidth={false}
             >
-              {map(BODY_RAW_OPTION, item => (
+              {map(BODY_RAW_OPTION, (item) => (
                 <Option key={item} value={item}>{item}</Option>
               ))}
             </Select>
@@ -150,7 +164,7 @@ const APIBody = (props: any) => {
         }
       </div>
       <div className="body-value-container">
-        {CurValueComp && <CurValueComp data={data} updateBody={updateBody}/>}
+        {CurValueComp && <CurValueComp data={data} updateBody={updateBody} />}
       </div>
     </div>
   );

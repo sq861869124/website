@@ -1,6 +1,20 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import * as React from 'react';
 import { Icon as CustomIcon } from 'common';
-import { Popover } from 'antd'
+import { Popover } from 'antd';
 import { goTo } from 'common/utils';
 
 import './service-card.scss';
@@ -13,7 +27,7 @@ interface ICard {
   desc: string;
   category: string;
   type: string;
-  onClick(name: string): any;
+  onClick: (name: string) => any;
 }
 
 export const ServiceCard = ({
@@ -30,7 +44,7 @@ export const ServiceCard = ({
   };
 
   return (
-    <div key={name} className='service-card' onClick={() => clickCard(name)}>
+    <div key={name} className="service-card" onClick={() => clickCard(name)}>
       <div className="card-logo mb12">
         {
           logoUrl ? <img src={logoUrl} alt="service-logo" /> : <CustomIcon type="yf" />
@@ -45,7 +59,7 @@ export const ServiceCard = ({
   );
 };
 
-export const ServiceCardList = ({ list, className = '' }: { list: ICard[], className?: string }) => {
+export const ServiceCardList = ({ list, className = '' }: { list: ICard[]; className?: string }) => {
   if (!list || !list.length) {
     return null;
   }

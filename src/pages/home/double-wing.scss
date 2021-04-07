@@ -1,0 +1,53 @@
+.erda-double-wings {
+  padding: 80px 0 50px;
+
+  .two-column {
+    .card-title, .card-desc {
+      text-align: left;
+    }
+
+    .list {
+      .item {
+        color: #0d0c22;
+        font-size: 1.25rem;
+        line-height: 2rem;
+      }
+    }
+
+    .images-column {
+      width: 620px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  @include sm-width() {
+    .two-column {
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 0 1.25rem !important;
+
+      .card-title, .card-desc {
+        text-align: center;
+      }
+
+      .text-column {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+      }
+
+      .images-column {
+        height: auto;
+        margin: 0 -.625rem !important;
+      }
+    }
+
+    &.reverse {
+      .two-column {
+        flex-wrap: wrap-reverse;
+      }
+    }
+  }
+}

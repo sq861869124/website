@@ -1,10 +1,29 @@
-import React from 'react';
-import ScrollAnimation from 'react-animate-on-scroll';
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-export const CopmFadeInUp = (props: {children: React.ReactNode}) => {
-  return (
-    <ScrollAnimation offset={20} animateOnce animateIn="fadeInUp">
-      {props.children}
-    </ScrollAnimation>
-  )
+import React from 'react';
+import ScrollAnimation, { ScrollAnimationProps } from 'react-animate-on-scroll';
+import './animate-comp.scss';
+
+interface IProps extends Partial<ScrollAnimationProps>{
+  children: React.ReactNode;
 }
+
+export const CopmFadeInUp = ({ children, ...rest }: IProps) => {
+  return (
+    <ScrollAnimation className="erda-fade-in-up" offset={10} animateOnce animateIn="fade-in-up" {...rest}>
+      {children}
+    </ScrollAnimation>
+  );
+};

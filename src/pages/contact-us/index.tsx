@@ -1,13 +1,27 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import React from 'react';
-import PageContent from '~/components/common/page-content'
+import PageContent from '~/layout/common/page-content';
 import { Form, Input, Select, Button } from 'antd';
 import { IT_SIZE, COMPANY_SIZE, PURPOSE, NAME_MAP } from 'pages/contact-us/constant';
 import { getFormFieldsValue } from 'common/utils';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { submitContactInfo } from '~/services/contact';
 import { CustomModal } from 'common';
 import RegularMap from 'common/utils/reg-rules';
-import './index.scss'
+import './index.scss';
 
 const { Item: FormItem } = Form;
 
@@ -15,138 +29,138 @@ interface IFormData extends CONTACT.contactUs {
   otherPurpose?: string;
 }
 
-const modalInfo = '提交成功! \n\r感谢您的关注！我们将尽快联系您！'
+const modalInfo = '提交成功! \n\r感谢您的关注！我们将尽快联系您！';
 
 
 const ContactUs = () => {
-  const [ formRef ] = Form.useForm();
-  const [ showOtherPurpose, setShowOtherPurpose ] = React.useState(false);
-  const [ modalVisible, setModalVisible ] = React.useState(false);
+  const [formRef] = Form.useForm();
+  const [showOtherPurpose, setShowOtherPurpose] = React.useState(false);
+  const [modalVisible, setModalVisible] = React.useState(false);
   const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
 
   const handleChangePurpose = (key: string) => {
-    setShowOtherPurpose(key === '其他')
+    setShowOtherPurpose(key === '其他');
     formRef.setFieldsValue({
-      otherPurpose: undefined
-    })
-  }
+      otherPurpose: undefined,
+    });
+  };
 
   const handleSubmit = async () => {
-    const { error, data } = await getFormFieldsValue<IFormData>(formRef)
+    const { error, data } = await getFormFieldsValue<IFormData>(formRef);
     if (error) {
-      return
+      return;
     }
     const { otherPurpose, ...rest } = data;
     if (otherPurpose) {
-      rest.purpose = otherPurpose
+      rest.purpose = otherPurpose;
     }
-    const res = await submitContactInfo(rest).catch(e => e)
-    console.log(res)
+    const res = await submitContactInfo(rest).catch((e) => e);
+    console.log(res);
     if (res.success) {
-      toggleModal()
+      toggleModal();
     }
-  }
+  };
 
   return (
     <div className="erda-contact-us">
       <div className="full-width-header">
         <div className="erda-contact-us-header v-flex-box">
-          <p className="title-name fz20">即刻试用企业数字化平台（Dice）</p>
-          <p className="title-desc mt12 fz16">请填写您的真实信息，以便尽快通过审核并开启试用</p>
+          <p className="title">即刻试用企业数字化平台（Erda Cloud）</p>
+          <p className="title-desc">请填写您的真实信息，以便尽快通过审核并开启试用</p>
         </div>
       </div>
       <PageContent>
         <Form form={formRef} className="form-wrap" layout="vertical">
           <FormItem
-            label={NAME_MAP.realName}
-            name='realName'
+            label={NAME_MAP.realname}
+            name="realname"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.realName}` }
+              { required: true, message: `请输入${NAME_MAP.realname}` },
             ]}
           >
-            <Input autoComplete="off" autoFocus placeholder={`请输入${NAME_MAP.realName}`}/>
+            <Input autoComplete="off" autoFocus placeholder={`请输入${NAME_MAP.realname}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.mobile}
-            name='mobile'
+            name="mobile"
             rules={[
               { required: true, message: `请输入${NAME_MAP.mobile}` },
               RegularMap.mobile,
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.mobile}`}/>
+            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.mobile}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.email}
-            name='email'
+            name="email"
             rules={[
               { required: true, message: `请输入${NAME_MAP.email}` },
               RegularMap.email,
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.email}`}/>
+            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.email}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.position}
-            name='position'
+            name="position"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.position}` }
+              { required: true, message: `请输入${NAME_MAP.position}` },
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.position}`}/>
+            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.position}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.company}
-            name='company'
+            name="company"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.company}` }
+              { required: true, message: `请输入${NAME_MAP.company}` },
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.company}`}/>
+            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.company}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.company_size}
-            name='company_size'
+            name="company_size"
             rules={[
-              { required: true, message: `请选择${NAME_MAP.company_size}` }
+              { required: true, message: `请选择${NAME_MAP.company_size}` },
             ]}
           >
             <Select placeholder={`请选择${NAME_MAP.company_size}`}>
               {
                 COMPANY_SIZE.map(({ name, value }) => {
-                  return <Select.Option value={value} key={value}>{name}</Select.Option>
+                  return <Select.Option value={value} key={value}>{name}</Select.Option>;
                 })
               }
             </Select>
           </FormItem>
           <FormItem
             label={NAME_MAP.it_size}
-            name='it_size'
+            name="it_size"
             rules={[
-              { required: true, message: `请选择${NAME_MAP.it_size}` }
+              { required: true, message: `请选择${NAME_MAP.it_size}` },
             ]}
           >
             <Select placeholder={`请选择${NAME_MAP.it_size}`}>
               {
                 IT_SIZE.map(({ name, value }) => {
-                  return <Select.Option value={value} key={value}>{name}</Select.Option>
+                  return <Select.Option value={value} key={value}>{name}</Select.Option>;
                 })
               }
             </Select>
           </FormItem>
           <FormItem
             label={NAME_MAP.purpose}
-            name='purpose'
+            name="purpose"
             rules={[
-              { required: true, message: `请选择${NAME_MAP.purpose}` }
+              { required: true, message: `请选择${NAME_MAP.purpose}` },
             ]}
           >
             <Select placeholder={`请选择${NAME_MAP.purpose}`} onChange={handleChangePurpose}>
               {
                 PURPOSE.map(({ name, value }) => {
-                  return <Select.Option value={value} key={value}>{name}</Select.Option>
+                  return <Select.Option value={value} key={value}>{name}</Select.Option>;
                 })
               }
             </Select>
@@ -155,12 +169,12 @@ const ContactUs = () => {
             showOtherPurpose ? (
               <FormItem
                 label={NAME_MAP.otherPurpose}
-                name='otherPurpose'
+                name="otherPurpose"
                 rules={[
-                  { required: true, message: `请输入${NAME_MAP.otherPurpose}` }
+                  { required: true, message: `请输入${NAME_MAP.otherPurpose}` },
                 ]}
               >
-                <Input.TextArea autoComplete="off" placeholder={`请输入${NAME_MAP.otherPurpose}`} autoSize={{ minRows: 3, maxRows: 10 }}/>
+                <Input.TextArea autoComplete="off" placeholder={`请输入${NAME_MAP.otherPurpose}`} autoSize={{ minRows: 3, maxRows: 10 }} />
               </FormItem>
             ) : null
           }
@@ -172,7 +186,7 @@ const ContactUs = () => {
         <CustomModal title={'申请试用'} visible={modalVisible} toggleModal={toggleModal}>{modalInfo}</CustomModal>
       </PageContent>
     </div>
-  )
-}
+  );
+};
 
 export default ContactUs;

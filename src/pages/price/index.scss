@@ -1,0 +1,272 @@
+.erda-price {
+  background: #f5f7ff;
+
+  .full-width-header {
+    height: 330px;
+    @include pageHeaderBg();
+  }
+
+  .price-body {
+    min-height: calc(100vh - (330px + #{$footer-height}));
+
+    .able-mark {
+      color: $primary;
+    }
+
+    .self-trusteeship {
+      height: 60px;
+      margin: 0 0 40px;
+      padding: 0 20px;
+      background: $white;
+      //border-radius: 6px;
+      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+
+      .desc {
+        color: #2f3c5f;
+        font-size: 1rem;
+        opacity: .7;
+      }
+
+      .link-to {
+        text-decoration: underline;
+      }
+    }
+
+    .private-deploy {
+      height: 5rem;
+      padding: 0 2rem;
+      color: $color-dark-6;
+      background: $white;
+      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+
+      .left {
+        div {
+          padding-right: 2rem;
+        }
+
+        p {
+          color: $color-dark-4;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .version-columns {
+      align-items: stretch;
+      margin: 0 auto;
+      //padding: 0 100px;
+      &-item {
+        position: relative;
+        width: 380px;
+        padding-bottom: 4rem;
+        background: $white;
+        box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+
+        .item-header {
+          padding: 2rem 0;
+          text-align: center;
+          background-color: #f7f9ff;
+
+          .ver-name {
+            color: rgb(13, 12, 34);
+            font-weight: 700;
+            font-size: 1.75rem;
+          }
+
+          .price-item {
+            align-items: baseline;
+            color: #5c4ded;
+            font-size: 2.5rem;
+            line-height: 3rem;
+
+            .unit {
+              font-size: 1rem;
+              line-height: 1rem;
+            }
+          }
+        }
+
+        .tips {
+          min-height: 2.25rem;
+          padding-bottom: 1.25rem;
+          color: $color-dark-4;
+          font-size: 1rem;
+        }
+
+        .item-body {
+          padding: 1.25rem 0;
+
+          .ability-item {
+            padding-left: 1.5rem;
+
+            .check-mark {
+              width: 1.5rem;
+              height: 1.5rem;
+              margin-right: .75rem;
+            }
+
+            .ability-name {
+              color: #2f3c5f;
+              font-size: 1rem;
+              line-height: 1.5rem;
+              opacity: .7;
+            }
+          }
+        }
+
+        .pricing-strategy {
+          padding: 0 0 1.25rem;
+
+          .line {
+            height: 1px;
+            margin: 0 1.5rem 1.25rem;
+            background: #ececec;
+          }
+
+          .item {
+            position: relative;
+            padding: 0 1.5rem;
+            color: #2f3c5f;
+            font-size: 14px;
+            line-height: 1.5rem;
+            opacity: .7;
+
+            .price {
+              position: relative;
+              padding-left: 1rem;
+              color: #0d0c22;
+              font-weight: bold;
+
+              &:before {
+                position: absolute;
+                top: 5px;
+                left: 0;
+                display: block;
+                width: 4px;
+                height: 14px;
+                background: #69dfab;
+                content: "";
+              }
+
+              .tag {
+                margin-left: .25rem;
+                padding: 0 .25rem;
+                color: $primary;
+                font-weight: normal;
+                font-size: .75rem;
+                line-height: 1rem;
+                background: rgba($primary, .1);
+                border-radius: 2px;
+              }
+            }
+
+            .desc {
+              font-size: 14px;
+
+              p {
+                position: relative;
+                padding-left: 16px;
+
+                &:before {
+                  position: absolute;
+                  top: 0;
+                  left: -1px;
+                  font-size: 2rem;
+                  content: "·";
+                }
+              }
+            }
+
+            .desc {
+              padding-left: 1rem;
+            }
+          }
+        }
+
+        .experience {
+          position: absolute;
+          bottom: 2rem;
+          width: 100%;
+          padding: 1.25rem 1.875rem 0;
+
+          .link {
+            color: #2f3c5f;
+            font-size: 14px;
+            text-align: center;
+
+            a {
+              color: $primary;
+            }
+          }
+
+          button {
+            width: 100%;
+            height: 2.5rem;
+          }
+
+          p {
+            color: $color-dark-6;
+            font-size: 14px;
+            line-height: 2.5rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  @include sm-width() {
+    .price-body {
+      .self-trusteeship {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+        margin: 0 0 2.5rem;
+        padding: 1.25rem;
+
+        .desc {
+          margin: .75rem 0;
+        }
+      }
+
+      .private-deploy {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 6rem;
+
+        .left {
+          flex-wrap: wrap;
+          justify-content: center;
+
+          div {
+            margin-bottom: .75rem;
+            padding: 0;
+          }
+        }
+      }
+
+      .version-columns {
+        flex-wrap: wrap;
+        align-items: start;
+        width: 100%;
+        padding: 0;
+
+        &-item {
+          box-sizing: border-box;
+          width: 100%;
+          margin-bottom: 2rem;
+
+          .experience {
+            bottom: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .come-soon {
+    padding: 12px 0;
+    font-weight: bold;
+    text-align: center;
+  }
+}

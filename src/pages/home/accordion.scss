@@ -2,7 +2,7 @@
   .erda-accordion-header {
     &-icon {
       width: 30px;
-      height: 30px;
+      height: 32px;
       overflow: hidden;
 
       i {
@@ -11,14 +11,18 @@
     }
 
     &-text {
-      line-height: 32px;
-      font-size: 20px;
       font-weight: 600;
+      font-size: 20px;
+      line-height: 32px;
     }
   }
 
   .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
     padding-bottom: 8px;
+
+    &:hover {
+      color: $primary;
+    }
   }
 
   .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box {
@@ -26,10 +30,10 @@
   }
 
   .erda-accordion-body {
-    font-size: 16px;
-    color: rgba(40, 69, 95, .7);
-    line-height: 28px;
     min-height: 56px;
+    color: rgba(40, 69, 95, .7);
+    font-size: 16px;
+    line-height: 28px;
   }
 
   .ant-collapse-item {
@@ -42,24 +46,23 @@
     border-radius: 2px 8px 8px 2px;
 
     &:before {
-      display: block;
-      content: '';
-      width: 8px;
       position: absolute;
-      left: 0;
       top: 0;
       bottom: 0;
+      left: 0;
+      display: block;
+      width: 8px;
+      background-image: linear-gradient(180deg, #b2a7f9 0%, #5347cd 100%);
       border-radius: 2px 0 0 2px;
-      background-image: linear-gradient(180deg, #B2A7F9 0%, #5347CD 100%);
+      content: "";
     }
 
     .ant-collapse-content {
-      border: none;
       background: transparent;
+      border: none;
     }
   }
 
   .ant-collapse-content {
-
   }
 }

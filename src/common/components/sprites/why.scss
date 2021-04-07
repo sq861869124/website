@@ -1,0 +1,37 @@
+@import "~/src/images/sprites/sprite-why.scss";
+
+.sprite-why {
+  display: inline-block;
+
+  &.auto {
+    @include sprite($icon-auto);
+  }
+
+  &.cloud-origin {
+    @include sprite($icon-cloud-origin);
+  }
+
+  &.expert-server {
+    @include sprite($icon-expert-server);
+  }
+
+  &.multi-cloud {
+    @include sprite($icon-multi-cloud);
+  }
+
+  &.neetnot-deploy {
+    @include sprite($icon-neetnot-deploy);
+  }
+
+  &.one-site {
+    @include sprite($icon-one-site);
+  }
+
+  &.safe {
+    @include sprite($icon-safe);
+  }
+
+  &.scla {
+    @include sprite($icon-scla);
+  }
+}

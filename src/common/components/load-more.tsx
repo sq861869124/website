@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import { debounce, throttle } from 'lodash';
 import { isPromise } from 'common/utils';
 import * as React from 'react';
@@ -12,7 +26,7 @@ interface IProps {
   triggerBy?: string;
   domSelector?: string;
   threshold?: number;
-  load(): Promise<any>;
+  load: () => Promise<any>;
 }
 
 export class LoadMore extends React.Component<IProps> {
@@ -43,7 +57,7 @@ export class LoadMore extends React.Component<IProps> {
     if (e.deltaY === 1) {
       e.preventDefault();
     }
-  }
+  };
 
   // if not has scrollBar then load more
   checkHeight = () => {
@@ -53,7 +67,7 @@ export class LoadMore extends React.Component<IProps> {
     if (!hasScrollBar && hasMore && !isLoading) {
       this.load(this.checkHeight);
     }
-  }
+  };
 
   componentDidMount() {
     // chrome v56 后会默认给 scroll 监听事件设置 passive: ture 以表明不会 preventDefault
@@ -89,7 +103,7 @@ export class LoadMore extends React.Component<IProps> {
     this.target = document.querySelectorAll(domSelector)[0];
     this.targetDom = this.target || document.documentElement || document.body;
     this.eventTarget = window;
-  }
+  };
 
   // detachEvent before load and reAttach after get data
   load = (cb = noop) => {
@@ -106,17 +120,17 @@ export class LoadMore extends React.Component<IProps> {
     } else {
       console.warn('LoadMore prop `load` should return a promise');
     }
-  }
+  };
 
   attachEvent = () => {
     this.eventTarget.addEventListener(this.eventType, this.onScroll);
     window.addEventListener('resize', this.lazyCheck);
-  }
+  };
 
   detachEvent = () => {
     this.eventTarget.removeEventListener(this.eventType, this.onScroll);
     window.removeEventListener('resize', this.lazyCheck);
-  }
+  };
 
   render() {
     return this.props.isLoading

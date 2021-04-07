@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 import { PageSection, IF, FileContainer, Icon as CustomIcon } from 'common';
@@ -19,14 +33,13 @@ const { Item: ListItem } = List;
 const planCnMap = {
   basic: '基础版',
   professional: '专业版',
-  ultimate: '旗舰版'
+  ultimate: '旗舰版',
 };
 
-const Plan = ({ data, version }: { data: any, version: string }) => {
+const Plan = ({ data, version }: { data: any; version: string }) => {
   const [activePlan, setActivePlan] = React.useState('');
   React.useEffect(() => {
     if (!isEmpty(data)) {
-
       const firstPlan = Object.keys(data)[0];
       setActivePlan(firstPlan);
     }
@@ -162,7 +175,7 @@ const ServiceDetail = (props: IProps) => {
   const baseData = get(data, '[0]') || {} as any;
 
   const baseInfo = baseData.spec || {};
-  const type = baseData.type;
+  const { type } = baseData;
   let versionMap = {} as any;
   if (data && data.length) {
     versionMap = keyBy(data, 'version');
@@ -172,18 +185,17 @@ const ServiceDetail = (props: IProps) => {
   if (loading) {
     return (
       <Spin spinning tip="加载中...">
-        <div className="gray-bg loading-holder"></div>
+        <div className="gray-bg loading-holder" />
       </Spin>
     );
   }
-  const hasImg = baseInfo && baseInfo.imageUrls && baseInfo.imageUrls.length>0;
+  const hasImg = baseInfo && baseInfo.imageUrls && baseInfo.imageUrls.length > 0;
 
   return (
     <div className="service-detail">
       <div className="title-container gray-bg">
         <PageSection space={0} width={1200} className="title-section mb0 full-width-header">
-          <div className="service-detail-title-bg">
-          </div>
+          <div className="service-detail-title-bg" />
         </PageSection>
         <div className="title-content">
           {

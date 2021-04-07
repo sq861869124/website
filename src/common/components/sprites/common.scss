@@ -67,4 +67,20 @@
   &.api {
     @include sprite($api-2x);
   }
+
+  &.fdp {
+    @include sprite($icon-ksj);
+  }
+
+  &.duoyun {
+    @include sprite($icon-duoyun);
+  }
+
+  &.dev {
+    @include sprite($icon-dev);
+  }
+
+  &.microservice {
+    @include sprite($icon-wfw);
+  }
 }

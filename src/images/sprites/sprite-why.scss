@@ -1,0 +1,174 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$icon-auto-name: "icon_auto";
+$icon-auto-x: 0px;
+$icon-auto-y: 0px;
+$icon-auto-offset-x: 0px;
+$icon-auto-offset-y: 0px;
+$icon-auto-width: 80px;
+$icon-auto-height: 80px;
+$icon-auto-total-width: 240px;
+$icon-auto-total-height: 240px;
+$icon-auto-image: "/images/sprites/sprite-why.png";
+$icon-auto: (0px, 0px, 0px, 0px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_auto", );
+$icon-cloud-origin-name: "icon_cloud_origin";
+$icon-cloud-origin-x: 80px;
+$icon-cloud-origin-y: 0px;
+$icon-cloud-origin-offset-x: -80px;
+$icon-cloud-origin-offset-y: 0px;
+$icon-cloud-origin-width: 80px;
+$icon-cloud-origin-height: 80px;
+$icon-cloud-origin-total-width: 240px;
+$icon-cloud-origin-total-height: 240px;
+$icon-cloud-origin-image: "/images/sprites/sprite-why.png";
+$icon-cloud-origin: (80px, 0px, -80px, 0px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_cloud_origin", );
+$icon-expert-server-name: "icon_expert_server";
+$icon-expert-server-x: 0px;
+$icon-expert-server-y: 80px;
+$icon-expert-server-offset-x: 0px;
+$icon-expert-server-offset-y: -80px;
+$icon-expert-server-width: 80px;
+$icon-expert-server-height: 80px;
+$icon-expert-server-total-width: 240px;
+$icon-expert-server-total-height: 240px;
+$icon-expert-server-image: "/images/sprites/sprite-why.png";
+$icon-expert-server: (0px, 80px, 0px, -80px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_expert_server", );
+$icon-multi-cloud-name: "icon_multi_cloud";
+$icon-multi-cloud-x: 80px;
+$icon-multi-cloud-y: 80px;
+$icon-multi-cloud-offset-x: -80px;
+$icon-multi-cloud-offset-y: -80px;
+$icon-multi-cloud-width: 80px;
+$icon-multi-cloud-height: 80px;
+$icon-multi-cloud-total-width: 240px;
+$icon-multi-cloud-total-height: 240px;
+$icon-multi-cloud-image: "/images/sprites/sprite-why.png";
+$icon-multi-cloud: (80px, 80px, -80px, -80px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_multi_cloud", );
+$icon-neetnot-deploy-name: "icon_neetnot_deploy";
+$icon-neetnot-deploy-x: 160px;
+$icon-neetnot-deploy-y: 0px;
+$icon-neetnot-deploy-offset-x: -160px;
+$icon-neetnot-deploy-offset-y: 0px;
+$icon-neetnot-deploy-width: 80px;
+$icon-neetnot-deploy-height: 80px;
+$icon-neetnot-deploy-total-width: 240px;
+$icon-neetnot-deploy-total-height: 240px;
+$icon-neetnot-deploy-image: "/images/sprites/sprite-why.png";
+$icon-neetnot-deploy: (160px, 0px, -160px, 0px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_neetnot_deploy", );
+$icon-one-site-name: "icon_one_site";
+$icon-one-site-x: 160px;
+$icon-one-site-y: 80px;
+$icon-one-site-offset-x: -160px;
+$icon-one-site-offset-y: -80px;
+$icon-one-site-width: 80px;
+$icon-one-site-height: 80px;
+$icon-one-site-total-width: 240px;
+$icon-one-site-total-height: 240px;
+$icon-one-site-image: "/images/sprites/sprite-why.png";
+$icon-one-site: (160px, 80px, -160px, -80px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_one_site", );
+$icon-safe-name: "icon_safe";
+$icon-safe-x: 0px;
+$icon-safe-y: 160px;
+$icon-safe-offset-x: 0px;
+$icon-safe-offset-y: -160px;
+$icon-safe-width: 80px;
+$icon-safe-height: 80px;
+$icon-safe-total-width: 240px;
+$icon-safe-total-height: 240px;
+$icon-safe-image: "/images/sprites/sprite-why.png";
+$icon-safe: (0px, 160px, 0px, -160px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_safe", );
+$icon-scla-name: "icon_scla";
+$icon-scla-x: 80px;
+$icon-scla-y: 160px;
+$icon-scla-offset-x: -80px;
+$icon-scla-offset-y: -160px;
+$icon-scla-width: 80px;
+$icon-scla-height: 80px;
+$icon-scla-total-width: 240px;
+$icon-scla-total-height: 240px;
+$icon-scla-image: "/images/sprites/sprite-why.png";
+$icon-scla: (80px, 160px, -80px, -160px, 80px, 80px, 240px, 240px, "/images/sprites/sprite-why.png", "icon_scla", );
+$spritesheet-width: 240px;
+$spritesheet-height: 240px;
+$spritesheet-image: "/images/sprites/sprite-why.png";
+$spritesheet-sprites: ($icon-auto, $icon-cloud-origin, $icon-expert-server, $icon-multi-cloud, $icon-neetnot-deploy, $icon-one-site, $icon-safe, $icon-scla, );
+$spritesheet: (240px, 240px, "/images/sprites/sprite-why.png", $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  @include sprite-background-size($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

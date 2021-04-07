@@ -1,0 +1,35 @@
+// Created by 含光<jiankang.pjk@alibaba-inc.com> on 2021/3/15 09:58.
+@-webkit-keyframes fadeInUpOverride {
+  from {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUpOverride {
+  from {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.erda-fade-in-up {
+  &.fade-in-up {
+    -webkit-animation-name: fadeInUpOverride;
+    animation-name: fadeInUpOverride;
+  }
+}

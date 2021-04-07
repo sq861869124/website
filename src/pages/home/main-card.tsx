@@ -1,27 +1,57 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import React from 'react';
-import PageContent from '~/components/common/page-content';
+import PageContent from '~/layout/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
-import { CopmFadeInUp } from 'pages/component/animate-comp'
+import { CopmFadeInUp } from 'pages/component/animate-comp';
+import { useMobile } from 'common/utils';
+import { Link } from 'react-router-dom';
+import { Icon } from 'common';
+
+const config = {
+  title: '为什么选择 Erda Cloud?',
+  description: '采用多云架构的一站式企业数字化平台，为企业提供 DevOps、微服务治理、多云管理以及快数据管理等云原生服务。',
+};
 
 
 const MainCard = () => {
+  const isMobild = useMobile();
   return (
     <PageContent className="erda-home-main-card">
       <CopmFadeInUp>
-        <div className="card-title">为什么选择 Erda Cloud?</div>
+        <div className="card-title">{config.title}</div>
       </CopmFadeInUp>
       <CopmFadeInUp>
         <div className="card-desc mt16">
-          Erda Cloud 是一款在线 DevOps 平台，一站式提供项目协作、代码托管、CI/CD、测试管理和微服务治理平台，让开发者更专注于自身业务架构设计开发，团队高效沟通、迭代开发过程缩短、轻松方便的运维等，都可以交给 Erda Cloud 来提供方案解决。
+          {config.description}
+          <Link className="link-to" to="/why-erda">更多<Icon type="Rightarrow" /></Link>
         </div>
       </CopmFadeInUp>
       <div className="img-wrapper mt20">
         <CopmFadeInUp>
-          <ImgLazy width={800} height={260} src="/images/home/main.png"/>
+          {
+            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src="/images/home/main-l.png" />
+          }
+          <ImgLazy lazy={false} width={430} height={430} src="/images/home/main-c.png" />
+          {
+            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src="/images/home/main-r.png" />
+          }
         </CopmFadeInUp>
       </div>
     </PageContent>
-  )
-}
+  );
+};
 
-export default MainCard
+export default MainCard;

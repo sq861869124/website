@@ -43,6 +43,7 @@
   "include": [
     "./src",
     "./interface",
-    "./node_modules/@types/*"
+    "./node_modules/@types/**/*.d.ts",
+    "./node_modules/**/types/*.d.ts",
   ]
 }

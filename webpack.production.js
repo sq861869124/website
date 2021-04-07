@@ -16,13 +16,13 @@ module.exports = {
   output: {
     pathinfo: false,
     path: path.resolve(__dirname, 'public'),
-    filename: 'scripts/[name].js',
+    filename: 'scripts/[name].[chunkhash].js',
     chunkFilename: 'scripts/[chunkhash].chunk.js',
     publicPath: '/',
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style/[name].css',
+      filename: 'style/[name].[chunkhash].css',
       ignoreOrder: true,
     }),
   ],

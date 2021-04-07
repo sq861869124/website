@@ -1,5 +1,4 @@
-.fixed-with-head,
-.fixed-with-window {
+.fixed-with-head, .fixed-with-window {
   .service-market-tab {
     position: fixed;
     top: 0;
@@ -23,8 +22,8 @@
 
 .service-market-tab {
   height: 56px;
-  background: #f9f9fb;
-  box-shadow: 0 1px 6px 0 rgba(218, 219, 220, .6);
+  background-color: #f9f9fb;
+  box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
 
   .tab-list {
     display: flex;
@@ -48,13 +47,13 @@
       }
 
       &:hover {
-        color: $primary;
+        color: #5c4ded;
       }
 
       &.active {
-        color: $primary;
+        color: #5c4ded;
         font-weight: 500;
-        border-bottom-color: $primary;
+        //border-bottom-color: $primary;
       }
 
       &.disabled {
@@ -66,8 +65,7 @@
 }
 
 @include sm-width() {
-  .fixed-with-head,
-  .fixed-with-window {
+  .fixed-with-head, .fixed-with-window {
     .service-market-tab {
       position: unset;
       top: unset;

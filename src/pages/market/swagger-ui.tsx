@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import { map, isEmpty, cloneDeep } from 'lodash';
 import * as React from 'react';
 import { Collapse, Input, Select, Button, Tooltip, Row, Col, Spin } from 'antd';
@@ -31,7 +45,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
     }
     return url;
   };
-  let [tagMap, apiMap] = React.useMemo(() => {
+  const [tagMap, apiMap] = React.useMemo(() => {
     const _tagMap = {};
     const _apiMap = {};
     let firstList: any;
@@ -47,10 +61,10 @@ const SwaggerUI = ({ data, canTest }: any) => {
           _path,
           ...api,
         };
-        map((api.tags || ['OTHER']), tagName => {
+        map((api.tags || ['OTHER']), (tagName) => {
           if (_tagMap[tagName]) {
             _tagMap[tagName].push(item);
-          }else {
+          } else {
             _tagMap[tagName] = [];
             _tagMap[tagName].push(item);
             firstList = firstList || _tagMap[tagName];
@@ -139,7 +153,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
     }
     const api = apiMap[active];
     if (isEmpty(api)) {
-      return  null;
+      return null;
     }
     const key = api._method + api._path;
     return (
@@ -159,11 +173,11 @@ const SwaggerUI = ({ data, canTest }: any) => {
             isEmpty(api.parameters) && (
               <div className="api-section api-param">
                 No parameters
-                </div>
+              </div>
             )
           }
           {
-            map(api.parameters, param => {
+            map(api.parameters, (param) => {
               const subType = param.items ? `[${param.items.type}]` : null;
               const mockData = param.schema ? mock(param.schema) : null;
               const mockJson = JSON.stringify(mockData, null, 2);
@@ -173,7 +187,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
                     <Col span={6}>
                       <div className="key">
                         {param.name}&nbsp;
-                          {param.required ? <span className="param-required">*</span> : null}
+                        {param.required ? <span className="param-required">*</span> : null}
                       </div>
                       <div className="param-type">{param.type || 'object'}{param.format ? `(${param.format})` : null}{subType}</div>
                       <div className="param-position">({param.in})</div>
@@ -186,7 +200,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
                             <div className="lh">
                               <Select style={{ width: '240px' }} defaultValue={api.consumes[0]}>
                                 {
-                                  map(api.consumes, consume => <Option key={consume} value={consume}>{consume}</Option>)
+                                  map(api.consumes, (consume) => <Option key={consume} value={consume}>{consume}</Option>)
                                 }
                               </Select>
                               {mockData && (
@@ -248,7 +262,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
 
   if (parsing) {
     return (
-      <Spin size="large" spinning tip="解析中，请稍后..."><div className="loading-holder"></div></Spin>
+      <Spin size="large" spinning tip="解析中，请稍后..."><div className="loading-holder" /></Spin>
     );
   }
 
@@ -259,7 +273,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
         <Col span={7}>
           <div className="api-list">
             <div className="api-search pa8">
-              <Input placeholder="按路径或描述搜索" onChange={e => filterApi(e.target.value)} />
+              <Input placeholder="按路径或描述搜索" onChange={(e) => filterApi(e.target.value)} />
             </div>
             {List}
           </div>

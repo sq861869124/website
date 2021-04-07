@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import resolve from 'resolve-pathname';
 import useMedia from 'react-use/lib/useMedia';
 // import axios from 'axios';
@@ -80,24 +94,6 @@ export const enlargeImg = (e: any, isMobile?: boolean) => {
 
   }
 };
-
-export const getDocUrl = () => {
-  // const version = await getVersion();
-  // const versionArr = version.split('.');
-  return Promise.resolve('https://dice-docs.app.terminus.io/');
-};
-
-
-// export const getVersion = async () => {
-//   let version = '';
-//   try {
-//     let res = await axios.get('/api/openapi/version?short=true');
-//     res && (version = String(res.data));
-//   } catch (e) {
-//     version = process.env.DICE_VER;
-//   }
-//   return version;
-// };
 
 export const getScrollTop = () => {
   return (
@@ -184,3 +180,7 @@ export const getFormFieldsValue = <T>(form: FormInstance, nameList?: string[]): 
     resolve( { error: r, data: {} as T } );
   } );
 } );
+
+export const getParentContainer = (el: HTMLElement): HTMLElement => {
+  return el.parentElement as HTMLElement
+}

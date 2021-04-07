@@ -3,7 +3,7 @@
 echo "启动docker"
 open --background -a Docker
 
-VER="3.3-$(date '+%Y%m%d-%s')"
+VER="1.0-$(date '+%Y%m%d-%s')"
 
 echo "清除本地缓存..."
 rm -rf ./.cache
@@ -21,7 +21,7 @@ echo "开始打包版本：$VER"
 npm run build
 
 echo "构建并推送镜像..."
-image="registry.cn-hangzhou.aliyuncs.com/terminus/dice-site:$VER"
+image="registry.cn-hangzhou.aliyuncs.com/terminus/erda-site:$VER"
 docker build -f local_Dockerfile -t $image . || exit 1
 docker push $image || exit 1
 

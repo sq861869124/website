@@ -10,10 +10,6 @@ const getCustomTransformers = () => ({
       libraryDirectory: 'lib',
       style: true,
     },
-    // {
-    //   libraryName: '@terminus/nusi',
-    //   libraryDirectory: 'es',
-    // },
     {
       style: false,
       libraryName: 'lodash',

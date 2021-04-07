@@ -1,3 +1,17 @@
+// Copyright (c) 2021 Terminus, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import React from 'react';
 import { Spin, message, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
@@ -6,30 +20,39 @@ import QRCode from 'qrcode.react';
 import axios, { AxiosResponse } from 'axios';
 import moment from 'moment';
 import { handleError, judgeClient } from 'common/utils';
+import { useSiteEnv } from '~/models/env';
 import './download.scss';
 
 interface IObj {
-  [key: string]: any
+  [key: string]: any;
 }
 
 const DownloadPage = ({ match }: any) => {
-  const [ isLoading, setIsLoading ] = React.useState(false);
-  const [ hasDefault, setHasDefault ] = React.useState(false);
-  const [ versionList, setVersionList ] = React.useState([] as any[]);
-  const [ current, setCurrent ] = React.useState({ activeKey: '', pkg: {} } as IObj);
-  const [ logo, setLogo ] = React.useState('');
-  const [ showDownload, setShowDownload ] = React.useState(false);
-  const [ name, setName ] = React.useState('');
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [hasDefault, setHasDefault] = React.useState(false);
+  const [versionList, setVersionList] = React.useState([] as any[]);
+  const [current, setCurrent] = React.useState({ activeKey: '', pkg: {} } as IObj);
+  const [logo, setLogo] = React.useState('');
+  const [showDownload, setShowDownload] = React.useState(false);
+  const [name, setName] = React.useState('');
+  const [, setEnv] = useSiteEnv();
   const client = judgeClient().toLowerCase();
   React.useEffect(() => {
+    setEnv({ onlyMain: true });
+  }, []);
+  React.useEffect(() => {
     setIsLoading(true);
+    let payload = {};
+    if (client !== 'pc') {
+      payload = { mobileType: client };
+    }
     axios
-      .get(`/api/publish-items/${match.params.publishItemId}/distribution`, { params: { mobileType: client } )
+      .get(`/api/publish-items/${match.params.publishItemId}/distribution`, { params: payload })
       .then((response: AxiosResponse<IResponse<any>>) => {
         const { success, data, err } = response.data;
         if (success) {
-          const { default: defaultVersion, versions } = data as { default: any, versions: { list: any[], total: number } };
-          let vlist = versions.list || [];
+          const { default: defaultVersion, versions } = data as { default: any; versions: { list: any[]; total: number } };
+          const vlist = versions.list || [];
           let has_default = false;
           if (defaultVersion) {
             const { id, updatedAt } = defaultVersion;
@@ -51,10 +74,10 @@ const DownloadPage = ({ match }: any) => {
           setName(data.name);
           setVersionList(vlist);
           if (client === 'pc') {
-            const {resources= []} = vlist.find(t => t.isDefault) || {};
+            const { resources = [] } = vlist.find((t) => t.isDefault) || {};
             const type = get(resources, '[0].type');
             setShowDownload(has_default && type === 'data');
-          }else {
+          } else {
             setShowDownload(has_default);
           }
         } else {
@@ -65,13 +88,13 @@ const DownloadPage = ({ match }: any) => {
       .catch(() => {
         setIsLoading(false);
       });
-  }, [ match.params.publishItemId ]);
+  }, [match.params.publishItemId]);
   const handleChangePkg = (activeKey: string, pkg: IObj, updatedAt: string) => {
-    const {type} = pkg;
+    const { type } = pkg;
     let download = false;
     if (type === 'data') {
       download = client === 'pc' && hasDefault;
-    }else {
+    } else {
       download = client !== 'pc' && hasDefault;
     }
     setShowDownload(download);
@@ -99,7 +122,7 @@ const DownloadPage = ({ match }: any) => {
         message.info('下载链接不存在，请稍后刷新重试');
         return;
       }
-      if (installPlist.indexOf('https://') === - 1) {
+      if (installPlist.indexOf('https://') === -1) {
         message.info('请使用HTTPS协议链接');
         return;
       }
@@ -114,7 +137,7 @@ const DownloadPage = ({ match }: any) => {
     const { byteSize = 0 } = meta || {};
     return byteSize ? `${(byteSize / 1024 / 1024).toFixed(2)}M` : '';
   };
-  const versions = [ ...versionList ].map((item) => {
+  const versions = [...versionList].map((item) => {
     const { resources = [], id, updatedAt, isDefault } = item;
     let packages = resources || [];
     if (client !== 'pc') {
@@ -150,13 +173,13 @@ const DownloadPage = ({ match }: any) => {
           <div className="card-container">
             <div className="qrcode-wrap">
               {
-                client !== 'pc' && logo ? <img className="logo" src={logo} alt=""/> : <QRCode className="qrcode" value={window.location.href} level="H" bgColor="rgba(0,0,0,0)"/>
+                client !== 'pc' && logo ? <img className="logo" src={logo} alt="" /> : <QRCode className="qrcode" value={window.location.href} level="H" bgColor="rgba(0,0,0,0)" />
               }
             </div>
             <p className="app-name">{name}</p>
             <p className="tips download-notice">扫描二维码下载</p>
             <p className="tips download-notice">或用手机浏览器输入网址: {window.location.href}</p>
-            <div className="line"></div>
+            <div className="line" />
             {
               React.Children.count(versions) ? (
                 <>
@@ -173,14 +196,14 @@ const DownloadPage = ({ match }: any) => {
             }
           </div>
         </div>
-        <img className="bg-img" src="/images/download/download-bg@2x.png" alt=""/>
+        <img className="bg-img" src="/images/download/download-bg@2x.png" alt="" />
         <div className="bg-wrap">
-          <img className="bg-img" src="/images/download/download-bg@2x.png" alt=""/>
-          <img className="people" src="/images/download/download-r1@2x.png" alt=""/>
-          <img className="water-mark" src="/images/download/download-c@2x.png" alt=""/>
-          <img className="s1" src="/images/download/download-s1@2x.png" alt=""/>
-          <img className="y1" src="/images/download/download-y1@2x.png" alt=""/>
-          <img className="y2" src="/images/download/download-y2@2x.png" alt=""/>
+          <img className="bg-img" src="/images/download/download-bg@2x.png" alt="" />
+          <img className="people" src="/images/download/download-r1@2x.png" alt="" />
+          <img className="water-mark" src="/images/download/download-c@2x.png" alt="" />
+          <img className="s1" src="/images/download/download-s1@2x.png" alt="" />
+          <img className="y1" src="/images/download/download-y1@2x.png" alt="" />
+          <img className="y2" src="/images/download/download-y2@2x.png" alt="" />
         </div>
       </div>
     </Spin>

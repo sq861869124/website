@@ -88,7 +88,6 @@
     }
   }
 
-
   .content {
     position: relative;
     z-index: 2;
@@ -116,7 +115,7 @@
         height: 10rem;
         margin: .72rem auto 1rem;
         padding: .4rem;
-        border: 1px solid rgba(0, 0, 0, .10);
+        border: 1px solid rgba(0, 0, 0, .1);
         border-radius: 4px;
 
         .qrcode {
@@ -136,7 +135,6 @@
         font-size: 1.25rem;
         line-height: 1.75rem;
         text-align: center;
-
       }
 
       .tips {
@@ -169,10 +167,10 @@
           margin-right: .75rem;
           margin-bottom: 1rem;
           padding: .25rem .75rem;
-          color: rgba(0, 0, 0, .40);
+          color: rgba(0, 0, 0, .4);
           font-size: 14px;
           line-height: 1.25rem;
-          border: 1px dotted rgba(0, 0, 0, .40);
+          border: 1px dotted rgba(0, 0, 0, .4);
           //border-style: dotted;
           border-radius: .875rem;
           cursor: pointer;
@@ -200,7 +198,6 @@
     //background-position: bottom left;
     .bg-img {
       display: none;
-
     }
 
     .content {

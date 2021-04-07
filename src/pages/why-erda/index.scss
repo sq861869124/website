@@ -1,0 +1,63 @@
+.erda-why-erda {
+  .full-width-header {
+    height: 330px;
+    @include pageHeaderBg();
+  }
+
+  &-body {
+    min-height: calc(100vh - (330px + #{$footer-height}));
+    padding: 3.75rem 8.125rem 0;
+
+    .reasions {
+      flex-wrap: wrap;
+
+      &-item {
+        width: 50%;
+        margin-bottom: 2.5rem;
+
+        .logo {
+          width: 5rem;
+          height: 5rem;
+
+          > div {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .item-right {
+          margin-left: 1rem;
+          padding-right: 4.5rem;
+        }
+
+        .title {
+          color: #0d0c22;
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+        }
+
+        .desc {
+          color: #2f3c5f;
+          font-size: 1rem;
+          line-height: 1.75rem;
+          opacity: .7;
+        }
+      }
+    }
+  }
+  @include sm-width() {
+    &-body {
+      padding: 1.25rem;
+
+      .reasions {
+        &-item {
+          width: 100%;
+
+          .item-right {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
