@@ -12,14 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 import * as React from 'react';
 
 export const TouchContainer = ({ children, next, prev }: any) => {
   const MIN_TOUCH_DISTENCE = 50;
   const [startX, setStartX] = React.useState(0);
   const [endX, setEndX] = React.useState(0);
-  const handleTouchEnd = React.useCallback((e: any) => {
+  const handleTouchEnd = React.useCallback(() => {
     if (startX === 0 || endX === 0) return;
     const distance = Math.abs(startX - endX);
     if (distance > MIN_TOUCH_DISTENCE) {

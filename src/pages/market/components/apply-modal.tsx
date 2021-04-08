@@ -38,8 +38,8 @@ const ApplyModal = ({ visible, onCancel, apiPublishId }: IProps) => {
       return;
     }
     axios.post(`/api/gateway/publications/${apiPublishId}/subscribe`, data).then((res: AxiosResponse<IResponse<boolean>>) => {
-      const { success, err, data } = res.data;
-      if (success && data) {
+      const { success, err, data: resData } = res.data;
+      if (success && resData) {
         handleCancel();
       } else {
         handleError(err);

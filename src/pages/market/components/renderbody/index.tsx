@@ -112,7 +112,7 @@ const RenderBody = ({ root, properties = {}, dataType: dTtpe }: {root: string; p
         paramsType = type; showExpand = allowExpand;
       }
       return (
-        <Row type="flex" key={params} className="params-row bb mb4 ml20">
+        <Row key={params} className="params-row bb mb4 ml20">
           <Col span={6}>
             <div className="param-key nowrap">
               {params}
@@ -122,7 +122,8 @@ const RenderBody = ({ root, properties = {}, dataType: dTtpe }: {root: string; p
             <div className="param-type nowrap">
               {
                 ['object', 'array'].includes(paramsProps.type) && showExpand ? (
-                  <span className={`mb12 nowrap ${noExpandTypes.includes(paramsType) ? '' : 'highlight '}`}
+                  <span
+                    className={`mb12 nowrap ${noExpandTypes.includes(paramsType) ? '' : 'highlight '}`}
                     onClick={() => {
                       expand(params, paramsProps);
                     }}
@@ -166,7 +167,8 @@ const RenderBody = ({ root, properties = {}, dataType: dTtpe }: {root: string; p
     return bodyPath.map((item, index) => {
       return (
         <Fragment key={index}>
-          <span className="highlight mb12 nowrap"
+          <span
+            className="highlight mb12 nowrap"
             key={item.params}
             onClick={() => {
               changeRoute(item, index !== bodyPath.length - 1);

@@ -18,16 +18,16 @@ import { message } from 'antd';
 const whiteList = {};
 
 axios.interceptors.request.use((config) => {
-  const {params = {}, url = ''} = config;
-  const {HIDDEN_MESSAGE_REQUEST, ...rest} = params;
+  const { params = {}, url = '' } = config;
+  const { HIDDEN_MESSAGE_REQUEST, ...rest } = params;
   if (HIDDEN_MESSAGE_REQUEST === true) {
     whiteList[url] = true;
   }
   return {
     ...config,
     params: {
-      ...rest
-    }
+      ...rest,
+    },
   };
 });
 

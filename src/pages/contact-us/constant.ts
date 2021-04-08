@@ -17,24 +17,24 @@ export const COMPANY_SIZE = [
   { value: '21-100人', name: '21-100人' },
   { value: '101-500人', name: '101-500人' },
   { value: '501-1000人', name: '501-1000人' },
-  { value: '1000人以上', name: '1000人以上' }
-]
+  { value: '1000人以上', name: '1000人以上' },
+];
 
 export const IT_SIZE = [
   { value: '10人以下', name: '10人以下' },
   { value: '11-50人', name: '11-50人' },
   { value: '51-100人', name: '51-100人' },
   { value: '101-200人', name: '101-200人' },
-  { value: '200人以上', name: '200人以上' }
-]
+  { value: '200人以上', name: '200人以上' },
+];
 
 
 export const PURPOSE = [
   { value: '企业商务咨询', name: '企业商务咨询' },
   { value: '加入成为合作伙伴', name: '加入成为合作伙伴' },
   { value: '个人学习', name: '个人学习' },
-  { value: '其他', name: '其他' }
-]
+  { value: '其他', name: '其他' },
+];
 
 export enum NAME_MAP {
   realname = '真实姓名',

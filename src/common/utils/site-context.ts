@@ -13,8 +13,9 @@
 // limitations under the License.
 
 import React from 'react';
+
 export interface IContent{
-  headShow: boolean
+  headShow: boolean;
 }
 export const SiteContext = React.createContext<IContent>({
   headShow: true,

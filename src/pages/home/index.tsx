@@ -44,7 +44,8 @@ const Home = () => {
           </CopmFadeInUp>
           <CopmFadeInUp>
             <div className="center-flex-box btns mt36">
-              <div className="btn-item free-trial center-flex-box"
+              <div
+                className="btn-item free-trial center-flex-box"
                 onClick={() => {
                   window.open('/login-dice');
                 }}

@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { getNavList, getCaseList } from '~/services/case'
+import { getNavList, getCaseList } from '~/services/case';
 import { createStore } from '~/cube';
-import { get } from 'lodash'
+import { get } from 'lodash';
 
 interface IState {
   nav: Array<CASE.NavItem>;
@@ -29,37 +29,37 @@ const initState: IState = {
   products: [],
   caseList: [],
   currentPageNo: 1,
-  hasMore: false
-}
+  hasMore: false,
+};
 
 const caseStore = createStore({
   name: 'case',
   state: initState,
   effects: {
     async getNavList({ call, update }, payload: CASE.NavQuery) {
-      const res = await call(getNavList, payload)
-      const data = get(res.data, [ 0, 'data' ], [])
+      const res = await call(getNavList, payload);
+      const data = get(res.data, [0, 'data'], []);
       const product = data.find((t: CASE.NavItemChild) => t.name === 'Erda');
       await caseStore.effects.getCaseList({
         site: payload,
         pageNo: 1,
         pageSize: 10,
-        products: [ { id: product?.id } ]
-      })
-      update({ nav: res.data || [], products: [ { id: product?.id } ] })
+        products: [{ id: product?.id }],
+      });
+      update({ nav: res.data || [], products: [{ id: product?.id }] });
     },
     async getCaseList({ call, update, select }, payload: CASE.CaseQuery) {
       const { data } = await call(getCaseList, payload);
       const hasMore = Math.ceil(data.total / payload.pageSize) > payload.pageNo;
-      let caseList = data.data || []
+      let caseList = data.data || [];
       if (payload.pageNo !== 1) {
-        const originList = select(s => s.caseList);
-        caseList = [ ...originList, ...caseList ]
+        const originList = select((s) => s.caseList);
+        caseList = [...originList, ...caseList];
       }
-      update({ caseList, hasMore, currentPageNo: payload.pageNo })
-    }
+      update({ caseList, hasMore, currentPageNo: payload.pageNo });
+    },
   },
-  reducers: {}
+  reducers: {},
 });
 
 export default caseStore;

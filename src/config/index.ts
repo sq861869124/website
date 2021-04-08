@@ -12,6 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as erdaConfig from "./erda";
+import * as erdaConfig from './erda';
 
 export const config = erdaConfig;

@@ -5,14 +5,8 @@
 body {
   min-height: 100vh;
   margin: 0;
-  font-family: -apple-system,
-    PingFangSC-Regular,
-    "Segoe UI",
-    "Hiragino Sans GB",
-    "Microsoft YaHei",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
+  font-family: -apple-system, PingFangSC-Regular, "Segoe UI", "Hiragino Sans GB",
+    "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
   background: #edeff5;
   -webkit-font-smoothing: antialiased;
 
@@ -46,7 +40,7 @@ body {
   font-size: 14px;
   background: transparent;
   border-color: $primary;
-  transition: all .1s cubic-bezier(.645, .045, .355, 1);
+  transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &.ant-btn-primary {
     color: $white;
@@ -63,7 +57,6 @@ body {
 
   &.invert {
     color: $white;
-
     background: transparent;
     border-color: $white;
 
@@ -92,8 +85,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-repeat: no-repeat;
   background-position: bottom;
 
@@ -115,7 +108,8 @@ body {
 
 @include sm-width() {
   .page-header-bgimg {
-    .header-name, .header-desc {
+    .header-name,
+    .header-desc {
       font-size: 14px;
     }
   }
@@ -143,8 +137,8 @@ body {
   left: 0;
   z-index: 1000;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100% !important;
   height: 100% !important;
   padding: 20px;

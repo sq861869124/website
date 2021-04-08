@@ -21,8 +21,8 @@ interface IState {
 }
 
 const initState: IState = {
-  user: {} as USER.IUser
-}
+  user: {} as USER.IUser,
+};
 
 const userStore = createStore({
   name: 'user',
@@ -39,20 +39,20 @@ const userStore = createStore({
     async getCurrentUser({ call, update }) {
       const res = await call(getCurrentUser);
       if (res.success) {
-        update({ user: res.data })
+        update({ user: res.data });
       }
     },
     async logout({ call }) {
       await call(logout);
       await call(ucLogout);
       userStore.reducers.clearUser();
-    }
+    },
   },
   reducers: {
     clearUser(state) {
-      state.user = {} as USER.IUser
-    }
-  }
+      state.user = {} as USER.IUser;
+    },
+  },
 });
 
 export default userStore;

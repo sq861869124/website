@@ -79,6 +79,7 @@ const KeyValueEdit = (props: IKeyValProps) => {
             <div className="key-value-edit-item" key={index}>
               {
                 (itemMap || []).map((t, i) => {
+                  // eslint-disable-next-line @typescript-eslint/no-shadow
                   const { type, props: compProps, render, getProps } = t;
                   const comprops = {
                     ...compProps,
@@ -91,7 +92,8 @@ const KeyValueEdit = (props: IKeyValProps) => {
                   return (
                     <Fragment key={i}>
                       {
-                        render ? render(comprops) : <Input className={`flex-1 ${className}`}
+                        render ? render(comprops) : <Input
+                          className={`flex-1 ${className}`}
                           {...comprops}
                           onChange={(e) => {
                             updateValue(index, type, e.target.value);

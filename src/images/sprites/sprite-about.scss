@@ -19,7 +19,18 @@ $albb-2x-height: 80px;
 $albb-2x-total-width: 160px;
 $albb-2x-total-height: 160px;
 $albb-2x-image: "/images/sprites/sprite-about.png";
-$albb-2x: (0px, 0px, 0px, 0px, 80px, 80px, 160px, 160px, "/images/sprites/sprite-about.png", "albb@2x", );
+$albb-2x: (
+  0px,
+  0px,
+  0px,
+  0px,
+  80px,
+  80px,
+  160px,
+  160px,
+  "/images/sprites/sprite-about.png",
+  "albb@2x"
+);
 $jbzx-2x-name: "jbzx@2x";
 $jbzx-2x-x: 80px;
 $jbzx-2x-y: 0px;
@@ -30,7 +41,18 @@ $jbzx-2x-height: 80px;
 $jbzx-2x-total-width: 160px;
 $jbzx-2x-total-height: 160px;
 $jbzx-2x-image: "/images/sprites/sprite-about.png";
-$jbzx-2x: (80px, 0px, -80px, 0px, 80px, 80px, 160px, 160px, "/images/sprites/sprite-about.png", "jbzx@2x", );
+$jbzx-2x: (
+  80px,
+  0px,
+  -80px,
+  0px,
+  80px,
+  80px,
+  160px,
+  160px,
+  "/images/sprites/sprite-about.png",
+  "jbzx@2x"
+);
 $kskz-2x-name: "kskz@2x";
 $kskz-2x-x: 0px;
 $kskz-2x-y: 80px;
@@ -41,12 +63,28 @@ $kskz-2x-height: 80px;
 $kskz-2x-total-width: 160px;
 $kskz-2x-total-height: 160px;
 $kskz-2x-image: "/images/sprites/sprite-about.png";
-$kskz-2x: (0px, 80px, 0px, -80px, 80px, 80px, 160px, 160px, "/images/sprites/sprite-about.png", "kskz@2x", );
+$kskz-2x: (
+  0px,
+  80px,
+  0px,
+  -80px,
+  80px,
+  80px,
+  160px,
+  160px,
+  "/images/sprites/sprite-about.png",
+  "kskz@2x"
+);
 $spritesheet-width: 160px;
 $spritesheet-height: 160px;
 $spritesheet-image: "/images/sprites/sprite-about.png";
-$spritesheet-sprites: ($albb-2x, $jbzx-2x, $kskz-2x, );
-$spritesheet: (160px, 160px, "/images/sprites/sprite-about.png", $spritesheet-sprites, );
+$spritesheet-sprites: ($albb-2x, $jbzx-2x, $kskz-2x);
+$spritesheet: (
+  160px,
+  160px,
+  "/images/sprites/sprite-about.png",
+  $spritesheet-sprites
+);
 
 // The provided mixins are intended to be used with the array-like variables
 //
@@ -83,7 +121,7 @@ $spritesheet: (160px, 160px, "/images/sprites/sprite-about.png", $spritesheet-sp
 @mixin sprite-position($sprite) {
   $sprite-offset-x: nth($sprite, 3);
   $sprite-offset-y: nth($sprite, 4);
-  background-position: $sprite-offset-x  $sprite-offset-y;
+  background-position: $sprite-offset-x $sprite-offset-y;
 }
 
 @mixin sprite-image($sprite) {

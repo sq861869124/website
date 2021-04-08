@@ -42,13 +42,13 @@ const TestManage = ({ title, list, description }: IProps) => {
         <div className="erda-home-test-manage-body flex-box v-align-start">
           {
             list.map((item, index) => {
-              const { icon, description, title } = item;
+              const { icon, description: itemDesc, title: itemTitle } = item;
               return (
-                <CopmFadeInUp key={title} delay={isMobile ? 0 : index * 100}>
-                  <div key={title} className="item">
+                <CopmFadeInUp key={itemTitle} delay={isMobile ? 0 : index * 100}>
+                  <div key={itemTitle} className="item">
                     <SpriteIcons path="home" className={`icon ${icon}`} />
-                    <div className="title mt36">{title}</div>
-                    <div className="desc mt8">{description}</div>
+                    <div className="title mt36">{itemTitle}</div>
+                    <div className="desc mt8">{itemDesc}</div>
                   </div>
                 </CopmFadeInUp>
               );

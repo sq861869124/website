@@ -18,11 +18,11 @@ declare interface IResponse<T> {
     code: string;
     msg: string;
   };
-  data: T
+  data: T;
 }
 
 declare module 'resolve-pathname';
-declare module USER {
+declare namespace USER {
   interface IUser {
     avatar: string;
     email: string;
@@ -34,7 +34,7 @@ declare module USER {
   }
 }
 
-declare module CONTACT {
+declare namespace CONTACT {
   interface contactUs {
     realname: string;
     mobile: string;
@@ -47,10 +47,10 @@ declare module CONTACT {
   }
 }
 
-declare module CASE {
+declare namespace CASE {
   interface CaseRes<T> {
     code: string;
-    data: T,
+    data: T;
     message: string;
   }
 
@@ -65,31 +65,31 @@ declare module CASE {
   }
 
   interface NavQuery {
-    id: number
+    id: number;
   }
 
   interface CaseQuery {
-    site: { id: number; },
+    site: { id: number };
     pageNo: number;
     pageSize: number;
-    products: { id: number }[]
-    industries?: { id: number }[]
+    products: Array<{ id: number }>;
+    industries?: Array<{ id: number }>;
   }
 
   interface ListItem {
     exampleData: {
-      caseRelatedProducts: {
+      caseRelatedProducts: Array<{
         id: number;
         name: string;
-      }[]
-      caseRelatedSolutions: {
+      }>;
+      caseRelatedSolutions: Array<{
         id: number;
         name: string;
         industry: {
           id: number;
           name: string;
-        }
-      }[];
+        };
+      }>;
       content: string;
       coverMaterial: string;
       createdAt: number;
@@ -98,15 +98,14 @@ declare module CASE {
       desc: string;
       title: string;
       id: number;
-    }
+    };
     id: number;
   }
 
-  type CaseDetail = ListItem['exampleData']
+  type CaseDetail = ListItem['exampleData'];
 }
 
 type Merge<A, B> = ({ [K in keyof A]: K extends keyof B ? B[K] : A[K] } &
-  B) extends infer O
+B) extends infer O
   ? { [K in keyof O]: O[K] }
   : never;
-

@@ -189,7 +189,7 @@ const ServiceDetail = (props: IProps) => {
       </Spin>
     );
   }
-  const hasImg = baseInfo && baseInfo.imageUrls && baseInfo.imageUrls.length > 0;
+  // const hasImg = baseInfo && baseInfo.imageUrls && baseInfo.imageUrls.length > 0;
 
   return (
     <div className="service-detail">

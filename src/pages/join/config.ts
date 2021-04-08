@@ -24,7 +24,7 @@ export interface IJob {
   };
 }
 
-export type  IJobs = {
+export type IJobs = {
   [jobNature in IJobNature]: {
     [recruitmentType in IRecruitmentType]: Array<IJob>
   }
@@ -34,16 +34,16 @@ export type  IJobs = {
 const jobs: IJobs = {
   product: {
     school: [],
-    society: []
+    society: [],
   },
   technology: {
     school: [],
-    society: []
+    society: [],
   },
   design: {
     school: [],
-    society: []
-  }
-}
+    society: [],
+  },
+};
 
-export default jobs
+export default jobs;

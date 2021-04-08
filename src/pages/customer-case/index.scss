@@ -17,14 +17,14 @@
     font-size: 1rem;
     background: $white;
     border-radius: 6px;
-    box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+    box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
 
     .nav-items {
       justify-content: space-around;
       width: 100%;
 
       .item {
-        padding: .625rem 1rem;
+        padding: 0.625rem 1rem;
         color: rgba(47, 60, 95, 1);
         font-size: 1rem;
         line-height: 1rem;
@@ -32,7 +32,7 @@
 
         &.active {
           color: $primary;
-          background: rgba(92, 77, 237, .08);
+          background: rgba(92, 77, 237, 0.08);
           border-radius: 4px;
         }
       }
@@ -45,7 +45,7 @@
       margin-bottom: 1.25rem;
       background: $white;
       border-radius: 6px;
-      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
       cursor: pointer;
 
       &-left {
@@ -67,7 +67,7 @@
         }
 
         .title {
-          margin-bottom: .8rem;
+          margin-bottom: 0.8rem;
           color: #0d0c22;
           font-weight: 500;
           font-size: 1.5rem;
@@ -75,8 +75,8 @@
         }
 
         .desc {
-          color: rgba(47, 60, 95, .7);
-          font-size: .875rem;
+          color: rgba(47, 60, 95, 0.7);
+          font-size: 0.875rem;
           line-height: 1.5rem;
         }
       }
@@ -117,7 +117,7 @@
       .detail-content {
         padding: 3rem 9rem;
         background: $white;
-        box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+        box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
 
         img {
           width: 100% !important;
@@ -133,7 +133,7 @@
 
         h4 {
           margin: 1.25rem 0;
-          color: rgba(47, 60, 95, .8) !important;
+          color: rgba(47, 60, 95, 0.8) !important;
           font-weight: 700;
           font-size: 1rem !important;
           line-height: 1.25rem;
@@ -162,7 +162,7 @@
 
         .item {
           position: relative;
-          margin: 0 .5rem;
+          margin: 0 0.5rem;
 
           &.active {
             background: transparent;
@@ -173,7 +173,7 @@
               left: 0;
               display: block;
               width: 100%;
-              height: .5rem;
+              height: 0.5rem;
               background-image: linear-gradient(
                 270deg,
                 rgba(149, 133, 247, 0) 0%,

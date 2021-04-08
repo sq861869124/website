@@ -44,7 +44,7 @@ let inited = false;
 const renderer = new Markdown.Renderer();
 
 export default (content?: string, renderFns = {}) => {
-  if (!content) return content;
+  if (!content) return content || '';
 
   if (!inited) {
     inited = true;
@@ -52,7 +52,7 @@ export default (content?: string, renderFns = {}) => {
       renderer,
       breaks: true,
       gfm: true,
-      linkTarget: '__blank',
+      // linkTarget: '__blank',
       // 没有用户输入信息，不用检查
       sanitize: true,
       sanitizer(text: string) {

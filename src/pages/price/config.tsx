@@ -44,35 +44,33 @@ const versionInfo: {
     name: '免费版',
     bottomComp: <Button type="primary" onClick={() => { window.open('/login-dice'); }}>立即体验</Button>,
     tip: 'DevOps 平台部分内容',
-    pricingStrategies: [
-      {
-        key: 'A',
-        price: '免费',
-        specification: '用户数 <= 50人',
-      },
-    ],
+    pricingStrategies: [{
+      key: 'A',
+      price: '免费',
+      specification: '用户数 <= 50人',
+    }],
   },
   standardEdition: {
     name: '标准版',
     bottomComp: <Button type="primary" onClick={() => { window.open('/contact'); }}>联系商务</Button>,
     pricingStrategies: [
       // {
-      //   key: "A",
+      //   key: 'A',
       //   price: <><span className="bold">￥24,999</span>/年 <span className="tag">低至41.6元/人/月</span></>,
-      //   specification: '节点数 <= 10，用户数 <= 50'
+      //   specification: '节点数 <= 10，用户数 <= 50',
       // }, {
-      //   key: "B",
+      //   key: 'B',
       //   price: <><span className="bold">￥46,999</span>/年 <span className="tag">低至39.0元/人/月</span></>,
-      //   specification: '节点数 <= 30，用户数 <= 100'
+      //   specification: '节点数 <= 30，用户数 <= 100',
       // }, {
-      //   key: "C",
+      //   key: 'C',
       //   price: <><span className="bold">￥89,999</span>/年<span className="tag">低至￥37.5/人/月</span></>,
-      //   specification: '节点数 <= 50，用户数 <= 200'
+      //   specification: '节点数 <= 50，用户数 <= 200',
       // }, {
-      //   key: "D",
+      //   key: 'D',
       //   price: <><span className="bold">￥139,999</span>/年 <span className="tag">低至29.0元/人/月</span></>,
-      //   specification: '节点数 <= 100，用户数 <= 400'
-      // }
+      //   specification: '节点数 <= 100，用户数 <= 400',
+      // },
     ],
   },
   enterpriseEdition: {
@@ -80,22 +78,22 @@ const versionInfo: {
     bottomComp: <Button type="primary" onClick={() => { window.open('/contact'); }}>联系商务</Button>,
     pricingStrategies: [
       // {
-      //   key: "A",
+      //   key: 'A',
       //   price: <><span className="bold">￥49,999</span>/年 <span className="tag">低至￥83.3/人/月</span></>,
-      //   specification: '节点数 <= 10，用户数 <= 50'
+      //   specification: '节点数 <= 10，用户数 <= 50',
       // }, {
-      //   key: "B",
+      //   key: 'B',
       //   price: <><span className="bold">￥93,999</span>/年 <span className="tag">低至￥78.3/人/月</span></>,
-      //   specification: '节点数 <= 30，用户数 <= 100'
+      //   specification: '节点数 <= 30，用户数 <= 100',
       // }, {
-      //   key: "C",
+      //   key: 'C',
       //   price: <><span className="bold">￥169,998</span>/年 <span className="tag">低至￥70.8/人/月</span></>,
-      //   specification: '节点数 <= 50，用户数 <= 200'
+      //   specification: '节点数 <= 50，用户数 <= 200',
       // }, {
-      //   key: "D",
+      //   key: 'D',
       //   price: <><span className="bold">￥239,998</span>/年 <span className="tag">低至￥49.5/人/月</span></>,
-      //   specification: '节点数 <= 100，用户数 <= 400'
-      // }
+      //   specification: '节点数 <= 100，用户数 <= 400',
+      // },
     ],
   },
   privateDeploymentVersion: {

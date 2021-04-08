@@ -1,5 +1,5 @@
 $color-border: $light-gray;
-$color-text: rgba(0, 0, 0, .8);
+$color-text: rgba(0, 0, 0, 0.8);
 
 .key-value-edit {
   .no-params {
@@ -12,7 +12,8 @@ $color-text: rgba(0, 0, 0, .8);
     align-items: center;
     border-bottom: 1px solid $color-border;
 
-    input, .ant-select-selection {
+    input,
+    .ant-select-selection {
       color: $color-text;
       border: none;
       box-shadow: none !important;
@@ -27,8 +28,8 @@ $color-text: rgba(0, 0, 0, .8);
 
     &-operation {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       width: 50px;
     }
 
