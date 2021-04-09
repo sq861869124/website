@@ -28,7 +28,8 @@
     "stylelint:fix": "stylelint 'src/**/*.scss' --config .stylelintrc.json --fix --syntax scss && npm run prettier:scss",
     "prettier:scss": "prettier -c --write \"src/**/*.scss\"",
     "release": "shell/build.sh",
-    "analyze": "rm -rf public && NODE_ENV=production webpack --config webpack.analyze.js"
+    "analyze": "rm -rf public && NODE_ENV=production webpack --config webpack.analyze.js",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
