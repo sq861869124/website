@@ -20,12 +20,14 @@ import { Popover } from 'antd';
 import './temp-footer.scss';
 
 const leftConf = [
-  { name: '© 2021 Terminus, Inc', url: config.terminusDomain },
+  { name: '© 2021 erda.cloud', url: config.terminusDomain },
   { name: 'Term', url: config.temrUrl },
   { name: 'Extend', url: config.extendUrl },
   { name: 'Cli', url: config.cliUrl },
   { name: 'Securify', url: config.securifyUrl },
   { name: 'ChangeLog', url: config.changeLogUrl },
+  { name: '浙ICP备13004315号-6', url: 'https://beian.miit.gov.cn' },
+  { name: '浙公网安备 33010802003150号', url: 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802003150' },
 ];
 const rightConf = [
   {

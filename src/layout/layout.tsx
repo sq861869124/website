@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import * as React from 'react';
+import { Helmet } from "react-helmet";
 import Header from '~/layout/common/header';
 import Footer from '~/layout/common/temp-footer';
 import { SiteContext } from 'common/utils/site-context';
@@ -27,10 +28,47 @@ interface IProps extends RouteComponentProps{
   children: React.ReactNode;
 }
 
-const PageLayout = ({ children, location }: IProps) => {
-  const [headShow, setHeadShow] = React.useState(true);
-  const [{ onlyMain }] = useSiteEnv();
+const routesArr = [
+ {
+  pathname: '/contact',
+  title: '联系我们',
+},{
+  pathname: '/market',
+  title: '服务市场',
+},{
+  pathname: '/download',
+  title: '服务市场',
+},{
+  pathname: '/library',
+  title: '服务市场',
+},{
+  pathname: '/customer-case',
+  title: '成功案例',
+},{
+  pathname: '/price',
+  title: '价格',
+},{
+  pathname: '/why-erda',
+  title: 'WhyErda',
+},{
+  pathname: '/',
+  title: '',
+} ]
 
+const PageLayout = ({children, location}: IProps) => {
+  const [headShow, setHeadShow] = React.useState(true);
+  const [title, setTitle] = React.useState('');
+  const [{ onlyMain }] = useSiteEnv();
+  React.useEffect( () => {
+    const newTitle = routesArr.filter( ( item: any ) => {
+      if( location.pathname.indexOf(item.pathname) !== -1 ) {
+        return item
+      }
+    } )
+    if( newTitle.length ) {
+      setTitle( newTitle[0].title )
+    }
+  }, [location] )
   const changeHeadVisible = (vis: boolean) => {
     setHeadShow(vis);
   };
@@ -42,6 +80,9 @@ const PageLayout = ({ children, location }: IProps) => {
   });
   return (
     <SiteContext.Provider value={{ headShow }}>
+      <Helmet>
+        <title>{ title ? `尔达云 - ${title}` : '尔达云' }</title>
+      </Helmet>
       <div className={wrapperClassName}>
         {
           onlyMain ? null : <Header path={location.pathname} onChangeVisible={changeHeadVisible} />
