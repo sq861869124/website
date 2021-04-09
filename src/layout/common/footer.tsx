@@ -27,8 +27,8 @@ interface IProps {
   config: IFooterItem;
 }
 
-const FooterItem = ({ config, className = '' }: IProps) => {
-  const { name, icon, subList } = config;
+const FooterItem = ({ config: propsConf, className = '' }: IProps) => {
+  const { name, icon, subList } = propsConf;
   const [imgVisible, setImgVisible] = React.useState(false);
   const isMobile = useMobile();
 
@@ -61,7 +61,8 @@ const FooterItem = ({ config, className = '' }: IProps) => {
                 <div key={name} className={`footer-item-sub ${subCls}`}>{link}{val}</div>
                 {img ? <img src={img} height={height} width={width} className="footer-item-img" alt="footer-item-img" /> : null}
                 <IF.ELSE />
-                <div key={name}
+                <div
+                  key={name}
                   className={`footer-item-sub ${subCls}`}
                   onClick={() => {
                     img && setImgVisible(true);

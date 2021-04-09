@@ -1,7 +1,7 @@
 .site-loginpanel {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   height: 3.75rem;
   @include sm-width() {
     display: none;
@@ -12,17 +12,17 @@
     cursor: pointer;
 
     > a {
-      color: rgba(#f7f9ff, .7);
+      color: rgba(#f7f9ff, 0.7);
     }
   }
 
   .free-registration {
     width: 96px;
     height: 32px;
-    color: rgba(#f7f9ff, .7);
+    color: rgba(#f7f9ff, 0.7);
     line-height: 30px;
     text-align: center;
-    border: 1px solid rgba(#f7f9ff, .7);
+    border: 1px solid rgba(#f7f9ff, 0.7);
     border-radius: 16px;
 
     &:hover {

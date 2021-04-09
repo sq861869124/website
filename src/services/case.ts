@@ -18,18 +18,18 @@ export const getNavList = (data: CASE.NavQuery): Promise<CASE.CaseRes<CASE.NavIt
   return axios({
     url: '/api/example/nav',
     method: 'post',
-    data
-  }).then(res => res.data)
-}
+    data,
+  }).then((res) => res.data);
+};
 
-export const getCaseList = (data: CASE.CaseQuery): Promise<CASE.CaseRes<{ data: CASE.ListItem[], total: number, empty: boolean }>> => {
+export const getCaseList = (data: CASE.CaseQuery): Promise<CASE.CaseRes<{ data: CASE.ListItem[]; total: number; empty: boolean }>> => {
   return axios({
     url: '/api/example/list',
     method: 'post',
-    data
-  }).then(res => res.data)
-}
+    data,
+  }).then((res) => res.data);
+};
 
-export const getCaseDetail = ({ id }:{id: number}):Promise<CASE.CaseRes<CASE.CaseDetail>> => {
-  return axios(`/api/example/${id}`).then(res => res.data)
-}
+export const getCaseDetail = ({ id }: {id: number}): Promise<CASE.CaseRes<CASE.CaseDetail>> => {
+  return axios(`/api/example/${id}`).then((res) => res.data);
+};

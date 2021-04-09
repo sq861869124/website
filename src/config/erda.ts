@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export const terminusDomain = 'https://terminus.io'
-export const docDomain = 'https://erda-docs.app.terminus.io'
-export const docVersion = 'latest'
+export const terminusDomain = 'https://terminus.io';
+export const docDomain = 'https://erda-docs.app.terminus.io';
+export const docVersion = 'latest';
 
-export const docUrl = `${docDomain}/${docVersion}/manual`
-export const temrUrl = `${docDomain}/${docVersion}/manual`
-export const cliUrl = `${docDomain}/${docVersion}/manual/cli/explain-args.html`
-export const extendUrl = `${docDomain}/${docVersion}/manual/addons/design.html`
-export const securifyUrl = `${docDomain}/${docVersion}/manual/safe/identity-management.html`
-export const changeLogUrl = `${docDomain}/changeLog.html`
+export const docUrl = `${docDomain}/${docVersion}/manual`;
+export const temrUrl = `${docDomain}/${docVersion}/manual`;
+export const cliUrl = `${docDomain}/${docVersion}/manual/cli/explain-args.html`;
+export const extendUrl = `${docDomain}/${docVersion}/manual/addons/design.html`;
+export const securifyUrl = `${docDomain}/${docVersion}/manual/safe/identity-management.html`;
+export const changeLogUrl = `${docDomain}/changeLog.html`;
 
 export interface IHeaderItem {
   name: string;
@@ -34,26 +34,21 @@ export interface IHeaderItem {
 export const headerMenus: IHeaderItem[] = [
   // { name: 'Why Erda Cloud？', url: '/why-erda' },
   {
-    name: '产品', subList: [
-      {name:'DevOps 平台', img: 'dev', description: '以应用为中心的 DevOps，打造极致的企业级应用开发体验'},
-      {name:'微服务治理平台', img: 'microservice', description: '无代码侵入的微服务治理，保障企业应用的安全、稳定生产'},
-      {name:'多云管理平台', img: 'duoyun', description: '云厂商无绑定的多云管理，构建高效的企业混合云架构'},
-      {name:'快数据平台', img: 'fdp', description: '基于流式计算的快数据管理，提供实时的统一数据管理平台'}
-    ]
+    name: '产品',
+    subList: [
+      { name: 'DevOps 平台', img: 'dev', description: '以应用为中心的 DevOps，打造极致的企业级应用开发体验' },
+      { name: '微服务治理平台', img: 'microservice', description: '无代码侵入的微服务治理，保障企业应用的安全、稳定生产' },
+      { name: '多云管理平台', img: 'duoyun', description: '云厂商无绑定的多云管理，构建高效的企业混合云架构' },
+      { name: '快数据平台', img: 'fdp', description: '基于流式计算的快数据管理，提供实时的统一数据管理平台' },
+    ],
   },
   { name: '价格', url: '/price' },
   { name: '文档', url: docUrl, jumpOut: true },
   { name: '服务市场', url: '/market/addon' },
   { name: '成功案例', url: '/customer-case' },
   // { name: '探索', url: '/', status: 'unrealized' },
-  { name: 'GitHub', url: 'https://github.com/erda-project/erda', jumpOut: true }
+  { name: 'GitHub', url: 'https://github.com/erda-project/erda', jumpOut: true },
 ];
-
-export interface IFooterItem {
-  name: string;
-  icon?: string;
-  subList: ISubItem[];
-}
 
 export interface ISubItem {
   name: string;
@@ -67,6 +62,12 @@ export interface ISubItem {
   props?: object;
 }
 
+
+export interface IFooterItem {
+  name: string;
+  icon?: string;
+  subList: ISubItem[];
+}
 
 export interface Ifooter {
   left: {
@@ -93,8 +94,8 @@ export const footerMenus: Ifooter = {
       name: '关于我们',
       // icon: 'gy',
       subList: [
-        { name: '加入我们', url: '/join' }
-      ]
+        { name: '加入我们', url: '/join' },
+      ],
     },
     resource: {
       name: '资源',
@@ -103,23 +104,23 @@ export const footerMenus: Ifooter = {
         {
           name: '培训与支持',
           url: docUrl,
-          jumpOut: true
-        }
-      ]
+          jumpOut: true,
+        },
+      ],
     },
     contactUs: {
       name: '联系我们',
-      subList: [ {
+      subList: [{
         name: '联系电话',
-        value: ''
+        value: '',
       }, {
         name: '邮箱地址',
-        value: ''
+        value: '',
       }, {
         name: '公司地址',
-        value: '杭州市西湖区转塘街道定山路云栖小镇飞天园区1号楼2楼'
-      } ]
-    }
+        value: '杭州市西湖区转塘街道定山路云栖小镇飞天园区1号楼2楼',
+      }],
+    },
   },
   right: {
     mainLink: [
@@ -129,14 +130,14 @@ export const footerMenus: Ifooter = {
           src: '/images/common/wechat.jpg',
           className: 'mb8',
           width: 110,
-          height: 110
+          height: 110,
         },
-        description: '扫一扫关注微信公众号'
-      }
+        description: '扫一扫关注微信公众号',
+      },
     ],
-    subLink: []
-  }
-}
+    subLink: [],
+  },
+};
 
 export const popular = {
   name: '热门搜索',
@@ -152,21 +153,21 @@ export const popular = {
     { name: 'CI/CD', url: '' },
     { name: '流水线', url: '' },
     { name: '运维服务', url: '' },
-    { name: 'APM', url: '' }
-  ]
-}
+    { name: 'APM', url: '' },
+  ],
+};
 
 export const tomo = [
-  { name: '阿里云', url: 'https://www.aliyun.com' }
-]
+  { name: '阿里云', url: 'https://www.aliyun.com' },
+];
 
 export const copyRights = {
   text: '2012-2018 terminus.io',
   recordLicenseNumber: '备案/许可证号：浙ICP备13004315号',
-  recordLicenseAdress: 'https://beian.miit.gov.cn/'
-}
+  recordLicenseAdress: 'https://beian.miit.gov.cn/',
+};
 export const police = {
   text: '浙公网安备 33010802003150号',
   img: '/images/common/police.png',
-  url: 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802003150'
-}
+  url: 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802003150',
+};

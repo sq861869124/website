@@ -21,7 +21,7 @@ import { useSiteEnv } from '~/models/env';
 import './index.scss';
 
 const CaseDetail = ({ match }: RouteComponentProps) => {
-  const [detail, setDetail] = React.useState<CASE.CaseDetail>({} as CASE.CaseDetail);
+  const [{ content }, setDetail] = React.useState<CASE.CaseDetail>({} as CASE.CaseDetail);
   const { caseId } = match.params as { caseId: number };
   const [, serHader] = useSiteEnv();
   React.useEffect(() => {
@@ -37,7 +37,7 @@ const CaseDetail = ({ match }: RouteComponentProps) => {
     <div className="erda-customer-case-detail pt0">
       <div className="full-width-header" />
       <PageContent className="detail-body mt40">
-        <div className="detail-content" dangerouslySetInnerHTML={{ __html: detail.content }} />
+        <div className="detail-content" dangerouslySetInnerHTML={{ __html: content }} />
       </PageContent>
     </div>
   );

@@ -18,6 +18,7 @@ import React from 'react';
 const envStore = createStore({
   name: 'env',
   state: {
+    fullSite: false,
     showHeader: true,
     whiteHeader: false,
     onlyMain: false,
@@ -25,18 +26,18 @@ const envStore = createStore({
   },
   reducers: {
     setHeaderInfo(state, payload) {
-      Object.assign(state, payload || {})
+      Object.assign(state, payload || {});
     },
     resetHeaderInfo(state) {
       state.showHeader = true;
       state.whiteHeader = false;
       state.onlyMain = false;
       state.headerShadow = true;
-    }
-  }
+    },
+  },
 });
 
-export default envStore
+export default envStore;
 
 
 interface HeaderInfo {
@@ -46,21 +47,21 @@ interface HeaderInfo {
   headerShadow: boolean;
 }
 
-type SetHeader =  (payload: Partial<HeaderInfo>) => void
+type SetHeader = (payload: Partial<HeaderInfo>) => void
 
 
 export const useSiteEnv = (): [ HeaderInfo, SetHeader ] => {
-  const headerInfo = envStore.useStore(s => ({
+  const headerInfo = envStore.useStore((s) => ({
     showHeader: s.showHeader,
     whiteHeader: s.whiteHeader,
     onlyMain: s.onlyMain,
-    headerShadow: s.headerShadow
-  }))
+    headerShadow: s.headerShadow,
+  }));
   const { setHeaderInfo, resetHeaderInfo } = envStore.reducers;
   React.useEffect(() => {
     return () => {
-      resetHeaderInfo()
-    }
-  }, [])
-  return [ headerInfo, setHeaderInfo ]
-}
+      resetHeaderInfo();
+    };
+  }, []);
+  return [headerInfo, setHeaderInfo];
+};

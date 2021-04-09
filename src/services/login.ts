@@ -18,22 +18,21 @@ import { getCookies } from 'common/utils';
 export const login = (): Promise<{ url: string }> => {
   return axios({
     url: '/api/openapi/login',
-    method: 'get'
-  }).then(res => {
-    console.log(res)
-    return res.data
-  })
-}
+    method: 'get',
+  }).then((res) => {
+    return res.data;
+  });
+};
 
 export const getCurrentUser = (): Promise<IResponse<USER.IUser>> => {
   return axios({
     url: '/api/users/me',
     params: {
-      HIDDEN_MESSAGE_REQUEST: true
+      HIDDEN_MESSAGE_REQUEST: true,
     },
-    method: 'get'
-  }).then(res => res.data).catch(e => e)
-}
+    method: 'get',
+  }).then((res) => res.data).catch((e) => e);
+};
 
 export const logout = (): Promise<{ url: string }> => {
   const OPENAPICSRFTOKEN = getCookies('OPENAPI-CSRF-TOKEN');
@@ -41,13 +40,13 @@ export const logout = (): Promise<{ url: string }> => {
     url: '/api/openapi/logout',
     method: 'post',
     headers: {
-      'OPENAPI-CSRF-TOKEN': OPENAPICSRFTOKEN
-    }
-  }).then(res => res.data)
-}
+      'OPENAPI-CSRF-TOKEN': OPENAPICSRFTOKEN,
+    },
+  }).then((res) => res.data);
+};
 export const ucLogout = () => {
   return axios({
     url: '/api/user/web/login/logout',
-    method: 'post'
-  }).then(res => res.data).catch(e => e)
-}
+    method: 'post',
+  }).then((res) => res.data).catch((e) => e);
+};

@@ -1,11 +1,12 @@
-.fixed-with-head, .fixed-with-window {
+.fixed-with-head,
+.fixed-with-window {
   .service-market-tab {
     position: fixed;
     top: 0;
     z-index: 9;
     width: 100%;
     transform: translateY(0);
-    transition: transform .5s, background-color .1s ease-out;
+    transition: transform 0.5s, background-color 0.1s ease-out;
   }
 }
 
@@ -23,13 +24,13 @@
 .service-market-tab {
   height: 56px;
   background-color: #f9f9fb;
-  box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+  box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
 
   .tab-list {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 .75rem;
+    padding: 0 0.75rem;
     overflow: auto;
 
     .tab-item {
@@ -65,7 +66,8 @@
 }
 
 @include sm-width() {
-  .fixed-with-head, .fixed-with-window {
+  .fixed-with-head,
+  .fixed-with-window {
     .service-market-tab {
       position: unset;
       top: unset;

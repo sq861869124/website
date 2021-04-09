@@ -24,7 +24,7 @@ interface IProps{
   className?: string;
 }
 
-const FileContainer = ({ content = '', name = '简介', className = '' }: IProps) => {
+const FileContainer = ({ content = '', className = '' }: IProps) => {
   const [isSpinning, setSpin] = React.useState(true);
   React.useEffect(() => {
     let unMount = false;

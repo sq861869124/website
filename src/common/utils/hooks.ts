@@ -39,9 +39,9 @@ type ResetFn = () => void;
  * @return [state, updateAll, updater]
  */
 export const useUpdate = <T extends object>(
-  initState: NullableValue<T>
+  initState: NullableValue<T>,
 ): [ NullableValue<T>, UpdaterFn<NullableValue<T>>, UpdateFn<NullableValue<T>>, ResetFn ] => {
-  const [ state, _update ] = useSetState<NullableValue<T>>(initState || {});
+  const [state, _update] = useSetState<NullableValue<T>>(initState || {});
   // 使用ref，避免updater的更新方法中，在闭包里使用上次的state
   const ref = React.useRef(state);
   const updateRef = React.useRef(_update);
@@ -49,9 +49,9 @@ export const useUpdate = <T extends object>(
 
   const update: any = React.useCallback((args: any) => {
     if (isFunction(args)) {
-      return updateRef.current(prev => args(prev))
+      return updateRef.current(prev => args(prev));
     } else {
-      return updateRef.current(args)
+      return updateRef.current(args);
     }
   }, []);
 
@@ -67,12 +67,12 @@ export const useUpdate = <T extends object>(
     return result;
   }, []);
 
-  const reset = React.useCallback(() => updateRef.current(initState), [ initState ]);
+  const reset = React.useCallback(() => updateRef.current(initState), [initState]);
 
   useUnmount(() => {
     updateRef.current = () => {
     };
   });
 
-  return [ state, updater, update, reset ];
+  return [state, updater, update, reset];
 };

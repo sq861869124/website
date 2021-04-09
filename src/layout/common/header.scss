@@ -3,21 +3,20 @@
   top: 0;
   z-index: 999;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: $header-height;
-  padding: .625rem 2.5rem;
+  padding: 0.625rem 2.5rem;
   background-color: transparent;
   //transition: transform 0.5s, background-color 0.3s ease-in-out;
-  transition: transform .5s,
-    background-color .5s ease-in-out,
-    color .5s ease-in-out;
+  transition: transform 0.5s, background-color 0.5s ease-in-out,
+    color 0.5s ease-in-out;
 
   &-wrap {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     width: 1200px;
     margin: 0 auto;
     @include sm-width() {
@@ -41,10 +40,12 @@
 
   .site-logo {
     color: $white;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
-  &.white-header, &.flex-header, &.not-home-header {
+  &.white-header,
+  &.flex-header,
+  &.not-home-header {
     background-color: $white;
 
     .site-logo {
@@ -53,7 +54,7 @@
 
     .site-menu .ant-menu-horizontal .ant-menu-submenu,
     .site-menu .ant-menu-horizontal .ant-menu-item a {
-      color: rgba($primary, .7);
+      color: rgba($primary, 0.7);
 
       &:hover {
         color: $primary;
@@ -62,7 +63,7 @@
 
     .site-loginpanel {
       .login-item > a {
-        color: rgba($primary, .7);
+        color: rgba($primary, 0.7);
 
         &:hover {
           color: $primary;
@@ -70,8 +71,8 @@
       }
 
       .free-registration {
-        color: rgba($primary, .7);
-        border-color: rgba($primary, .7);
+        color: rgba($primary, 0.7);
+        border-color: rgba($primary, 0.7);
 
         &:hover {
           color: $white;
@@ -95,7 +96,7 @@
   }
 
   &.flex-header {
-    box-shadow: 0 4px 16px 2px rgba(92, 77, 237, .08);
+    box-shadow: 0 4px 16px 2px rgba(92, 77, 237, 0.08);
 
     &.no-shadow {
       border-bottom: 1px solid #c9c9c9;
@@ -111,7 +112,7 @@
     display: flex;
     align-items: center;
     margin-right: 30px;
-    transition: all .3s;
+    transition: all 0.3s;
 
     i {
       margin-right: 5px;

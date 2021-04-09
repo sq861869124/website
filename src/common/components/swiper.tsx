@@ -17,6 +17,10 @@ import classnames from 'classnames';
 import { Icon as CustomIcon, TouchContainer } from 'common';
 import './swiper.scss';
 
+interface IData {
+  Comp: any;
+}
+
 interface IProps {
   dataList: IData[];
   duration?: number;
@@ -27,9 +31,6 @@ interface IProps {
   visible?: boolean;
   Footer?: any;
 
-}
-interface IData {
-  Comp: any;
 }
 interface IState {
   index: number;
@@ -123,8 +124,9 @@ class Swiper extends React.PureComponent<IProps, IState> {
             })
           }
         </div>
-        {!onlyOne && <div className="swiper-footer">
-          {
+        {!onlyOne && (
+          <div className="swiper-footer">
+            {
             Footer
               ?
                 <Footer checked={index} length={dataList.length} changeIndex={this.changeIndex} duration={this.duration} />
@@ -137,7 +139,8 @@ class Swiper extends React.PureComponent<IProps, IState> {
                 );
               })
           }
-        </div>}
+          </div>
+        )}
       </div >
     );
     return withTouch ? (

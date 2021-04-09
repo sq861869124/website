@@ -48,7 +48,7 @@ interface IListProps {
 
 export const CardList = ({ list, gutter = 24, colProps = { span: 8 }, path }: IListProps) => {
   return (
-    <Row type="flex" gutter={gutter}>
+    <Row gutter={gutter}>
       {
         list.map((data) => {
           return (

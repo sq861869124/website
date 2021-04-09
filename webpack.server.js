@@ -1,6 +1,6 @@
 const path = require('path');
 const webpackConfig = require('./webpack.config');
-const fs  = require('fs');
+const fs = require('fs');
 
 const prodEnv = 'https://terminus-org.dev.terminus.io';
 // const prodEnv = 'https://terminus-org.app.terminus.io';
@@ -10,7 +10,7 @@ const frontUrl = `local.${backendUrl.replace(/http(s?):\/\//, '')}`; // local与
 const port = 8007;
 
 const devServer = {
-  port: port,
+  port,
   host: frontUrl,
   compress: true,
   contentBase: path.join(__dirname, 'public'),
@@ -27,20 +27,20 @@ const devServer = {
     cert: fs.readFileSync('./cert/dev/server.crt'),
   },
   proxy: {
-    '/api/example/**':{
+    '/api/example/**': {
       target: 'https://terminus.io',
       changeOrigin: true,
-      secure: false
+      secure: false,
     },
-    '/api/user/web/login/logout':{
+    '/api/user/web/login/logout': {
       target: 'https://uc.dev.terminus.io',
       changeOrigin: true,
-      secure: false
+      secure: false,
     },
     '/api': {
       target: prodEnv,
       changeOrigin: true,
-      secure: false
+      secure: false,
     },
   },
   allowedHosts: [

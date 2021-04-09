@@ -31,7 +31,7 @@ const loadingStore = createStore({
  * @deprecated use useLoading instead
  */
 function useSpace<T>(store: T & { name: string }): EffectKeys<ValueOf<T, 'effects' | '_effects'>> {
-  const loadingSpace = loadingStore.useStore(s => s[store.name]) || {};
+  const loadingSpace = loadingStore.useStore((s) => s[store.name]) || {};
   // add proxy to avoid return undefined in isLoading
   return new Proxy(loadingSpace, {
     get: (target, propKey) => {
@@ -47,14 +47,14 @@ type EffectKeys<T> = {
 type EKs<T> = keyof EffectKeys<ValueOf<T, 'effects'> | ValueOf<T, '_effects'>>;
 
 export function useLoading<T>(store: T & { name: string }, effectNames: Array<EKs<T>>): boolean[] {
-  return loadingStore.useStore(s => effectNames.map((n: EKs<T>) => (s[store.name] && s[store.name][n]) || false));
+  return loadingStore.useStore((s) => effectNames.map((n: EKs<T>) => (s[store.name] && s[store.name][n]) || false)) as boolean[];
 }
 
 use({
-  beforeEffect({storeName, effectName}) {
+  beforeEffect({ storeName, effectName }) {
     loadingStore.reducers.setLoading(storeName, effectName, true);
   },
-  afterEffect({storeName, effectName}) {
+  afterEffect({ storeName, effectName }) {
     loadingStore.reducers.setLoading(storeName, effectName, false);
   },
 });

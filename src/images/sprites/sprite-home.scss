@@ -19,7 +19,18 @@ $auto-test-height: 80px;
 $auto-test-total-width: 160px;
 $auto-test-total-height: 160px;
 $auto-test-image: "/images/sprites/sprite-home.png";
-$auto-test: (0px, 0px, 0px, 0px, 80px, 80px, 160px, 160px, "/images/sprites/sprite-home.png", "auto-test", );
+$auto-test: (
+  0px,
+  0px,
+  0px,
+  0px,
+  80px,
+  80px,
+  160px,
+  160px,
+  "/images/sprites/sprite-home.png",
+  "auto-test"
+);
 $bug-manage-name: "bug-manage";
 $bug-manage-x: 80px;
 $bug-manage-y: 0px;
@@ -30,7 +41,18 @@ $bug-manage-height: 80px;
 $bug-manage-total-width: 160px;
 $bug-manage-total-height: 160px;
 $bug-manage-image: "/images/sprites/sprite-home.png";
-$bug-manage: (80px, 0px, -80px, 0px, 80px, 80px, 160px, 160px, "/images/sprites/sprite-home.png", "bug-manage", );
+$bug-manage: (
+  80px,
+  0px,
+  -80px,
+  0px,
+  80px,
+  80px,
+  160px,
+  160px,
+  "/images/sprites/sprite-home.png",
+  "bug-manage"
+);
 $data-bank-name: "data-bank";
 $data-bank-x: 0px;
 $data-bank-y: 80px;
@@ -41,7 +63,18 @@ $data-bank-height: 80px;
 $data-bank-total-width: 160px;
 $data-bank-total-height: 160px;
 $data-bank-image: "/images/sprites/sprite-home.png";
-$data-bank: (0px, 80px, 0px, -80px, 80px, 80px, 160px, 160px, "/images/sprites/sprite-home.png", "data-bank", );
+$data-bank: (
+  0px,
+  80px,
+  0px,
+  -80px,
+  80px,
+  80px,
+  160px,
+  160px,
+  "/images/sprites/sprite-home.png",
+  "data-bank"
+);
 $full-link-name: "full-link";
 $full-link-x: 80px;
 $full-link-y: 80px;
@@ -52,12 +85,28 @@ $full-link-height: 80px;
 $full-link-total-width: 160px;
 $full-link-total-height: 160px;
 $full-link-image: "/images/sprites/sprite-home.png";
-$full-link: (80px, 80px, -80px, -80px, 80px, 80px, 160px, 160px, "/images/sprites/sprite-home.png", "full-link", );
+$full-link: (
+  80px,
+  80px,
+  -80px,
+  -80px,
+  80px,
+  80px,
+  160px,
+  160px,
+  "/images/sprites/sprite-home.png",
+  "full-link"
+);
 $spritesheet-width: 160px;
 $spritesheet-height: 160px;
 $spritesheet-image: "/images/sprites/sprite-home.png";
-$spritesheet-sprites: ($auto-test, $bug-manage, $data-bank, $full-link, );
-$spritesheet: (160px, 160px, "/images/sprites/sprite-home.png", $spritesheet-sprites, );
+$spritesheet-sprites: ($auto-test, $bug-manage, $data-bank, $full-link);
+$spritesheet: (
+  160px,
+  160px,
+  "/images/sprites/sprite-home.png",
+  $spritesheet-sprites
+);
 
 // The provided mixins are intended to be used with the array-like variables
 //
@@ -94,7 +143,7 @@ $spritesheet: (160px, 160px, "/images/sprites/sprite-home.png", $spritesheet-spr
 @mixin sprite-position($sprite) {
   $sprite-offset-x: nth($sprite, 3);
   $sprite-offset-y: nth($sprite, 4);
-  background-position: $sprite-offset-x  $sprite-offset-y;
+  background-position: $sprite-offset-x $sprite-offset-y;
 }
 
 @mixin sprite-image($sprite) {

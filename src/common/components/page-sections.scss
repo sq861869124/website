@@ -43,8 +43,8 @@
 
     &.beautify {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
 
       span {
         display: inline-block;
@@ -110,8 +110,8 @@
   .page-title-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin: 0 auto;
   }
 
@@ -162,7 +162,7 @@
 
 @include sm-width() {
   .page-section {
-    padding: 0 .75rem;
+    padding: 0 0.75rem;
 
     .section-title {
       font-size: 16px;

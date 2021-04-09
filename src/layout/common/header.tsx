@@ -103,7 +103,7 @@ const Header = ({ onChangeVisible, path }: IProps) => {
         </Link>
         <IntroMenu page={path} handlevisibleChange={handlevisibleChange} />
         {isEmpty(userData) ? <LoginPanel /> : <UserInfo data={userData} />}
-        <IntroMobileMenu onToggle={(visible: boolean) => mobileMenuOpen = visible} />
+        <IntroMobileMenu onToggle={(v: boolean) => { mobileMenuOpen = v; }} />
       </div>
     </header>
   );

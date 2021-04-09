@@ -15,7 +15,7 @@ webpackConfig.plugins.push(
       statsFilename: 'stats.json',
       statsOptions: null,
       logLevel: 'info',
-    }
-  )
+    },
+  ),
 );
 module.exports = () => webpackConfig;

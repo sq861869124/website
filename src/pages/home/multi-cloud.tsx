@@ -38,15 +38,15 @@ const MultiCloud = ({ title, list, description }: IProps) => {
         <div className="erda-home-log-multi-cloud-body flex-box v-align-start">
           {
             list.map((item, index) => {
-              const { icon, description, title } = item;
+              const { icon, description: itemDesc, title: itemTitle } = item;
               return (
-                <CopmFadeInUp key={title} delay={isMobile ? 0 : index * 100}>
-                  <div key={title} className="item">
+                <CopmFadeInUp key={itemTitle} delay={isMobile ? 0 : index * 100}>
+                  <div key={itemTitle} className="item">
                     <div className="icon-bg center-flex-box">
                       <CustomIcon type={icon} />
                     </div>
-                    <div className="title mt4">{title}</div>
-                    <div className="desc mt8">{description}</div>
+                    <div className="title mt4">{itemTitle}</div>
+                    <div className="desc mt8">{itemDesc}</div>
                   </div>
                 </CopmFadeInUp>
               );

@@ -14,18 +14,17 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DICE_URL } from '~/common/constants';
-import {ConfigProvider} from "antd";
+import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
-import './common/utils/interceptors'
+import './common/utils/interceptors';
 import App from './app';
 
-const Root = ()=>{
+const Root = () => {
   return (
     <ConfigProvider locale={zhCN}>
-      <App/>
+      <App />
     </ConfigProvider>
-  )
-}
+  );
+};
 
 ReactDOM.render(<Root />, document.getElementById('root'));

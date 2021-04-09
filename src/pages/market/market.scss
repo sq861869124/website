@@ -5,7 +5,8 @@
 .market {
   padding-top: 0 !important;
 
-  &.fixed-with-head, &.fixed-with-window {
+  &.fixed-with-head,
+  &.fixed-with-window {
     .service-market-tab {
       transition: none;
     }
@@ -51,7 +52,7 @@
     max-width: 1200px;
     min-height: calc(100vh - (330px + 56px + #{$footer-height}));
     margin: 0 auto;
-    padding: 2.5rem .75rem;
+    padding: 2.5rem 0.75rem;
 
     .detail {
       width: 100%;
@@ -62,7 +63,8 @@
 
 @include sm-width() {
   .market {
-    &.fixed-with-head, &.fixed-with-window {
+    &.fixed-with-head,
+    &.fixed-with-window {
       .market-content {
         .detail {
           margin-left: 0;

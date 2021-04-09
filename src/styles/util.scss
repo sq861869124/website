@@ -39,28 +39,28 @@
 // flex
 .flex-box {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .v-flex-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .center-flex-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .inline-flex-box {
   display: inline-flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .v-align {
@@ -71,8 +71,8 @@
 .flex-start {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
   align-items: center;
+  justify-content: start;
 }
 
 .v-align-start {

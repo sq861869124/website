@@ -15,7 +15,7 @@
     }
 
     .ant-menu-submenu-title {
-      transition: color .3s;
+      transition: color 0.3s;
     }
 
     .first-menu {
@@ -24,14 +24,15 @@
       }
     }
 
-    .ant-menu-item, .ant-menu-submenu {
+    .ant-menu-item,
+    .ant-menu-submenu {
       margin: 0 15px;
       padding: 0;
-      color: rgba(#f7f9ff, .7);
+      color: rgba(#f7f9ff, 0.7);
       border-bottom: 0;
 
       a {
-        color: rgba(#f7f9ff, .7);
+        color: rgba(#f7f9ff, 0.7);
       }
 
       &:hover {
@@ -40,7 +41,9 @@
       }
     }
 
-    .ant-menu-submenu-selected, .ant-menu-item-selected, .ant-menu-item-active {
+    .ant-menu-submenu-selected,
+    .ant-menu-item-selected,
+    .ant-menu-item-active {
       color: #f7f9ff;
 
       a {
@@ -63,7 +66,7 @@
 
 .menu-drawer {
   z-index: 100;
-  box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+  box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
 
   .ant-drawer-body {
     padding: 0;
@@ -80,7 +83,7 @@
         padding-bottom: 1.5rem;
 
         .name {
-          padding-bottom: .25rem;
+          padding-bottom: 0.25rem;
           color: #0d0c22;
           font-size: 1rem;
           line-height: 1.5rem;
@@ -89,10 +92,10 @@
         .desc {
           color: #2f3c5f;
           font-weight: 400;
-          font-size: .75rem;
+          font-size: 0.75rem;
           line-height: 1.25rem;
           white-space: pre-wrap;
-          opacity: .7;
+          opacity: 0.7;
         }
       }
     }
@@ -117,7 +120,7 @@
       line-height: normal !important;
 
       .name {
-        padding-bottom: .25rem;
+        padding-bottom: 0.25rem;
         color: #0d0c22;
         font-size: 1rem;
         line-height: 1.5rem;
@@ -126,10 +129,10 @@
       .desc {
         color: #2f3c5f;
         font-weight: 400;
-        font-size: .75rem;
+        font-size: 0.75rem;
         line-height: 1.25rem;
         white-space: pre-wrap;
-        opacity: .7;
+        opacity: 0.7;
       }
     }
   }
@@ -186,7 +189,8 @@
     padding: 0 2rem;
 
     .ant-menu-horizontal {
-      .ant-menu-item, .ant-menu-submenu-title {
+      .ant-menu-item,
+      .ant-menu-submenu-title {
         padding: 0 12px;
       }
     }

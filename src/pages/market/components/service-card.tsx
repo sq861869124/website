@@ -36,7 +36,6 @@ export const ServiceCard = ({
   logoUrl,
   desc,
   type,
-  category,
   onClick,
 }: ICard) => {
   const clickCard = (_name: string) => {

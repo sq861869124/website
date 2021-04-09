@@ -2,7 +2,8 @@
   padding: 80px 0 50px;
 
   .two-column {
-    .card-title, .card-desc {
+    .card-title,
+    .card-desc {
       text-align: left;
     }
 
@@ -29,7 +30,8 @@
       width: 100%;
       padding: 0 1.25rem !important;
 
-      .card-title, .card-desc {
+      .card-title,
+      .card-desc {
         text-align: center;
       }
 
@@ -40,7 +42,7 @@
 
       .images-column {
         height: auto;
-        margin: 0 -.625rem !important;
+        margin: 0 -0.625rem !important;
       }
     }
 

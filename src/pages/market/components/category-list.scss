@@ -1,11 +1,12 @@
-.fixed-with-head, .fixed-with-window {
+.fixed-with-head,
+.fixed-with-window {
   .service-category-list {
     position: fixed;
     bottom: 10px;
     height: calc(100% - 76px);
     overflow: auto;
     transform: translateY(0);
-    transition: transform .5s, background-color .1s ease-out;
+    transition: transform 0.5s, background-color 0.1s ease-out;
   }
 }
 
@@ -52,7 +53,8 @@
 }
 
 @include sm-width() {
-  .fixed-with-head, .fixed-with-window {
+  .fixed-with-head,
+  .fixed-with-window {
     .service-category-list {
       position: unset;
       top: unset;

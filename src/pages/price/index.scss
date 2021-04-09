@@ -19,12 +19,12 @@
       padding: 0 20px;
       background: $white;
       //border-radius: 6px;
-      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
 
       .desc {
         color: #2f3c5f;
         font-size: 1rem;
-        opacity: .7;
+        opacity: 0.7;
       }
 
       .link-to {
@@ -37,7 +37,7 @@
       padding: 0 2rem;
       color: $color-dark-6;
       background: $white;
-      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+      box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
 
       .left {
         div {
@@ -60,7 +60,7 @@
         width: 380px;
         padding-bottom: 4rem;
         background: $white;
-        box-shadow: 0 2px 8px 0 rgba(92, 77, 237, .08);
+        box-shadow: 0 2px 8px 0 rgba(92, 77, 237, 0.08);
 
         .item-header {
           padding: 2rem 0;
@@ -102,14 +102,14 @@
             .check-mark {
               width: 1.5rem;
               height: 1.5rem;
-              margin-right: .75rem;
+              margin-right: 0.75rem;
             }
 
             .ability-name {
               color: #2f3c5f;
               font-size: 1rem;
               line-height: 1.5rem;
-              opacity: .7;
+              opacity: 0.7;
             }
           }
         }
@@ -129,7 +129,7 @@
             color: #2f3c5f;
             font-size: 14px;
             line-height: 1.5rem;
-            opacity: .7;
+            opacity: 0.7;
 
             .price {
               position: relative;
@@ -149,13 +149,13 @@
               }
 
               .tag {
-                margin-left: .25rem;
-                padding: 0 .25rem;
+                margin-left: 0.25rem;
+                padding: 0 0.25rem;
                 color: $primary;
                 font-weight: normal;
-                font-size: .75rem;
+                font-size: 0.75rem;
                 line-height: 1rem;
-                background: rgba($primary, .1);
+                background: rgba($primary, 0.1);
                 border-radius: 2px;
               }
             }
@@ -225,7 +225,7 @@
         padding: 1.25rem;
 
         .desc {
-          margin: .75rem 0;
+          margin: 0.75rem 0;
         }
       }
 
@@ -239,7 +239,7 @@
           justify-content: center;
 
           div {
-            margin-bottom: .75rem;
+            margin-bottom: 0.75rem;
             padding: 0;
           }
         }

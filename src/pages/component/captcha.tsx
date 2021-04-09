@@ -24,3 +24,5 @@ const Captcha = () => {
     <img src={captchaSrc} alt="" />
   );
 };
+
+export default Captcha;
