@@ -13,13 +13,13 @@
 // limitations under the License.
 
 import React, { Suspense } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { message, Spin } from 'antd';
 import Layout from './layout/layout';
 import { setGlobal } from './common/utils';
 import { NotFound } from './layout/common/error-page';
-import NyRouter from './layout/common/my-route';
+import MyRouter from './layout/common/my-route';
 import './styles/global.scss';
 
 const Home = React.lazy(() => import('pages/home'));
@@ -114,7 +114,7 @@ const App = () => {
       <Layout>
         <Suspense fallback={Fallback}>
           <Switch>
-            <NyRouter routeList={routeList} />
+            <MyRouter routeList={routeList} />
             {/* <Route exact path="/join-us" component={JoinUs}/> */}
             {/* <Route path="*" component={NotFound} /> */}
           </Switch>
