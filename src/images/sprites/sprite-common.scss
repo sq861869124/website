@@ -185,94 +185,6 @@ $hhy-2x: (
   "/images/sprites/sprite-common.png",
   "hhy@2x"
 );
-$icon-dev-name: "icon-dev";
-$icon-dev-x: 64px;
-$icon-dev-y: 20px;
-$icon-dev-offset-x: -64px;
-$icon-dev-offset-y: -20px;
-$icon-dev-width: 32px;
-$icon-dev-height: 32px;
-$icon-dev-total-width: 152px;
-$icon-dev-total-height: 140px;
-$icon-dev-image: "/images/sprites/sprite-common.png";
-$icon-dev: (
-  64px,
-  20px,
-  -64px,
-  -20px,
-  32px,
-  32px,
-  152px,
-  140px,
-  "/images/sprites/sprite-common.png",
-  "icon-dev"
-);
-$icon-duoyun-name: "icon-duoyun";
-$icon-duoyun-x: 96px;
-$icon-duoyun-y: 20px;
-$icon-duoyun-offset-x: -96px;
-$icon-duoyun-offset-y: -20px;
-$icon-duoyun-width: 32px;
-$icon-duoyun-height: 32px;
-$icon-duoyun-total-width: 152px;
-$icon-duoyun-total-height: 140px;
-$icon-duoyun-image: "/images/sprites/sprite-common.png";
-$icon-duoyun: (
-  96px,
-  20px,
-  -96px,
-  -20px,
-  32px,
-  32px,
-  152px,
-  140px,
-  "/images/sprites/sprite-common.png",
-  "icon-duoyun"
-);
-$icon-ksj-name: "icon-ksj";
-$icon-ksj-x: 0px;
-$icon-ksj-y: 60px;
-$icon-ksj-offset-x: 0px;
-$icon-ksj-offset-y: -60px;
-$icon-ksj-width: 32px;
-$icon-ksj-height: 32px;
-$icon-ksj-total-width: 152px;
-$icon-ksj-total-height: 140px;
-$icon-ksj-image: "/images/sprites/sprite-common.png";
-$icon-ksj: (
-  0px,
-  60px,
-  0px,
-  -60px,
-  32px,
-  32px,
-  152px,
-  140px,
-  "/images/sprites/sprite-common.png",
-  "icon-ksj"
-);
-$icon-wfw-name: "icon-wfw";
-$icon-wfw-x: 32px;
-$icon-wfw-y: 60px;
-$icon-wfw-offset-x: -32px;
-$icon-wfw-offset-y: -60px;
-$icon-wfw-width: 32px;
-$icon-wfw-height: 32px;
-$icon-wfw-total-width: 152px;
-$icon-wfw-total-height: 140px;
-$icon-wfw-image: "/images/sprites/sprite-common.png";
-$icon-wfw: (
-  32px,
-  60px,
-  -32px,
-  -60px,
-  32px,
-  32px,
-  152px,
-  140px,
-  "/images/sprites/sprite-common.png",
-  "icon-wfw"
-);
 $k-2x-name: "k@2x";
 $k-2x-x: 72px;
 $k-2x-y: 92px;
@@ -449,6 +361,94 @@ $zjjs-2x: (
   "/images/sprites/sprite-common.png",
   "zjjs@2x"
 );
+$icon-dev-name: "icon-dev";
+$icon-dev-x: 64px;
+$icon-dev-y: 20px;
+$icon-dev-offset-x: -64px;
+$icon-dev-offset-y: -20px;
+$icon-dev-width: 32px;
+$icon-dev-height: 32px;
+$icon-dev-total-width: 152px;
+$icon-dev-total-height: 140px;
+$icon-dev-image: "/images/sprites/sprite-common.png";
+$icon-dev: (
+  64px,
+  20px,
+  -64px,
+  -20px,
+  32px,
+  32px,
+  152px,
+  140px,
+  "/images/sprites/sprite-common.png",
+  "icon-dev"
+);
+$icon-duoyun-name: "icon-duoyun";
+$icon-duoyun-x: 96px;
+$icon-duoyun-y: 20px;
+$icon-duoyun-offset-x: -96px;
+$icon-duoyun-offset-y: -20px;
+$icon-duoyun-width: 32px;
+$icon-duoyun-height: 32px;
+$icon-duoyun-total-width: 152px;
+$icon-duoyun-total-height: 140px;
+$icon-duoyun-image: "/images/sprites/sprite-common.png";
+$icon-duoyun: (
+  96px,
+  20px,
+  -96px,
+  -20px,
+  32px,
+  32px,
+  152px,
+  140px,
+  "/images/sprites/sprite-common.png",
+  "icon-duoyun"
+);
+$icon-ksj-name: "icon-ksj";
+$icon-ksj-x: 0px;
+$icon-ksj-y: 60px;
+$icon-ksj-offset-x: 0px;
+$icon-ksj-offset-y: -60px;
+$icon-ksj-width: 32px;
+$icon-ksj-height: 32px;
+$icon-ksj-total-width: 152px;
+$icon-ksj-total-height: 140px;
+$icon-ksj-image: "/images/sprites/sprite-common.png";
+$icon-ksj: (
+  0px,
+  60px,
+  0px,
+  -60px,
+  32px,
+  32px,
+  152px,
+  140px,
+  "/images/sprites/sprite-common.png",
+  "icon-ksj"
+);
+$icon-wfw-name: "icon-wfw";
+$icon-wfw-x: 32px;
+$icon-wfw-y: 60px;
+$icon-wfw-offset-x: -32px;
+$icon-wfw-offset-y: -60px;
+$icon-wfw-width: 32px;
+$icon-wfw-height: 32px;
+$icon-wfw-total-width: 152px;
+$icon-wfw-total-height: 140px;
+$icon-wfw-image: "/images/sprites/sprite-common.png";
+$icon-wfw: (
+  32px,
+  60px,
+  -32px,
+  -60px,
+  32px,
+  32px,
+  152px,
+  140px,
+  "/images/sprites/sprite-common.png",
+  "icon-wfw"
+);
 $spritesheet-width: 152px;
 $spritesheet-height: 140px;
 $spritesheet-image: "/images/sprites/sprite-common.png";
@@ -461,10 +461,6 @@ $spritesheet-sprites: (
   $btz2-2x,
   $dsjs-2x,
   $hhy-2x,
-  $icon-dev,
-  $icon-duoyun,
-  $icon-ksj,
-  $icon-wfw,
   $k-2x,
   $ksj-2x,
   $lsxs-2x,
@@ -472,7 +468,11 @@ $spritesheet-sprites: (
   $xbt-2x,
   $ydyy-2x,
   $ywnls-2x,
-  $zjjs-2x
+  $zjjs-2x,
+  $icon-dev,
+  $icon-duoyun,
+  $icon-ksj,
+  $icon-wfw
 );
 $spritesheet: (
   152px,
