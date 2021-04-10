@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import React, { Suspense } from 'react';
-import { Router, Switch } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { message, Spin } from 'antd';
 import Layout from './layout/layout';
@@ -40,52 +40,62 @@ const routeList = [
     path: '/',
     component: Home,
     title: '尔达云',
-  }, {
+  },
+  {
     exact: true,
     path: '/contact',
     component: ContactUs,
     title: '尔达云 - 联系我们',
-  }, {
+  },
+  {
     exact: true,
     path: '/market/:type',
     component: Market,
     title: '尔达云 - 服务市场',
-  }, {
+  },
+  {
     exact: true,
     path: '/market/:type/:serviceName',
     component: ServiceDetail,
     title: '尔达云 - 服务市场',
-  }, {
+  },
+  {
     exact: true,
     path: '/download/:publishItemId',
     component: DownloadPage,
     title: '尔达云 - 服务市场',
-  }, {
+  },
+  {
     exact: true,
     path: '/library/:publishItemId',
     component: LibraryDetail,
     title: '尔达云 - 服务市场',
-  }, {
+  },
+  {
     exact: true,
     path: '/customer-case',
     component: CustomerCase,
     title: '尔达云 - 成功案例',
-  }, {
+  },
+  {
     exact: true,
     path: '/customer-case/:caseId',
     component: CustomerCaseDetail,
     title: '尔达云 - 成功案例',
-  }, {
+  },
+  {
     exact: true,
     path: '/price',
     component: Price,
     title: '尔达云 - 价格',
-  }, {
+  },
+  {
     exact: true,
     path: '/why-erda',
     component: WhyErda,
     title: '尔达云 - WhyErda',
-  }, {
+  },
+  {
     exact: true,
     path: '*',
     component: NotFound,
@@ -113,11 +123,7 @@ const App = () => {
     <Router history={history}>
       <Layout>
         <Suspense fallback={Fallback}>
-          <Switch>
-            <MyRouter routeList={routeList} />
-            {/* <Route exact path="/join-us" component={JoinUs}/> */}
-            {/* <Route path="*" component={NotFound} /> */}
-          </Switch>
+          <MyRouter routeList={routeList} />
         </Suspense>
       </Layout>
     </Router>

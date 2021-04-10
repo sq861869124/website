@@ -13,28 +13,44 @@
 // limitations under the License.
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { pathToRegexp } from 'path-to-regexp';
+import { Location } from 'interface/common';
 
-const MyRoute = (props: any) => {
+interface IProps {
+  location: Location;
+  routeList: RouteItem[];
+}
+type Ele = () => JSX.Element;
+interface RouteItem {
+  exact: boolean;
+  path: string;
+  component: React.LazyExoticComponent<Ele>;
+  title: string;
+}
+
+const MyRoute = (props: IProps) => {
   React.useEffect(() => {
-    const findResult = props.routeList.find((item: any) => {
+    const findResult: RouteItem | undefined = props.routeList.find((item: any) => {
       if (item.path === '*') {
         return true;
       }
       const reg = pathToRegexp(item.path);
       return reg.test(props.location.pathname);
     });
-    document.title = findResult.title;
+    document.title = findResult?.title || '尔达云';
   }, [props.routeList, props.location.pathname]);
   return (
     <Switch>
-      { props.routeList.map((item: any) => {
-        return (
-          <Route {...item} key={item.path} />
-        );
-      }) }
-    </Switch>);
+      {
+        props.routeList.map((item: any) => {
+          return (
+            <Route {...item} key={item.path} />
+          );
+        })
+      }
+    </Switch>
+  );
 };
 
-export default MyRoute;
+export default withRouter(MyRoute);
