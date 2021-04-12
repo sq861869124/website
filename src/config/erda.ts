@@ -19,7 +19,7 @@ export const docVersion = 'latest';
 export const docUrl = `${docDomain}/${docVersion}/manual`;
 export const temrUrl = `${docDomain}/${docVersion}/manual`;
 export const cliUrl = `${docDomain}/${docVersion}/manual/cli/explain-args.html`;
-export const extendUrl = `${docDomain}/${docVersion}/manual/addons/design.html`;
+export const extendUrl = `${docDomain}/${docVersion}/manual/addons/out-of-the-box.html`;
 export const securifyUrl = `${docDomain}/${docVersion}/manual/safe/identity-management.html`;
 export const changeLogUrl = `${docDomain}/changeLog.html`;
 
@@ -28,7 +28,7 @@ export interface IHeaderItem {
   url?: string;
   jumpOut?: boolean;
   status?: string;
-  subList?: any[]
+  subList?: any[];
 }
 
 export const headerMenus: IHeaderItem[] = [
@@ -71,21 +71,21 @@ export interface IFooterItem {
 
 export interface Ifooter {
   left: {
-    [k: string]: IFooterItem
+    [k: string]: IFooterItem;
   };
   right: {
-    mainLink: {
+    mainLink: Array<{
       name: string;
       img: {
         src: string;
         className?: string;
         width?: number;
         height?: number;
-      }
+      };
       description: string;
-    }[]
-    subLink: { name: string; url: string; jumpOut: true, icon: string } []
-  }
+    }>;
+    subLink: Array<{ name: string; url: string; jumpOut: true; icon: string }>;
+  };
 }
 
 export const footerMenus: Ifooter = {
