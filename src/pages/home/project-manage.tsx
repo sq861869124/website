@@ -17,9 +17,11 @@ import PageContent from '~/layout/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
 import { CopmFadeInUp } from 'pages/component/animate-comp';
 import { useMobile } from 'common/utils';
+import { isZh } from '~/i18n';
 
 const ProjectManagement = () => {
   const isMobile = useMobile();
+  const zn = isZh();
 
 
   return (
@@ -37,7 +39,7 @@ const ProjectManagement = () => {
         </CopmFadeInUp>
         <CopmFadeInUp>
           <div className="mt44 img-wrapper">
-            <ImgLazy className="main-img" width={800} height={300} src="/images/home/Pic2.png" />
+            <ImgLazy className="main-img" width={800} height={300} src={zn ? '/images/home/Pic2.png' : '/images/home/Pic2-en.png'} />
             {
               isMobile ? null : (
                 <>
