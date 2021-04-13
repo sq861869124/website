@@ -18,6 +18,7 @@ import userStore from '~/models/user';
 import { Icon as CustomIcon } from 'common';
 import { getParentContainer } from 'common/utils';
 import './user-info.scss';
+import i18n from '~/i18n';
 
 const UserInfo = ({ data }: { data: USER.IUser }) => {
   const logout = () => {
@@ -29,8 +30,8 @@ const UserInfo = ({ data }: { data: USER.IUser }) => {
 
   const content = (
     <div className="py4">
-      <div className="erda-user-info-menu-item px16 py4" onClick={goToDice}>进入平台</div>
-      <div className="erda-user-info-menu-item px16 py4" onClick={logout}>退出登录</div>
+      <div className="erda-user-info-menu-item px16 py4" onClick={goToDice}>{i18n.t('enter the platform')}</div>
+      <div className="erda-user-info-menu-item px16 py4" onClick={logout}>{i18n.t('sign out')}</div>
     </div>
   );
   return (

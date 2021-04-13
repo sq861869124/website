@@ -18,6 +18,7 @@ import { CustomImg } from 'common';
 
 import './modal.scss';
 import { useMobile, goTo } from '../utils';
+import i18n from '~/i18n';
 
 
 interface IProps {
@@ -42,7 +43,7 @@ export const CustomModal = (props: IProps) => {
       visible={visible}
       onOk={onOk}
       width={width}
-      footer={<Button type="primary" onClick={() => { toggleModal(); goTo('/'); }} block={isMobile}>确定</Button>}
+      footer={<Button type="primary" onClick={() => { toggleModal(); goTo('/'); }} block={isMobile}>{i18n.t('ok')}</Button>}
       onCancel={toggleModal}
       {...rest}
     >

@@ -21,6 +21,7 @@ import { Ifooter, IFooterItem, ISubItem } from '~/config/erda';
 
 
 import './footer.scss';
+import i18n from '~/i18n';
 
 interface IProps {
   className?: string;
@@ -150,7 +151,7 @@ const Footer = () => {
       {
         tomo.length ? (
           <div className="footer-links center-flex-box fz12 mt16">
-            <div className="title">友情链接:</div>
+            <div className="title">{i18n.t('links')}</div>
             <div className="item">{
               tomo.map((item) => {
                 return <a className="ml8" href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a>;

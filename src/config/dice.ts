@@ -12,22 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import i18n from '~/i18n';
+
 export const getHeaderMenus = ({ docUrl }: any) => [
   {
-    name: '概述',
+    name: i18n.t('overview'),
     url: '',
   },
   {
-    name: '市场',
+    name: i18n.t('market'),
     url: '/market/addon',
   },
   {
-    name: '文档',
+    name: i18n.t('document'),
     url: docUrl,
     jumpOut: true,
   },
   {
-    name: '合作伙伴',
+    name: i18n.t('partners'),
     url: '/',
     status: 'unrealized',
   },
@@ -37,23 +39,23 @@ export const getHeaderMenus = ({ docUrl }: any) => [
 export const getFooterMenus = ({ docUrl }: any) => {
   return {
     about: {
-      name: '关于',
+      name: i18n.t('about'),
       // icon: 'gy',
       subList: [
-        { name: '关于我们', url: '/' },
+        { name: ('about us'), url: '/' },
       ],
     },
     resource: {
-      name: '资源',
+      name: i18n.t('resource'),
       // icon: 'zy',
       subList: [
         {
-          name: '培训与支持',
+          name: i18n.t('training and support'),
           url: docUrl,
           jumpOut: true,
         },
         {
-          name: '微信公众号',
+          name: i18n.t('weChat public account'),
           img: '/images/common/wechat.jpg',
           className: 'mb8',
           width: 80,
@@ -62,24 +64,24 @@ export const getFooterMenus = ({ docUrl }: any) => {
       ],
     },
     serviceMarket: {
-      name: '服务市场',
+      name: i18n.t('service market'),
       // icon: 'fwsc',
       subList: [
-        { name: '扩展服务', url: 'https://dice.terminus.io/market/addon', jumpOut: true },
-        { name: '流水线任务', url: 'https://dice.terminus.io/market/action', jumpOut: true },
-        { name: '库', url: 'https://dice.terminus.io/market/library', jumpOut: true },
-        { name: '移动应用', url: 'https://dice.terminus.io/market/mobile', jumpOut: true },
+        { name: i18n.t('extended service'), url: 'https://dice.terminus.io/market/addon', jumpOut: true },
+        { name: i18n.t('pipeline task'), url: 'https://dice.terminus.io/market/action', jumpOut: true },
+        { name: i18n.t('library'), url: 'https://dice.terminus.io/market/library', jumpOut: true },
+        { name: i18n.t('mobile application'), url: 'https://dice.terminus.io/market/mobile', jumpOut: true },
       ],
     },
     email: {
-      name: '联系邮箱',
+      name: i18n.t('contact email'),
       // icon: 'lxyx',
       subList: [
         { name: 'marketing@terminus.io', url: 'mailto:marketing@terminus.io', jumpOut: true },
       ],
     },
     homePage: {
-      name: '企业官网',
+      name: i18n.t('enterprise official website'),
       // icon: 'qygw',
       subList: [
         { name: 'https://terminus.io', url: 'https://terminus.io', jumpOut: true },
@@ -88,66 +90,66 @@ export const getFooterMenus = ({ docUrl }: any) => {
   };
 };
 
-export const introTitle = '企业数字化平台（Dice）';
+export const introTitle = i18n.t('Enterprise Digital Platform (Dice)');
 
-export const introSummary = '强大的平台，丰富的市场，让技术更稳健，让应用更专注';
+export const introSummary = i18n.t('a powerful platform');
 
 export const introSlogan = '企业数字化平台（Dice）丰富的产品特性，提供给企业强大的底层技术支撑。';
 
 export const introData = [
   {
-    name: '扩展市场',
+    name: i18n.t('expand the market'),
     img: 'kzsc',
     path: 'index',
-    desc: '强大的服务和任务扩展能力。扩展服务包括基础中间件和微服务，企业可将持续集成的项目注册为微服务，来扩展供其他项目使用，实现自建业务中台的目标；任务扩展用于执行流水线，企业可使用或自行研发任务扩展以扩充流水线能力。',
+    desc: i18n.t('powerful service'),
   },
   {
-    name: '智能运维',
+    name: i18n.t('intelligent operation and maintenance'),
     img: 'znyw',
     path: 'index',
-    desc: '从前端 APP 或浏览器到后端服务器、容器和代码，可对各个级别进行应用性能分析；应用监控可自动收集应用相关信息，及时掌握应用状态；分布式追踪提供端到端的追踪能力，精确定位功能和性能问题；支持实时告警和全栈根因定位，提升运维开发效率。',
+    desc: i18n.t('from the front-end'),
   },
   {
-    name: '集群管理',
+    name: i18n.t('cluster management'),
     img: 'jqgl',
     path: 'index',
-    desc: '支持多云管控，屏蔽多云异构；提供了集群操控界面，包括运维视角大盘、分析报表，机器管理，服务目录等内容；对资源进行池化管理，按需使用，避免浪费；支持企业多租户的形式，集群可租用给其他企业使用，并保证企业间资源隔离。',
+    desc: i18n.t('supports multi-cloud management'),
   },
   {
     name: 'CI/CD',
     img: 'cicd',
     path: 'index',
-    desc: '基于流水线引擎，可灵活自定义持续集成过程；支持任意语言构建，且扩展市场提供了热门开发语言的构建工具（buildpack）；提供了代码分析、构建分析等能效分析。',
+    desc: i18n.t('based on the pipeline engine'),
   },
   {
-    name: '生态兼容',
+    name: i18n.t('ecological compatibility'),
     img: 'stjr',
     path: 'index',
-    desc: '全面兼容 Spring Cloud、Dubbo、Istio、Kubernetes 等主流开源产品，保证应用进行平滑迁移，并支持对主流功能做深度定制，满足企业级高性能高可靠需求。',
+    desc: i18n.t('it is fully compatible with mainstream open');
   },
   {
-    name: '数据任务',
+    name: i18n.t('data task'),
     img: 'sjrw',
     path: 'index',
-    desc: '数据任务是快数据应用中支持数据任务创建、运行和维护的模块。基于Dice平台一体化的工作流引擎和调度引擎，可灵活、快速地配置数据pipeline, 操作简单高效。',
+    desc: i18n.t('data task is a module that supports')
   },
   {
-    name: '服务治理',
+    name: i18n.t('service governance'),
     img: 'fwzl',
     path: 'index',
-    desc: '进行一站式的微服务生命周期管理，提供完善的租户和环境隔离机制；提供统一管控界面，聚合各业务网关、服务注册与发现、配置中心、分布式追踪、监控与告警等组件信息，提供一站式服务治理。',
+    desc: i18n.t('carry out one-stop microservice'),
   },
   {
-    name: '代码托管',
+    name: i18n.t('code hosting'),
     img: 'dmtg',
     path: 'index',
-    desc: '提供高性能git代码托管服务和简单易用的可视化编辑服务。高度整合于Dice平台，无缝对接CI/CD流程。',
+    desc: i18n.t('provide high-performance git'),
   },
   {
-    name: '高扩展性',
+    name: i18n.t('high scalability'),
     img: 'gkzx',
     path: 'index',
-    desc: '支持弹性扩容，轻松实现业务和依赖服务的横向和纵向扩展。 助力高速发展与持续创新，并减少开发和运维成本。',
+    desc: i18n.t('support elastic expansion')
   },
 ];
 
@@ -155,36 +157,32 @@ export const caseData = {
   haier: {
     baseInfo: {
       img: 'hett',
-      title: '海尔',
-      desc: '海尔依托企业数字化平台（Dice）实现数字化转型的最佳实践',
+      title: i18n.t('haier'),
+      desc: i18n.t('haier relies on the best')
     },
     orgIntro: {
-      desc:
-        '海尔集团创业于1984年，是全球大型家电品牌，目前已从传统制造家电产品的企业转型为面向全社会孵化创客的平台；海尔智慧家庭利用物联网、人工智能、大数据，通过U+开放物联平台及场景商务结合，实现最佳的智慧生活体验。',
+      desc:i18n.t('haier Group was founded'),
     },
     orgBg: {
-      desc:
-        '随着企业规模扩大，IT系统的复杂度也越来越高，海尔在互联网转型的过程中孵化出了几百个多业态的小微应用，这些应用往往是由不同供应商采用不同的技术架构开发运维，应用之间是离散和割裂的，进而引发的问题是：',
+      desc: i18n.t('as the scale of the enterprise expands'),
       tips: [
-        '基础资源严重浪费：分散式部署和运维无法最大化进行资源的分配和调度，导致企业效能不高，同时分散式运维导致系统运维水平参差不齐，隐患较多。',
-        '数据缺乏统一治理：不同技术架构的应用无法整合，形成大量数据孤岛，以会员数据为例，用户在不同的通道包括线下门店、微博、微信等自媒体、官网社区群、优家APP、各产业APP、商城、微店等渠道与海尔进行交互，信息分布在各个交互入口，无法统一整合和应用，企业内部管理复杂度高，用户体验差。',
-        '业务创新成本高周期长：缺少可共享的服务中心，面向具体业务问题构建的烟囱式系统，无法有效打通，存在大量重复建设，导致企业创新成本高。',
+        i18n.t('serious waste of basic resources'),
+        i18n.t('data lacks unified governance'),
+        i18n.t('business innovation costs are high'),
       ],
     },
     orgAppeal: {
-      desc:
-        '打造互联互通平台实现数据和服务的共享，应用系统的集中部署和运维，为了达到这个目标，需要能够提供三个方面的技术支撑：',
+      desc: i18n.t('to create an interconnection platform '),
       tips: [
-        '服务互通：统一软件技术体系',
-        '数据互通：统一数据治理体系',
-        '基础设施互通：统一的基础设施管理体系',
+        i18n.t('service interoperability'),
+        i18n.t('data interoperability'),
+        i18n.t('infrastructure interoperability'),
       ],
     },
     solution: {
-      desc:
-        '通过企业数字化平台（Dice）提供以容器为支撑的多云管理体系、以微服务架构为核心的服务研发体系、以快数据为基础的数据治理体系，分三个阶段完成互联互通平台的落地实践：',
+      desc: i18n.t('through the enterprise'),
       tips: [
-        'Dice平台实现统一技术架构（微服务）、实现多云资源的统一调度和统一的数据治理，解决企业在多云环境下统一研发、统一部署和运维的问题。',
+        i18n.t('the Dice platform implements a unified'),
         '基于Dice平台打造中心应用，包括用户中心和业务中心，实现对亿级会员进行统一注册、统一认证、统一识别、统一管理，业务中心实现集团统一的产品中心、积分中心、订单中心、服务中心，实现对核心业务及用户的有效支撑。',
         '打造统一的开放平台，实现面向全集团的互联互通和能力开放。',
       ],

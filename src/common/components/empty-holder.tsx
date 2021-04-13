@@ -16,10 +16,11 @@ import classnames from 'classnames';
 import * as React from 'react';
 import { Icon as CustomIcon } from 'common';
 import './empty-holder.scss';
+import i18n from '~/i18n';
 
 export const EmptyHolder = ({
   icon = 'not-found',
-  tip = '暂无内容',
+  tip = i18n.t('no content yet'),
   relative = false,
   style = {},
   action = null,
