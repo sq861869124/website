@@ -31,6 +31,7 @@
     "analyze": "rm -rf public && NODE_ENV=production webpack --config webpack.analyze.js",
     "prepare": "husky install",
     "extract": "node ./tool/extract-zh-words.js",
+    "translate": "node -e 'require(\"./tool/google-translate.js\")()'",
     "locale": "node -e 'require(\"./tool/write2locale.js\").writeLocale()'"
   },
   "husky": {
@@ -83,6 +84,7 @@
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@commitlint/read": "^12.1.1",
+    "@paiva/translation-google": "^1.0.9",
     "@principalstudio/html-webpack-inject-preload": "^1.2.7",
     "@svgr/webpack": "^5.5.0",
     "@terminus/lint-config": "^0.1.2",
