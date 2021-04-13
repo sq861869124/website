@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import i18n from '~/i18n';
+
 export const terminusDomain = 'https://terminus.io';
 export const docDomain = 'https://erda-docs.app.terminus.io';
 export const docVersion = 'latest';
@@ -34,18 +36,18 @@ export interface IHeaderItem {
 export const headerMenus: IHeaderItem[] = [
   // { name: 'Why Erda Cloud？', url: '/why-erda' },
   {
-    name: '产品',
+    name: i18n.t('product'),
     subList: [
-      { name: 'DevOps 平台', img: 'dev', description: '以应用为中心的 DevOps，打造极致的企业级应用开发体验' },
-      { name: '微服务治理平台', img: 'microservice', description: '无代码侵入的微服务治理，保障企业应用的安全、稳定生产' },
-      { name: '多云管理平台', img: 'duoyun', description: '云厂商无绑定的多云管理，构建高效的企业混合云架构' },
-      { name: '快数据平台', img: 'fdp', description: '基于流式计算的快数据管理，提供实时的统一数据管理平台' },
+      { name: i18n.t('DevOps'), img: 'dev', description: i18n.t('header devOps desc') },
+      { name: i18n.t('microservice'), img: 'microservice', description: i18n.t('header ms desc') },
+      { name: i18n.t('DataCenter'), img: 'duoyun', description: i18n.t('header multi-cloud desc') },
+      { name: i18n.t('fast data platform'), img: 'fdp', description: i18n.t('header fdp desc') },
     ],
   },
-  { name: '价格', url: '/price' },
-  { name: '文档', url: docUrl, jumpOut: true },
-  { name: '服务市场', url: '/market/addon' },
-  { name: '成功案例', url: '/customer-case' },
+  { name: i18n.t('price'), url: '/price' },
+  { name: i18n.t('documentation'), url: docUrl, jumpOut: true },
+  { name: i18n.t('service market'), url: '/market/addon' },
+  { name: i18n.t('success case'), url: '/customer-case' },
   // { name: '探索', url: '/', status: 'unrealized' },
   { name: 'GitHub', url: 'https://github.com/erda-project/erda', jumpOut: true },
 ];
@@ -91,34 +93,34 @@ export interface Ifooter {
 export const footerMenus: Ifooter = {
   left: {
     about: {
-      name: '关于我们',
+      name: i18n.t('about us'),
       // icon: 'gy',
       subList: [
-        { name: '加入我们', url: '/join' },
+        { name: i18n.t('join us'), url: '/join' },
       ],
     },
     resource: {
-      name: '资源',
+      name: i18n.t('resource'),
       // icon: 'zy',
       subList: [
         {
-          name: '培训与支持',
+          name: i18n.t('training and support'),
           url: docUrl,
           jumpOut: true,
         },
       ],
     },
     contactUs: {
-      name: '联系我们',
+      name: i18n.t('contact us'),
       subList: [{
-        name: '联系电话',
+        name: i18n.t('telephone'),
         value: '',
       }, {
-        name: '邮箱地址',
+        name: i18n.t('email'),
         value: '',
       }, {
-        name: '公司地址',
-        value: '杭州市西湖区转塘街道定山路云栖小镇飞天园区1号楼2楼',
+        name: i18n.t('adress'),
+        value: i18n.t('company address'),
       }],
     },
   },
@@ -132,7 +134,7 @@ export const footerMenus: Ifooter = {
           width: 110,
           height: 110,
         },
-        description: '扫一扫关注微信公众号',
+        description: i18n.t('scan and follow WeChat public account'),
       },
     ],
     subLink: [],
@@ -140,31 +142,31 @@ export const footerMenus: Ifooter = {
 };
 
 export const popular = {
-  name: '热门搜索',
+  name: i18n.t('popular searches'),
   searchUrl: 'https://www.baidu.com/s?wd=%E4%BA%91%E7%AE%A1%E5%B9%B3%E5%8F%B0',
   children: [
-    { name: '云管平台', url: '' },
+    { name: i18n.t('cloud management platform'), url: '' },
     { name: 'DevOps', url: '' },
-    { name: '微服务治理', url: '' },
-    { name: 'API 管理', url: '' },
-    { name: 'API 网关', url: '' },
-    { name: '自动化测试', url: '' },
-    { name: '代码托管', url: '' },
+    { name: i18n.t('microservice governance'), url: '' },
+    { name: i18n.t('API manage'), url: '' },
+    { name: i18n.t('API gateway'), url: '' },
+    { name: i18n.t('automatic test'), url: '' },
+    { name: i18n.t('code hosting'), url: '' },
     { name: 'CI/CD', url: '' },
-    { name: '流水线', url: '' },
-    { name: '运维服务', url: '' },
+    { name: i18n.t('pipeline'), url: '' },
+    { name: i18n.t('operation and maintenance service'), url: '' },
     { name: 'APM', url: '' },
   ],
 };
 
 export const tomo = [
-  { name: '阿里云', url: 'https://www.aliyun.com' },
+  { name: i18n.t('Ali Cloud'), url: 'https://www.aliyun.com' },
 ];
 
 export const copyRights = {
   text: '2012-2018 terminus.io',
   recordLicenseNumber: '备案/许可证号：浙ICP备13004315号',
-  recordLicenseAdress: 'https://beian.miit.gov.cn/',
+  recordLicenseAddress: 'https://beian.miit.gov.cn/',
 };
 export const police = {
   text: '浙公网安备 33010802003150号',

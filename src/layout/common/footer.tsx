@@ -162,7 +162,7 @@ const Footer = () => {
       }
       <div className="footer-links center-flex-box fz12 mt12">
         <span className="title">© {copyRights.text}</span>
-        <a href={copyRights.recordLicenseAdress}>{copyRights.recordLicenseNumber}</a>
+        <a href={copyRights.recordLicenseAddress}>{copyRights.recordLicenseNumber}</a>
         <span className="title mx4">|</span>
         <a className="flex-box" href={police.url}><img src={police.img} width={14} height={14} alt="" />{police.text}</a>
       </div>
