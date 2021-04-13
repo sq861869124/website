@@ -17,6 +17,7 @@ import PageContent from '~/layout/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
 import { CopmFadeInUp } from 'pages/component/animate-comp';
 import { useMobile } from 'common/utils';
+import i18n from '~/i18n';
 
 const ProjectManagement = () => {
   const isMobile = useMobile();
@@ -27,7 +28,7 @@ const ProjectManagement = () => {
       <PageContent>
         <CopmFadeInUp>
           <div className="card-title">
-            项目管理
+            {i18n.d('项目管理')}
           </div>
         </CopmFadeInUp>
         <CopmFadeInUp>
