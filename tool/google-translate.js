@@ -48,8 +48,7 @@ const doTranslate = async () => {
   const translatedSuccessfulList = translatedList.filter((item) => item.status === 'fulfilled');
   translatedSuccessfulList.forEach((item) => {
     const { zh, en } = item.value;
-    const [first, ...rest] = en;
-    wordList[zh] = filterInvalidWord(first.toLowerCase() + rest.join(''));
+    wordList[zh] = filterInvalidWord(en.toLowerCase());
   });
   fs.writeFileSync('tool/temp-zh-words.json', JSON.stringify(wordList, null, 2));
 };
