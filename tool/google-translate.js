@@ -39,11 +39,11 @@ const doTranslate = async () => {
     return { zh: word, en: result.text };
   });
   /**
-   * @type {{status: string, value: {zn: string; en: string}}[]}
+   * @type {[{value: {en: string, zh: string}, status: string}]}
    */
   const translatedList = await Promise.allSettled(promises);
   /**
-   * @type {{status: string, value: {zh: string, en: string}}[]}
+   * @type {[{value: {en: string, zh: string}, status: string}]}
    */
   const translatedSuccessfulList = translatedList.filter((item) => item.status === 'fulfilled');
   translatedSuccessfulList.forEach((item) => {
