@@ -54,10 +54,10 @@ const Price = () => {
                         {
                           pricingStrategies.map(({ key, price, specification }) => {
                             return (
-                              <p className="item mb12" key={`${type}-${key}`}>
+                              <div className="item mb12" key={`${type}-${key}`}>
                                 <p className="price">{price}</p>
                                 <p className="desc">{specification}</p>
-                              </p>);
+                              </div>);
                           })
                         }
                       </div>

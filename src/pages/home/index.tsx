@@ -33,6 +33,7 @@ const Home = () => {
       <MainCard />
       <ProjectManagement />
       <DoubleWing {...HomeConfig.codeRepositories} />
+      <DoubleWing {...HomeConfig.api} />
       <TestManage {...HomeConfig.testManage} />
       <DoubleWing {...HomeConfig.cicd} />
       <DoubleWing {...HomeConfig.monitor} />

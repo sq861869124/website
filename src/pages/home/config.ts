@@ -25,6 +25,7 @@ interface IConfig {
   log: IWingProps;
   multiCloud: IWingProps;
   testManage: ITest;
+  api: IWingProps;
 }
 
 const HomeConfig: IConfig = {
@@ -66,6 +67,38 @@ const HomeConfig: IConfig = {
       className: 'code-repositories-img',
     },
   },
+  api: {
+    identifier: 'api-full-life-cycle-manage',
+    reverse: true,
+    docProps: {
+      title: i18n.t('API full life cycle manage'),
+      description: i18n.t('API full life cycle manage description'),
+      list: [{
+        key: 'api-document-design',
+        icon: 'icon6beifen2',
+        activeIcon: 'icon6beifen',
+        title: i18n.t('API document design'),
+        description: i18n.t('API document design desc'),
+      }, {
+        key: 'api-sharing-market',
+        icon: 'icon7beifen',
+        title: i18n.t('API sharing market'),
+        description: i18n.t('API sharing market desc'),
+      }, {
+        key: 'api-access-management',
+        icon: 'icon8beifen',
+        title: i18n.t('API access manage'),
+        description: i18n.t('API access manage desc'),
+      }],
+    },
+    imgProps: {
+      offSet: [-30, 0],
+      src: '/images/home/Pic7.png',
+      width: 620,
+      height: 531,
+      className: 'log-analysis-img',
+    },
+  },
   cicd: {
     identifier: 'cicd',
     docProps: {
@@ -95,7 +128,6 @@ const HomeConfig: IConfig = {
       }],
     },
     reverse: true,
-    style: { backgroundColor: '#F7F9FF' },
     imgProps: {
       offSet: [-30, 0],
       src: '/images/home/Pic4.png',
@@ -107,6 +139,7 @@ const HomeConfig: IConfig = {
   monitor: {
     identifier: 'monitor',
     reverse: false,
+    style: { backgroundColor: '#F7F9FF' },
     docProps: {
       title: i18n.t('application performance manage'),
       description: i18n.t('application performance manage desc'),
@@ -141,7 +174,7 @@ const HomeConfig: IConfig = {
     },
     imgProps: {
       offSet: [-56, 0],
-      src: zn ? '/images/home/Pic5.png' : '/images/home/Pic5.png',
+      src: zn ? '/images/home/Pic5.png' : '/images/home/Pic5-en.png',
       width: 620,
       height: 531,
       className: 'monitor-img',
@@ -170,10 +203,9 @@ const HomeConfig: IConfig = {
       }],
     },
     reverse: true,
-    style: { backgroundColor: '#F7F9FF' },
     imgProps: {
       offSet: [-30, 0],
-      src: zn ? '/images/home/Pic-log.png' : '/images/home/Pic-log.png',
+      src: zn ? '/images/home/Pic-log.png' : '/images/home/Pic-log-en.png',
       width: 620,
       height: 531,
       className: 'log-analysis-img',
@@ -181,6 +213,7 @@ const HomeConfig: IConfig = {
   },
   multiCloud: {
     identifier: 'multi-cloud',
+    style: { backgroundColor: '#F7F9FF' },
     docProps: {
       title: i18n.t('cloud manage'),
       description: i18n.t('cloud manage desc'),
@@ -203,7 +236,7 @@ const HomeConfig: IConfig = {
     },
     imgProps: {
       offSet: [-30, 0],
-      src: zn ? '/images/home/Pic9.png' : '/images/home/Pic9.png',
+      src: zn ? '/images/home/Pic9.png' : '/images/home/Pic9-en.png',
       width: 620,
       height: 531,
       className: 'log-analysis-img',
