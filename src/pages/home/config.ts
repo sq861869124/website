@@ -14,7 +14,9 @@
 
 import { IProps as IWingProps } from './double-wing';
 import { IProps as ITest } from './test-manage';
-import i18n from '~/i18n';
+import i18n, { isZh } from '~/i18n';
+
+const zn = isZh();
 
 interface IConfig {
   codeRepositories: IWingProps;
@@ -112,34 +114,34 @@ const HomeConfig: IConfig = {
         icon: 'icon91',
         title: i18n.t('application topology automatic discovery'),
         key: 'applicationTopologyAutomaticDiscovery',
-        description: i18n.t('automatically draw the global topology architecture diagram according to the microservice calling relationship, which can clearly understand the relationship and calling situation between the microservices'),
+        description: i18n.t('application topology automatic discovery desc'),
       }, {
         icon: 'icon101',
         title: i18n.t('active monitoring of key business'),
         key: 'activeMonitoringOfKeyBusiness',
-        description: i18n.t('initiate uninterrupted timing requests to important business addresses, determine the health of application services, and actively count performance and health information'),
+        description: i18n.t('active monitoring of key business desc'),
       }, {
         icon: 'icon11',
         title: i18n.t('diagnosis of abnormal and slow transactions'),
         key: 'diagnosisOfAbnormalAndSlowTransactions',
-        description: i18n.t('comprehensive application performance monitoring, covering time-consuming web interface, time-consuming RPC call, slow database query, cache, etc., to easily track down system slow issues'),
+        description: i18n.t('diagnosis of abnormal and slow transactions desc'),
       }, {
         icon: 'icon12_2',
         activeIcon: 'icon121',
         title: i18n.t('customizable visualization of the market and alarms'),
         key: 'customizableVisualizationDashboardAndAlarms',
-        description: i18n.t('provide flexible custom chart alarm configuration to meet the display and alarm requirements of various monitoring operation and maintenance scenarios such as business monitoring, risk warning, performance analysis, etc.'),
+        description: i18n.t('customizable visualization of the market and alarms desc'),
       }, {
         icon: 'icon13_2',
         activeIcon: 'icon131',
         title: i18n.t('full link diagnosis and tracking'),
         key: 'fullLinkDiagnosisAndTracking',
-        description: i18n.t('according to the information capture of each request point in the link of each call of the microservice, the full transparency of the call information of the entire link is realized, and the diagnosis and analysis of the application call link are developed efficiently and conveniently'),
+        description: i18n.t('full link diagnosis and tracking desc'),
       }],
     },
     imgProps: {
       offSet: [-56, 0],
-      src: '/images/home/Pic5.png',
+      src: zn ? '/images/home/Pic5.png' : '/images/home/Pic5.png',
       width: 620,
       height: 531,
       className: 'monitor-img',
@@ -159,19 +161,19 @@ const HomeConfig: IConfig = {
         icon: 'icon3',
         key: 'customLogAnalysisRules',
         title: i18n.t('custom log analysis rules'),
-        description: i18n.t('by adding cleaning rules to the log, the log file structure is realized to meet the flexible business log visualization and alarm requirements'),
+        description: i18n.t('custom log analysis rules desc'),
       }, {
         icon: 'icon2',
         key: 'logDataVisualizationAndAlarm',
         title: i18n.t('log data visualization and alerting'),
-        description: i18n.t('for log analysis results, provide flexible custom chart alarm configuration to meet the display and alarm requirements of various monitoring operation and maintenance scenarios such as business monitoring, risk warning, performance analysis, etc'),
+        description: i18n.t('log data visualization and alerting desc'),
       }],
     },
     reverse: true,
     style: { backgroundColor: '#F7F9FF' },
     imgProps: {
       offSet: [-30, 0],
-      src: '/images/home/Pic-log.png',
+      src: zn ? '/images/home/Pic-log.png' : '/images/home/Pic-log.png',
       width: 620,
       height: 531,
       className: 'log-analysis-img',
@@ -201,7 +203,7 @@ const HomeConfig: IConfig = {
     },
     imgProps: {
       offSet: [-30, 0],
-      src: '/images/home/Pic9.png',
+      src: zn ? '/images/home/Pic9.png' : '/images/home/Pic9.png',
       width: 620,
       height: 531,
       className: 'log-analysis-img',

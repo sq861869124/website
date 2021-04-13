@@ -12,18 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import i18n from 'i18next';
+import i18next, { i18n as i18nInterface } from 'i18next';
 import antd_zhCN from 'antd/lib/locale-provider/zh_CN';
 import antd_enUS from 'antd/lib/locale-provider/en_US';
 import app_zhCN from '~/locale/zh.json';
 import app_enUS from '~/locale/en.json';
+import { Locale } from 'antd/es/locale-provider';
 
+type i18nType = i18nInterface & { d: (zhWords: string) => string };
+export type LongLocaleMark = 'zh-CN'| 'en-US';
+export type ShortLocaleMark = 'zh' | 'en';
+export type LocaleMap = {
+  [k in ShortLocaleMark]: {
+    key: k;
+    antd: Locale;
+    app: any;
+  }
+};
+
+
+const i18n = i18next as i18nType;
 i18n.d = (str: string): string => str;
 
-let userLanguage = window.navigator.userLanguage || window.navigator.language;
-userLanguage = userLanguage === 'zh-CN' ? 'zh' : 'en';
 
-const localeMap = {
+const userLanguage: ShortLocaleMark = (window.navigator.userLanguage || window.navigator.language) === 'zh-CN' ? 'zh' : 'en';
+
+const localeMap: LocaleMap = {
   en: {
     key: 'en',
     app: app_enUS,
@@ -36,10 +50,10 @@ const localeMap = {
   },
 };
 
-const defaultLocale = window.localStorage.getItem('locale') || userLanguage;
+const defaultLocale = (window.localStorage.getItem('locale') || userLanguage) as ShortLocaleMark;
 window.localStorage.setItem('locale', defaultLocale);
 let currentLocale = localeMap[defaultLocale];
-export function setLocale(lng: string) {
+export const setLocale = (lng: ShortLocaleMark) => {
   const localeObj = localeMap[lng] || localeMap[defaultLocale];
   return i18n
     .changeLanguage(lng.split('-')[0])
@@ -48,7 +62,26 @@ export function setLocale(lng: string) {
       window.localStorage.setItem('locale', currentLocale.key);
       return currentLocale;
     });
-}
+};
+
+export const switchLocale = () => {
+  const current: ShortLocaleMark = window.localStorage.getItem('locale') as ShortLocaleMark || 'zh';
+  const next: ShortLocaleMark = current === 'zh' ? 'en' : 'zh';
+  window.localStorage.setItem('locale', next);
+  window.location.reload();
+};
+
+export const getCurrentLocale = () => {
+  return currentLocale;
+};
+
+export const isZh = (): boolean => {
+  return currentLocale.key === 'zh';
+};
+
+export const getLang = (): LongLocaleMark => {
+  return getCurrentLocale().key === 'zh' ? 'zh-CN' : 'en-US';
+};
 
 
 export const initI18n = i18n
