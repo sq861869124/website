@@ -18,6 +18,7 @@ import { PageSection, IF, FileContainer, Icon as CustomIcon } from 'common';
 import { enlargeImg, handleError, useMobile } from 'common/utils';
 import { Button, Tabs, List, Tooltip, Spin } from 'antd';
 import axios from 'axios';
+import i18n from '~/i18n';
 import { get, keyBy, isEmpty, map } from 'lodash';
 import SwaggerUI from './swagger-ui';
 
@@ -31,9 +32,9 @@ const { TabPane } = Tabs;
 const { Item: ListItem } = List;
 
 const planCnMap = {
-  basic: '基础版',
-  professional: '专业版',
-  ultimate: '旗舰版',
+  basic: i18n.t('basic edition'),
+  professional: i18n.t('professional edition'),
+  ultimate: i18n.t('ultimate edition'),
 };
 
 const Plan = ({ data, version }: { data: any; version: string }) => {
@@ -49,14 +50,14 @@ const Plan = ({ data, version }: { data: any; version: string }) => {
   }
   return (
     <div className="version-plans" key={version}>
-      <div className="title-text">规格</div>
+      <div className="title-text">{i18n.t('specification')}</div>
       <div className="detail-plan-tabs">
         <Tabs activeKey={activePlan} onChange={(actKey: string) => setActivePlan(actKey)}>
           {
             map(data, (p: any, k: string) => {
               const offerings = map(p.offerings, (str) => ({ enable: true, str }));
               return (
-                <TabPane tab={planCnMap[k] || '其他'} key={k} >
+                <TabPane tab={planCnMap[k] || i18n.t('other')} key={k} >
                   <List
                     size="small"
                     dataSource={offerings}
@@ -89,20 +90,20 @@ const Detail = ({ data }: { data: any }) => {
       <div className="version-info-left">
         {!isEmpty(curSpec && curSpec.plan) ? <Plan data={curSpec.plan} version={activeVersion} /> : null}
         <div className="version-readme">
-          <div className="title-text">详情</div>
+          <div className="title-text">{i18n.t('details')}</div>
           {curVersion.readme && <FileContainer content={curVersion.readme} />}
         </div>
       </div>
       <div className="version-info-right">
         <div className="version-category">
-          <div className="title-text">所属分类</div>
+          <div className="title-text">{i18n.t('category')}</div>
           <Tooltip title={curSpec && curSpec.category}>
             <div className="sub-text nowrap">{curSpec && curSpec.category}</div>
           </Tooltip>
         </div>
 
         <div className="version-shares">
-          <div className="title-text">共享详情</div>
+          <div className="title-text">{i18n.t('share details')}</div>
           {map(get(curVersion, 'spec.requires'), (v: string) => (
             <div className="shares-item" key={v}>
               <CustomIcon type={v ? 'check' : 'gb'} />
@@ -113,7 +114,7 @@ const Detail = ({ data }: { data: any }) => {
           ))}
         </div>
         <div className="version-configvars">
-          <div className="title-text">配置参数</div>
+          <div className="title-text">{i18n.t('configuration parameter')}</div>
           <div className="version-config-container">
             {map(get(curVersion, 'spec.configVars') || [], (v: string) => (
               <Tooltip key={v} title={v}>
@@ -128,7 +129,7 @@ const Detail = ({ data }: { data: any }) => {
   return (
     <div className="service-versions">
       <div className="detail-version mb32">
-        <div className="title-text">版本</div>
+        <div className="title-text">{i18n.t('version')}</div>
         <div>
           {
             map(versions, ((v: string) => {
@@ -142,10 +143,10 @@ const Detail = ({ data }: { data: any }) => {
       {
         curVersion.swagger ? (
           <Tabs type="card">
-            <TabPane tab="接口文档" key="api-doc">
+            <TabPane tab={i18n.t('interface documentation')} key="api-doc">
               <SwaggerUI data={curVersion.swagger} />
             </TabPane>
-            <TabPane tab="版本详情" key="version-doc">
+            <TabPane tab={i18n.t('version details')} key="version-doc">
               {verDetail}
             </TabPane>
           </Tabs>
@@ -184,7 +185,7 @@ const ServiceDetail = (props: IProps) => {
 
   if (loading) {
     return (
-      <Spin spinning tip="加载中...">
+      <Spin spinning tip={i18n.t('Loading...')}>
         <div className="gray-bg loading-holder" />
       </Spin>
     );

@@ -15,6 +15,7 @@
 import React from 'react';
 import { Radio, Select, Input, Button } from 'antd';
 import { map, isString } from 'lodash';
+import i18n from '~/i18n';
 import KeyValueEdit from 'pages/market/components/key-val-edit';
 import FileEditor from 'pages/market/components/file-editor';
 import { formatJSON } from 'common/utils';
@@ -29,7 +30,7 @@ const BODY_RAW_OPTION = [
 const BasicForm = 'application/x-www-form-urlencoded';
 const ValMap = {
   none: () => (
-    <div className="body-val-none">当前请求无body</div>
+    <div className="body-val-none">{i18n.t('the current request has no body')}</div>
   ),
   [BasicForm]: (props: any) => {
     const { data, updateBody }: any = props;
@@ -49,7 +50,7 @@ const ValMap = {
         itemMap={[{
           type: 'key',
           props: {
-            placeholder: '参数名',
+            placeholder: i18n.t('parameter name'),
           },
           getProps: ({ editKey }: {editKey: boolean}) => {
             return {
@@ -59,12 +60,12 @@ const ValMap = {
         }, {
           type: 'value',
           props: {
-            placeholder: '参数值',
+            placeholder: i18n.t('parameter value'),
           },
         }, {
           type: 'desc',
           props: {
-            placeholder: '描述',
+            placeholder: i18n.t('description'),
           },
         }]}
       />
@@ -88,7 +89,7 @@ const TestJsonEditor = (props: any) => {
 
   return (
     <div className="test-json-editor">
-      <Button className="json-format-btn" size="small" onClick={() => { setContent(formatJSON(content)); }}>格式化</Button>
+      <Button className="json-format-btn" size="small" onClick={() => { setContent(formatJSON(content)); }}>{i18n.t('format')}</Button>
       <FileEditor
         fileExtension="json"
         value={content}

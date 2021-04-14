@@ -16,6 +16,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Tab } from './components/tab';
 import { IF, EmptyHolder } from '~/common';
+import i18n from '~/i18n';
 import { throttle } from 'lodash';
 import { ServiceCardList } from './components/service-card';
 import { ServiceList, IPublishItemCard } from './components/service-list';
@@ -46,21 +47,21 @@ const toCh = {
 
 const tabList = [
   {
-    name: '扩展服务',
+    name: i18n.t('extended service'),
     key: 'addon',
     icon: 'dsj',
   },
   {
-    name: '流水线任务',
+    name: i18n.t('pipeline task'),
     key: 'action',
     icon: 'fwcj',
   },
   {
-    name: '库',
+    name: i18n.t('library'),
     key: 'library',
     icon: 'k2x',
   }, {
-    name: '移动应用',
+    name: i18n.t('mobile application'),
     key: 'mobile',
     icon: 'ydyy2x',
   },
@@ -230,7 +231,7 @@ const ServiceMarket = ({ match }: any) => {
     detail = (
       <div className="detail">
         {
-          activeTab === 'api' ? <div className="service-category-title" ref={categoryRefMap['其他']}>其他</div> : null
+          activeTab === 'api' ? <div className="service-category-title" ref={categoryRefMap['其他']}>{i18n.t('other')}</div> : null
         }
         {
           publishItems.length ? <ServiceList list={publishItems} onClick={handleClick} /> : <EmptyHolder relative />
@@ -281,8 +282,8 @@ const ServiceMarket = ({ match }: any) => {
       <Spin spinning={isloading}>
         <div className={`market gray-bg vh-70 ${cls}`}>
           <div className="full-width-header v-flex-box">
-            <p className="title">服务市场</p>
-            <p className="title-desc mt16 fz16">为您的应用开发提供所需的微服务、中间件服务、业务插件能力、流水线任务、大数据任务等能力</p>
+            <p className="title">{i18n.t('service market')}</p>
+            <p className="title-desc mt16 fz16">{i18n.t('provide the required microservices for your application development')}</p>
           </div>
           <Tab list={tabList} activeKey={activeTab} onClick={clickTab} />
           <div className="market-content">

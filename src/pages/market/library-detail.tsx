@@ -16,6 +16,7 @@ import React, { useState } from 'react';
 import { Button, Spin } from 'antd';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import i18n from '~/i18n';
 import { FileContainer, Icon as CustomIcon, PageSection } from 'common';
 import { get, isEmpty, keyBy, map } from 'lodash';
 import './library-detail.scss';
@@ -34,7 +35,7 @@ const Detail = ({ data }: { data: any }) => {
   return (
     <div className="library-versions">
       <div className="detail-version mb32">
-        <div className="title-text">版本</div>
+        <div className="title-text">{i18n.t('version')}</div>
         <div>
           {
             map(versions, ((v: string) => {

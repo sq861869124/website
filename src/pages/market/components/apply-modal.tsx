@@ -15,6 +15,7 @@
 import React from 'react';
 import { Modal, Form, Input } from 'antd';
 import axios, { AxiosResponse } from 'axios';
+import i18n from '~/i18n';
 import { getFormFieldsValue, handleError, regRules } from 'common/utils';
 
 const FormItem = Form.Item;
@@ -53,7 +54,7 @@ const ApplyModal = ({ visible, onCancel, apiPublishId }: IProps) => {
   return (
     <Modal
       visible={visible}
-      title="申请使用"
+      title={i18n.t('apply to use')}
       width={440}
       destroyOnClose
       confirmLoading={loading}
@@ -62,17 +63,17 @@ const ApplyModal = ({ visible, onCancel, apiPublishId }: IProps) => {
 
     >
       <FormItem
-        label="邮箱"
+        label={i18n.t('mailbox')}
         name="subscriberEmail"
         rules={[
-          { required: true, message: '请输入邮箱' },
+          { required: true, message: i18n.t('please input your email') },
           regRules.email,
         ]}
       >
         <Input autoComplete="off" />,
       </FormItem>
       <FormItem
-        label="申请说明"
+        label={i18n.t('application instructions')}
         name="description"
       >
         <Input.TextArea autoSize={{ minRows: 2, maxRows: 4 }} maxLength={1024} autoComplete="off" />

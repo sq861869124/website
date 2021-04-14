@@ -16,6 +16,7 @@ import React, { Suspense } from 'react';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { message, Spin } from 'antd';
+import i18n from '~/i18n';
 import Layout from './layout/layout';
 import { setGlobal } from './common/utils';
 import { NotFound } from './layout/common/error-page';
@@ -113,7 +114,7 @@ const Fallback = (
   <div className="page-lazy-loading pt0">
     <div className="title-bg" />
     <div className="center-flex-box py40 my40">
-      <Spin spinning tip="页面加载中" />
+      <Spin spinning tip={i18n.t('page loading')} />
     </div>
   </div>
 );
@@ -131,10 +132,10 @@ const App = () => {
 };
 
 window.addEventListener('offline', () => {
-  message.warning('您的网络已断开');
+  message.warning(i18n.t('your network is disconnected'));
 });
 window.addEventListener('online', () => {
-  message.success('您的网络已恢复');
+  message.success(i18n.t('your network has been restored'));
 });
 
 export default App;
