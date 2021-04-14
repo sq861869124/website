@@ -14,6 +14,7 @@
 
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import i18n from '~/i18n';
 import PageContent from '~/layout/common/page-content';
 import './index.scss';
 
@@ -23,14 +24,14 @@ const JoinUs = () => {
     <div className="join-erda gray-bg">
       <div className="full-width-header">
         <div className="join-erda-header v-flex-box">
-          <p className="title-name fz20">即刻试用企业数字化平台（Erda Cloud）</p>
-          <p className="title-desc mt12 fz16">请填写您的真实信息，以便尽快通过审核并开启试用</p>
+          <p className="title-name fz20">{i18n.t('try the enterprise digital platform (Erda Cloud) now')}</p>
+          <p className="title-desc mt12 fz16">{i18n.t('please fill in your real information in order to pass the review as soon as possible and start the trial')}</p>
         </div>
       </div>
       <PageContent className="py40">
-        <p className="title fz24 mb40">我们期待你的加入</p>
+        <p className="title fz24 mb40">{i18n.t('we look forward to your joining')}</p>
         <div className="title fz20 mb40">
-          虚位以待
+          {i18n.t('position is ready')}
         </div>
       </PageContent>
     </div>

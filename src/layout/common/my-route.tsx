@@ -16,6 +16,7 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { pathToRegexp } from 'path-to-regexp';
 import { Location } from 'interface/common';
+import i18n from '~/i18n';
 
 interface IProps {
   location: Location;
@@ -38,7 +39,7 @@ const MyRoute = (props: IProps) => {
       const reg = pathToRegexp(item.path);
       return reg.test(props.location.pathname);
     });
-    document.title = findResult?.title || '尔达云';
+    document.title = findResult?.title || i18n.t('erda cloud');
   }, [props.routeList, props.location.pathname]);
   return (
     <Switch>

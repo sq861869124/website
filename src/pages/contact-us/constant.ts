@@ -11,39 +11,40 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+import i18n from '~/i18n';
 
 export const COMPANY_SIZE = [
-  { value: '20人以下', name: '20人以下' },
-  { value: '21-100人', name: '21-100人' },
-  { value: '101-500人', name: '101-500人' },
-  { value: '501-1000人', name: '501-1000人' },
-  { value: '1000人以上', name: '1000人以上' },
+  { value: i18n.t('20 people or less'), name: i18n.t('20 people or less') },
+  { value: i18n.t('21-100 people'), name: i18n.t('21-100 people') },
+  { value: i18n.t('101-500 people'), name: i18n.t('101-500 people') },
+  { value: i18n.t('501-1000 people'), name: i18n.t('501-1000 people') },
+  { value: i18n.t('More than 1000 people'), name: i18n.t('More than 1000 people') },
 ];
 
 export const IT_SIZE = [
-  { value: '10人以下', name: '10人以下' },
-  { value: '11-50人', name: '11-50人' },
-  { value: '51-100人', name: '51-100人' },
-  { value: '101-200人', name: '101-200人' },
-  { value: '200人以上', name: '200人以上' },
+  { value: i18n.t('10 people or less'), name: i18n.t('10 people or less') },
+  { value: i18n.t('11-50 people'), name: i18n.t('11-50 people') },
+  { value: i18n.t('51-100 people'), name: i18n.t('51-100 people') },
+  { value: i18n.t('101-200 people'), name: i18n.t('101-200 people') },
+  { value: i18n.t('More than 200 people'), name: i18n.t('More than 200 people') },
 ];
 
 
 export const PURPOSE = [
-  { value: '企业商务咨询', name: '企业商务咨询' },
-  { value: '加入成为合作伙伴', name: '加入成为合作伙伴' },
-  { value: '个人学习', name: '个人学习' },
-  { value: '其他', name: '其他' },
+  { value: i18n.t('corporate business consulting'), name: i18n.t('corporate business consulting') },
+  { value: i18n.t('join as a partner'), name: i18n.t('join as a partner') },
+  { value: i18n.t('personal study'), name: i18n.t('personal study') },
+  { value: i18n.t('other'), name: i18n.t('other') },
 ];
 
-export enum NAME_MAP {
-  realname = '真实姓名',
-  mobile = '手机号码',
-  position = '所处职位',
-  email = '企业邮箱地址',
-  company = '企业名称',
-  company_size = '企业规模',
-  it_size = 'IT部门规模',
-  purpose = '申请目的',
-  otherPurpose = '申请目的'
-}
+export const NAME_MAP = {
+  realname: i18n.t('actual name'),
+  mobile: i18n.t('phone number'),
+  position: i18n.t('position'),
+  email: i18n.t('business email address'),
+  company: i18n.t('company name'),
+  company_size: i18n.t('enterprise size'),
+  it_size: i18n.t('IT department size'),
+  purpose: i18n.t('purpose of application'),
+  otherPurpose: i18n.t('purpose of application'),
+};

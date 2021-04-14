@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import React from 'react';
+import i18n from '~/i18n';
 import { Link } from 'react-router-dom';
 import AccountLogin from 'pages/login/account-login';
 import VerificationCodeLogin from 'pages/login/verification-code-login';
@@ -37,10 +38,10 @@ const Login = () => {
       <div className="form-wrap pt24 px28 pb36">
         <Comp />
         <div className="flex-box sign-in-column mt8">
-          <div>忘记密码</div>
+          <div>{i18n.t('forgot password')}</div>
           <div className="flex-box">
-            <div className="mr8" onClick={handleChangeLoginType}>{loginType === 'account' ? '验证码登录' : '账户登录'}</div>
-            <Link to="/regist">注册</Link>
+            <div className="mr8" onClick={handleChangeLoginType}>{loginType === 'account' ? i18n.t('verification code login') : i18n.t('account login')}</div>
+            <Link to="/regist">{i18n.t('registered')}</Link>
           </div>
         </div>
       </div>

@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom';
 import { submitContactInfo } from '~/services/contact';
 import { CustomModal } from 'common';
 import RegularMap from 'common/utils/reg-rules';
+import i18n from '~/i18n';
 import './index.scss';
 
 const { Item: FormItem } = Form;
@@ -29,7 +30,7 @@ interface IFormData extends CONTACT.contactUs {
   otherPurpose?: string;
 }
 
-const modalInfo = '提交成功! \n\r感谢您的关注！我们将尽快联系您！';
+const modalInfo = `${i18n.t('submitted successfully!')} \n\r${i18n.t('thank you for your attention! We will contact you as soon as possible!')}`;
 
 
 const ContactUs = () => {
@@ -67,8 +68,8 @@ const ContactUs = () => {
     <div className="erda-contact-us">
       <div className="full-width-header">
         <div className="erda-contact-us-header v-flex-box">
-          <p className="title">即刻试用企业数字化平台（Erda Cloud）</p>
-          <p className="title-desc">请填写您的真实信息，以便尽快通过审核并开启试用</p>
+          <p className="title">{i18n.t('try the enterprise digital platform (Erda Cloud) now')}</p>
+          <p className="title-desc">{i18n.t('please fill in your real information in order to pass the review as soon as possible and start the trial')}</p>
         </div>
       </div>
       <PageContent>
@@ -77,57 +78,57 @@ const ContactUs = () => {
             label={NAME_MAP.realname}
             name="realname"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.realname}` },
+              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.realname}` },
             ]}
           >
-            <Input autoComplete="off" autoFocus placeholder={`请输入${NAME_MAP.realname}`} />
+            <Input autoComplete="off" autoFocus placeholder={`${i18n.t('please enter')}${NAME_MAP.realname}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.mobile}
             name="mobile"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.mobile}` },
+              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.mobile}` },
               RegularMap.mobile,
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.mobile}`} />
+            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.mobile}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.email}
             name="email"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.email}` },
+              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.email}` },
               RegularMap.email,
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.email}`} />
+            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.email}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.position}
             name="position"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.position}` },
+              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.position}` },
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.position}`} />
+            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.position}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.company}
             name="company"
             rules={[
-              { required: true, message: `请输入${NAME_MAP.company}` },
+              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.company}` },
             ]}
           >
-            <Input autoComplete="off" placeholder={`请输入${NAME_MAP.company}`} />
+            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.company}`} />
           </FormItem>
           <FormItem
             label={NAME_MAP.company_size}
             name="company_size"
             rules={[
-              { required: true, message: `请选择${NAME_MAP.company_size}` },
+              { required: true, message: `${i18n.t('please choose')}${NAME_MAP.company_size}` },
             ]}
           >
-            <Select placeholder={`请选择${NAME_MAP.company_size}`}>
+            <Select placeholder={`${i18n.t('please choose')}${NAME_MAP.company_size}`}>
               {
                 COMPANY_SIZE.map(({ name, value }) => {
                   return <Select.Option value={value} key={value}>{name}</Select.Option>;
@@ -139,10 +140,10 @@ const ContactUs = () => {
             label={NAME_MAP.it_size}
             name="it_size"
             rules={[
-              { required: true, message: `请选择${NAME_MAP.it_size}` },
+              { required: true, message: `${i18n.t('please choose')}${NAME_MAP.it_size}` },
             ]}
           >
-            <Select placeholder={`请选择${NAME_MAP.it_size}`}>
+            <Select placeholder={`${i18n.t('please choose')}${NAME_MAP.it_size}`}>
               {
                 IT_SIZE.map(({ name, value }) => {
                   return <Select.Option value={value} key={value}>{name}</Select.Option>;
@@ -154,10 +155,10 @@ const ContactUs = () => {
             label={NAME_MAP.purpose}
             name="purpose"
             rules={[
-              { required: true, message: `请选择${NAME_MAP.purpose}` },
+              { required: true, message: `${i18n.t('please choose')}${NAME_MAP.purpose}` },
             ]}
           >
-            <Select placeholder={`请选择${NAME_MAP.purpose}`} onChange={handleChangePurpose}>
+            <Select placeholder={`${i18n.t('please choose')}${NAME_MAP.purpose}`} onChange={handleChangePurpose}>
               {
                 PURPOSE.map(({ name, value }) => {
                   return <Select.Option value={value} key={value}>{name}</Select.Option>;
@@ -171,10 +172,10 @@ const ContactUs = () => {
                 label={NAME_MAP.otherPurpose}
                 name="otherPurpose"
                 rules={[
-                  { required: true, message: `请输入${NAME_MAP.otherPurpose}` },
+                  { required: true, message: `${i18n.t('please enter')}${NAME_MAP.otherPurpose}` },
                 ]}
               >
-                <Input.TextArea autoComplete="off" placeholder={`请输入${NAME_MAP.otherPurpose}`} autoSize={{ minRows: 3, maxRows: 10 }} />
+                <Input.TextArea autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.otherPurpose}`} autoSize={{ minRows: 3, maxRows: 10 }} />
               </FormItem>
             ) : null
           }

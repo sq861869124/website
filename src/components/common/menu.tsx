@@ -99,7 +99,7 @@ const IntroMenu = ({ handlevisibleChange, page }: IMenu) => {
           if (status === 'unrealized') {
             return (
               <MenuItem key={name}>
-                <Popover placement="bottom" content={<p className="nowrap">{i18n.t('stay tuned')}</p>} getPopupContainer={getParentContainer}>
+                <Popover placement="bottom" content={<p className="nowrap">{i18n.t('comming soon')}</p>} getPopupContainer={getParentContainer}>
                   <a className="bold-600">{name}</a>
                 </Popover>
               </MenuItem>

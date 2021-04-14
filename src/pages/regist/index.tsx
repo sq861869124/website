@@ -14,6 +14,7 @@
 
 import React from 'react';
 import { Button, Checkbox, Form } from 'antd';
+import i18n from '~/i18n';
 import InputWithUnderLine from '~/layout/common/inpput-with-under-line';
 import { getFormFieldsValue } from 'common/utils';
 import CountDonw from 'pages/component/count-down';
@@ -47,38 +48,38 @@ const Regsist = () => {
           <FormItem
             name="userNme"
           >
-            <InputWithUnderLine filedName="手机号" />
+            <InputWithUnderLine filedName={i18n.t('phone number')} />
           </FormItem>
           <FormItem
             name="userNme"
           >
-            <InputWithUnderLine filedName="图片验证码" />
+            <InputWithUnderLine filedName={i18n.t('image verification code')} />
           </FormItem>
           <FormItem
             name="password"
             rules={[{
-              required: true, message: '请输入密码',
+              required: true, message: i18n.t('please enter the password'),
             }]}
           >
-            <InputWithUnderLine type="password" filedName="密码" />
+            <InputWithUnderLine type="password" filedName={i18n.t('password')} />
           </FormItem>
           <FormItem
             name="password"
             rules={[{
-              required: true, message: '请输入密码',
+              required: true, message: i18n.t('please enter the password'),
             }]}
           >
-            <InputWithUnderLine type="password" filedName="确认密码" />
+            <InputWithUnderLine type="password" filedName={i18n.t('confirm password')} />
           </FormItem>
           <FormItem
             name="userNme"
           >
-            <InputWithUnderLine filedName="昵称" />
+            <InputWithUnderLine filedName={i18n.t('nickname')} />
           </FormItem>
           <FormItem
             name="userNme"
           >
-            <InputWithUnderLine suffix={<CountDonw triggerStart={getVerificationCode} template={'{countdown}秒后重新获取'} time={60} btnText="获取验证码" />} />
+            <InputWithUnderLine suffix={<CountDonw triggerStart={getVerificationCode} template={'{countdown}秒后重新获取'} time={60} btnText={i18n.t('get verification code')} />} />
           </FormItem>
 
           <FormItem
@@ -86,11 +87,11 @@ const Regsist = () => {
             className="mb0"
             valuePropName="checked"
           >
-            <Checkbox><span>我已阅读并同意<a href="">用户协议</a></span></Checkbox>
+            <Checkbox><span>{i18n.t('I have read and agree')}<a href="">{i18n.t('user Agreement')}</a></span></Checkbox>
           </FormItem>
-          <Button className="login-button" onClick={handleRegist} type="primary">注册</Button>
+          <Button className="login-button" onClick={handleRegist} type="primary">{i18n.t('registered')}</Button>
           <div className="flex-box sign-in-column mt8">
-            <Link to="/login">返回登录</Link>
+            <Link to="/login">{i18n.t('back to login')}</Link>
           </div>
         </Form>
       </div>

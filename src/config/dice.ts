@@ -94,7 +94,7 @@ export const introTitle = i18n.t('Enterprise Digital Platform (Dice)');
 
 export const introSummary = i18n.t('a powerful platform');
 
-export const introSlogan = '企业数字化平台（Dice）丰富的产品特性，提供给企业强大的底层技术支撑。';
+export const introSlogan = i18n.t('rich product features of the enterprise digital platform (Dice)');
 
 export const introData = [
   {

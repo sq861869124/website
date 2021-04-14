@@ -34,7 +34,7 @@ const ProjectManagement = () => {
         </CopmFadeInUp>
         <CopmFadeInUp>
           <div className="card-desc mt20">
-            团队不同职能成员高效协作，内置丰富的项目成员角色，让团队管理者对于目标管理、 投入资源成本、成员研发统计数据更直观，让开发者更有效有序管理日常研发工作任务和缺陷， 让产品/项目经理规划产品需求池、迭代计划以及迭代进度跟踪变得更简单有效。
+            {i18n.t('different functional members of the team collaborate efficiently, and the rich project member roles are built-in, allowing team managers to more intuitively manage target management, resource input costs, and member R&D statistics, allowing developers to more effectively and orderly manage daily R&D tasks and defects, and make products /Project manager planning product demand pool, iteration plan and iteration progress tracking become simpler and more effective.')}
           </div>
         </CopmFadeInUp>
         <CopmFadeInUp>

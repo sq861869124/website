@@ -29,7 +29,7 @@ const LoginPanel = () => {
       <span className="login-item">
         <a onClick={handleLogin} className="bold" target="_blank" rel="noopener noreferrer">{i18n.t('log in')}</a>
       </span>
-      <Popover content={i18n.t('stay tuned')} placement="bottom">
+      <Popover content={i18n.t('comming soon')} placement="bottom">
         <a className="bold free-registration ml20">{i18n.t('free registration')}</a>
       </Popover>
 
