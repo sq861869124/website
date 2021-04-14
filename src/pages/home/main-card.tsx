@@ -19,6 +19,7 @@ import { CopmFadeInUp } from 'pages/component/animate-comp';
 import { useMobile } from 'common/utils';
 import { Link } from 'react-router-dom';
 import { Icon } from 'common';
+import imagesMap from './images';
 
 const config = {
   title: '为什么选择 Erda Cloud?',
@@ -42,11 +43,11 @@ const MainCard = () => {
       <div className="img-wrapper mt20">
         <CopmFadeInUp>
           {
-            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src="/images/home/main-l.png" />
+            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src={imagesMap.mainLeft} />
           }
-          <ImgLazy lazy={false} width={430} height={430} src="/images/home/main-c.png" />
+          <ImgLazy lazy={false} width={430} height={430} src={imagesMap.mainCenter} />
           {
-            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src="/images/home/main-r.png" />
+            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src={imagesMap.mainRight} />
           }
         </CopmFadeInUp>
       </div>

@@ -11,6 +11,19 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+declare module '*.json' {
+  const value: any;
+  export default value;
+}
+
+declare module 'rc-util/lib/Dom/addEventListener'{
+  export interface IReturn{
+    remove(): any;
+  }
+  const fun: (target: Window, eventType: string, cb: (e: Event) => any, options?: boolean | AddEventListenerOptions) => IReturn;
+  export default fun;
+}
+
 
 declare interface IResponse<T> {
   success: boolean;

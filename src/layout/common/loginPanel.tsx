@@ -17,6 +17,7 @@ import { Popover } from 'antd';
 import userStore from '~/models/user';
 
 import './loginPanel.scss';
+import i18n from '~/i18n';
 
 const LoginPanel = () => {
   const handleLogin = () => {
@@ -26,10 +27,10 @@ const LoginPanel = () => {
   return (
     <div className="site-loginpanel">
       <span className="login-item">
-        <a onClick={handleLogin} className="bold" target="_blank" rel="noopener noreferrer">登录</a>
+        <a onClick={handleLogin} className="bold" target="_blank" rel="noopener noreferrer">{i18n.t('common:Sign In')}</a>
       </span>
-      <Popover content="敬请期待" placement="bottom">
-        <a className="bold free-registration ml20">免费注册</a>
+      <Popover content={i18n.t('common:comming soon')} placement="bottom" getPopupContainer={(e) => e.parentElement}>
+        <a className="bold free-registration ml20">{i18n.t('common:Sign Up')}</a>
       </Popover>
 
     </div>

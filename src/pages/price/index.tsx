@@ -12,13 +12,38 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PageContent from '~/layout/common/page-content';
-import { abilitiesByVersion } from 'pages/price/config';
+import { abilitiesByVersion, versionColumns, abilitiesTree, specColumns, specData } from 'pages/price/config';
+import addEventListener, { IReturn } from 'rc-util/lib/Dom/addEventListener';
+import { getScrollTop, useMobile } from 'common/utils';
+import { useMount, useUnmount } from 'react-use';
+import { Table } from 'antd';
 import { Icon } from 'common';
 import './index.scss';
 
 const Price = () => {
+  const [showFixedHeader, toggleFixedHeader] = useState(false);
+  const eventRef = useRef<IReturn>();
+  const wrapRef = useRef<HTMLDivElement>();
+  const isMobile = useMobile();
+  useMount(() => {
+    eventRef.current = addEventListener(window, 'scroll', () => {
+      const offsetTop = wrapRef.current?.offsetTop || 0;
+      /**
+       * 330: page banner's height
+       * 72: page header's height
+       */
+      if (getScrollTop() > offsetTop + 330 - 72) {
+        toggleFixedHeader(true);
+      } else {
+        toggleFixedHeader(false);
+      }
+    });
+  });
+  useUnmount(() => {
+    eventRef.current?.remove();
+  });
   return (
     <div className="erda-price pt0">
       <div className="full-width-header v-flex-box">
@@ -28,36 +53,25 @@ const Price = () => {
         <div className="flex-box v-align-start version-columns">
           {
             abilitiesByVersion.map((item) => {
-              const { type, data, name, bottomComp, tip, pricingStrategies } = item;
+              const { type, name, bottomComp, pricingStrategies } = item;
               return (
                 <div className="version-columns-item" key={type}>
                   <div className="item-header">
                     <p className="ver-name">{name}</p>
                   </div>
-                  <div className="item-body">
-                    <p className="px12 tips">{tip}</p>
-                    {
-                      data.map((t) => {
-                        return (
-                          <p className="ability-item flex-start mb12" key={t.key}>
-                            <Icon className="check-mark" type="duigou" color />
-                            <span className="ability-name">{t.name}</span>
-                          </p>
-                        );
-                      })
-                    }
-                  </div>
                   {
-                    pricingStrategies.length ? (
+                    isMobile ? pricingStrategies.length ? (
                       <div className="pricing-strategy">
-                        <p className="line" />
                         {
-                          pricingStrategies.map(({ key, price, specification }) => {
+                          pricingStrategies.map(({ key, price, specification, gift }) => {
                             return (
-                              <p className="item mb12" key={`${type}-${key}`}>
-                                <p className="price">{price}</p>
+                              <div className="item mb12" key={`${type}-${key}`}>
+                                <p className="Pricing">{price}</p>
                                 <p className="desc">{specification}</p>
-                              </p>);
+                                {
+                                  gift ? <p className="gift">赠：{gift}</p> : null
+                                }
+                              </div>);
                           })
                         }
                       </div>
@@ -68,26 +82,98 @@ const Price = () => {
                           价格待定
                         </div>
                       </div>
+                    ) : (
+                      <div className={`pricing-strategy ${type}`}>
+                        {
+                          pricingStrategies[0].priceInPc
+                        }
+                      </div>
                     )
                   }
                   <div className="experience">
                     {bottomComp}
                   </div>
+                  {
+                    isMobile ? (
+                      <div className="pt16 px24">
+                        {
+                          abilitiesTree.map(({ children, name: scope, key }) => {
+                            const abilities = children.filter((t) => t[type]);
+                            return abilities.length ? (
+                              <div key={key}>
+                                <p className="tips">{scope}</p>
+                                {
+                                  abilities.map((t) => {
+                                    return (
+                                      <p key={t.key} className="ability-item flex-start v-align-start mb12">
+                                        <Icon className="check-mark" type="duigou" color />
+                                        <span className="flex-1 ability-name">{t.name}</span>
+                                      </p>
+                                    );
+                                  })
+                                }
+                              </div>
+                            ) : null;
+                          })
+                        }
+                      </div>
+                    ) : null
+                  }
                 </div>
               );
             })
           }
         </div>
-        <div className="private-deploy flex-box mt40">
-          <div className="left flex-box">
-            <div>是否需要私有部署？</div>
-            <p>提供企业完整私有化管理的部署方案</p>
-          </div>
-          <div className="right flex-box">
-            <a href="/contact" target="_blank">联系商务</a>
-          </div>
-
-        </div>
+        {
+          !isMobile ? (
+            <>
+              <div className="spec-list pb20">
+                <Table
+                  columns={specColumns}
+                  dataSource={specData}
+                  pagination={false}
+                />
+              </div>
+              <div ref={wrapRef as unknown as React.RefObject<HTMLDivElement>} className="abilities-list">
+                <div hidden={!showFixedHeader} className="fixed-header">
+                  <div className="flex-box">
+                    {
+                      versionColumns.map((item) => {
+                        return (
+                          <div className="pa16" style={{ width: item.width }} key={item.dataIndex}>
+                            {item.title}
+                          </div>
+                        );
+                      })
+                    }
+                  </div>
+                </div>
+                <Table
+                  defaultExpandAllRows
+                  dataSource={abilitiesTree}
+                  columns={versionColumns}
+                  rowClassName={(r) => {
+                    if (r.children) {
+                      return 'level-root';
+                    } else {
+                      return 'level-child';
+                    }
+                  }}
+                  expandIcon={({ expandable, expanded, onExpand, record }) => {
+                    return expandable ? (
+                      <Icon
+                        className={'pr4 expanded-icon'}
+                        type={expanded ? 'down' : 'right'}
+                        onClick={(e: React.MouseEvent<HTMLElement>) => onExpand(record, e)}
+                      />
+                    ) : <i className="pr4" />;
+                  }}
+                  pagination={false}
+                />
+              </div>
+            </>
+          ) : null
+        }
       </PageContent>
     </div>
   );

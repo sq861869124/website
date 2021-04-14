@@ -17,10 +17,10 @@ import PageContent from '~/layout/common/page-content';
 import ImgLazy from 'pages/component/img-lazy';
 import { CopmFadeInUp } from 'pages/component/animate-comp';
 import { useMobile } from 'common/utils';
+import images from './images';
 
 const ProjectManagement = () => {
   const isMobile = useMobile();
-
 
   return (
     <div className="erda-home-pm">
@@ -37,12 +37,12 @@ const ProjectManagement = () => {
         </CopmFadeInUp>
         <CopmFadeInUp>
           <div className="mt44 img-wrapper">
-            <ImgLazy className="main-img" width={800} height={300} src="/images/home/Pic2.png" />
+            <ImgLazy className="main-img" width={800} height={300} src={images.projectManagement} />
             {
               isMobile ? null : (
                 <>
-                  <ImgLazy className="male" width={100} height={100} src="/images/home/Pic2-1.png" />
-                  <ImgLazy className="female" width={100} height={100} src="/images/home/Pic2-2.png" />
+                  <ImgLazy className="male" width={100} height={100} src={images.projectManagementMale} />
+                  <ImgLazy className="female" width={100} height={100} src={images.projectManagementFemale} />
                 </>
               )
             }
