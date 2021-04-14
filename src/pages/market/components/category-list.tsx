@@ -30,18 +30,20 @@ export const CategoryList = ({
 }: IProps) => {
   return (
     <div className={`service-category-list ${className}`}>
-      {list.map((category, i) => {
-        const cls = activeKey === category ? 'active' : '';
-        return (
-          <div
-            key={i}
-            className={`category-item ${cls}`}
-            onClick={(e) => onClick(category, e)}
-          >
-            <span>{category}</span>
-          </div>
-        );
-      })}
+      <div className="category-list-box">
+        {list.map((category, i) => {
+          const cls = activeKey === category ? 'active' : '';
+          return (
+            <div
+              key={i}
+              className={`category-item ${cls}`}
+              onClick={(e) => onClick(category, e)}
+            >
+              <span>{category}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
