@@ -29,7 +29,7 @@ const ProjectManagement = () => {
       <PageContent>
         <CopmFadeInUp>
           <div className="card-title">
-            {i18n.d('项目管理')}
+            {i18n.t('project management')}
           </div>
         </CopmFadeInUp>
         <CopmFadeInUp>
