@@ -9,7 +9,9 @@
     transition: transform 0.5s, background-color 0.1s ease-out;
 
     .category-list-box {
-      height: calc(100vh - (72px + 56px + 68px + 10px));
+      height: calc(
+        100vh - (72px + 56px + 68px + 10px)
+      ); // 72 header, 56 tab ,68 footer, 10 padding
       overflow: scroll;
     }
   }
