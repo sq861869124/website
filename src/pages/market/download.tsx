@@ -113,7 +113,7 @@ const DownloadPage = ({ match }: any) => {
     }
     const isInWeChat: boolean = /micromessenger/i.test(navigator.userAgent);
     if (isInWeChat) {
-      message.info(`${i18n.t('please at')}${client === 'ios' ? 'Safari' : ''}${i18n.t('open the current page in the browser')}`);
+      message.info(i18n.t('please at {browser} open the current page in the browser', { browser: client === 'ios' ? 'Safari' : '' }));
       return;
     }
     let downloadUrl = url;

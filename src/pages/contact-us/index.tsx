@@ -78,57 +78,57 @@ const ContactUs = () => {
             label={NAME_MAP.realname}
             name="realname"
             rules={[
-              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.realname}` },
+              { required: true, message: i18n.t('please enter {realname}', { realname: NAME_MAP.realname }) },
             ]}
           >
-            <Input autoComplete="off" autoFocus placeholder={`${i18n.t('please enter')}${NAME_MAP.realname}`} />
+            <Input autoComplete="off" autoFocus placeholder={i18n.t('please enter {realname}', { realname: NAME_MAP.realname })} />
           </FormItem>
           <FormItem
             label={NAME_MAP.mobile}
             name="mobile"
             rules={[
-              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.mobile}` },
+              { required: true, message: i18n.t('please enter {realname}', { realname: NAME_MAP.mobile }) },
               RegularMap.mobile,
             ]}
           >
-            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.mobile}`} />
+            <Input autoComplete="off" placeholder={i18n.t('please enter {realname}', { realname: NAME_MAP.mobile })} />
           </FormItem>
           <FormItem
             label={NAME_MAP.email}
             name="email"
             rules={[
-              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.email}` },
+              { required: true, message: i18n.t('please enter {realname}', { realname: NAME_MAP.email }) },
               RegularMap.email,
             ]}
           >
-            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.email}`} />
+            <Input autoComplete="off" placeholder={i18n.t('please enter {realname}', { realname: NAME_MAP.email })} />
           </FormItem>
           <FormItem
             label={NAME_MAP.position}
             name="position"
             rules={[
-              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.position}` },
+              { required: true, message: i18n.t('please enter {realname}', { realname: NAME_MAP.position }) },
             ]}
           >
-            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.position}`} />
+            <Input autoComplete="off" placeholder={i18n.t('please enter {realname}', { realname: NAME_MAP.position })} />
           </FormItem>
           <FormItem
             label={NAME_MAP.company}
             name="company"
             rules={[
-              { required: true, message: `${i18n.t('please enter')}${NAME_MAP.company}` },
+              { required: true, message: i18n.t('please enter {realname}', { realname: NAME_MAP.company }) },
             ]}
           >
-            <Input autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.company}`} />
+            <Input autoComplete="off" placeholder={i18n.t('please enter {realname}', { realname: NAME_MAP.company })} />
           </FormItem>
           <FormItem
             label={NAME_MAP.company_size}
             name="company_size"
             rules={[
-              { required: true, message: `${i18n.t('please choose')}${NAME_MAP.company_size}` },
+              { required: true, message: i18n.t('please choose {size}', { size: NAME_MAP.company_size }) },
             ]}
           >
-            <Select placeholder={`${i18n.t('please choose')}${NAME_MAP.company_size}`}>
+            <Select placeholder={i18n.t('please choose {size}', { size: NAME_MAP.company_size })}>
               {
                 COMPANY_SIZE.map(({ name, value }) => {
                   return <Select.Option value={value} key={value}>{name}</Select.Option>;
@@ -140,10 +140,10 @@ const ContactUs = () => {
             label={NAME_MAP.it_size}
             name="it_size"
             rules={[
-              { required: true, message: `${i18n.t('please choose')}${NAME_MAP.it_size}` },
+              { required: true, message: i18n.t('please choose {size}', { size: NAME_MAP.it_size }) },
             ]}
           >
-            <Select placeholder={`${i18n.t('please choose')}${NAME_MAP.it_size}`}>
+            <Select placeholder={i18n.t('please choose {size}', { size: NAME_MAP.it_size })}>
               {
                 IT_SIZE.map(({ name, value }) => {
                   return <Select.Option value={value} key={value}>{name}</Select.Option>;
@@ -155,10 +155,10 @@ const ContactUs = () => {
             label={NAME_MAP.purpose}
             name="purpose"
             rules={[
-              { required: true, message: `${i18n.t('please choose')}${NAME_MAP.purpose}` },
+              { required: true, message: i18n.t('please choose {size}', { size: NAME_MAP.purpose }) },
             ]}
           >
-            <Select placeholder={`${i18n.t('please choose')}${NAME_MAP.purpose}`} onChange={handleChangePurpose}>
+            <Select placeholder={i18n.t('please choose {size}', { size: NAME_MAP.purpose })} onChange={handleChangePurpose}>
               {
                 PURPOSE.map(({ name, value }) => {
                   return <Select.Option value={value} key={value}>{name}</Select.Option>;
@@ -172,19 +172,19 @@ const ContactUs = () => {
                 label={NAME_MAP.otherPurpose}
                 name="otherPurpose"
                 rules={[
-                  { required: true, message: `${i18n.t('please enter')}${NAME_MAP.otherPurpose}` },
+                  { required: true, message: i18n.t('please choose {size}', { size: NAME_MAP.otherPurpose }) },
                 ]}
               >
-                <Input.TextArea autoComplete="off" placeholder={`${i18n.t('please enter')}${NAME_MAP.otherPurpose}`} autoSize={{ minRows: 3, maxRows: 10 }} />
+                <Input.TextArea autoComplete="off" placeholder={i18n.t('please choose {size}', { size: NAME_MAP.otherPurpose })} autoSize={{ minRows: 3, maxRows: 10 }} />
               </FormItem>
             ) : null
           }
           <div>
-            <Button type="primary" onClick={handleSubmit}>提交</Button>
-            <Link className="ant-btn ml12" to="/">取消</Link>
+            <Button type="primary" onClick={handleSubmit}>{i18n.t('submit')}</Button>
+            <Link className="ant-btn ml12" to="/">{i18n.t('cancel')}</Link>
           </div>
         </Form>
-        <CustomModal title={'申请试用'} visible={modalVisible} toggleModal={toggleModal}>{modalInfo}</CustomModal>
+        <CustomModal title={i18n.t('Apply for trial')} visible={modalVisible} toggleModal={toggleModal}>{modalInfo}</CustomModal>
       </PageContent>
     </div>
   );

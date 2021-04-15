@@ -65,14 +65,14 @@ export class Copy extends React.PureComponent<IProps> {
         if (typeof onSuccess === 'function') {
           onSuccess(e);
         }
-        message.success(`${i18n.t('copy')}${e.trigger.getAttribute('data-clipboard-tip') || tipName}${i18n.t('success')}`, 1);
+        message.success(i18n.t('copy {attribute} success', { attribute: e.trigger.getAttribute('data-clipboard-tip') || tipName }), 1);
         e.clearSelection();
       });
       this.clipboard.on('error', (e: any) => {
         if (typeof onError === 'function') {
           onError(e);
         }
-        message.error(`${i18n.t('copy')}${e.trigger.getAttribute('data-clipboard-tip') || tipName}${i18n.t('success')}`, 1);
+        message.error(i18n.t('copy {attribute} success', { attribute: e.trigger.getAttribute('data-clipboard-tip') || tipName }), 1);
       });
     }
   }

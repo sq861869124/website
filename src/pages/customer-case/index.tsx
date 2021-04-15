@@ -58,7 +58,7 @@ const CustomerCase = () => {
   return (
     <div className="erda-customer-case pt0">
       <div className="full-width-header  v-flex-box">
-        <div className="title">{i18n.t('success case')}</div>
+        <div className="title">{i18n.t('success stories')}</div>
         <p className="title-desc px20">{i18n.t('covered 100+ large and medium-sized head enterprises')}</p>
       </div>
       <PageContent className="case-body">
