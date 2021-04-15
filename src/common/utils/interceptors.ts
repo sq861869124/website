@@ -14,6 +14,7 @@
 
 import axios, { AxiosResponse } from 'axios';
 import { message } from 'antd';
+import i18n from '~/i18n';
 
 const whiteList = {};
 
@@ -36,7 +37,7 @@ axios.interceptors.response.use((response: AxiosResponse<IResponse<any>>) => {
 }, (error: any) => {
   if (!whiteList[error.config.url]) {
     console.error('error:', error);
-    message.error('很抱歉，当前请求遇到问题，我们将尽快修复！');
+    message.error(i18n.t('sorry, there is a problem with the current request'));
   } else {
     delete whiteList[error.config.url];
   }
