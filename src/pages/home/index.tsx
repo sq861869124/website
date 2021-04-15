@@ -51,7 +51,7 @@ const Home = () => {
                 onClick={() => {
                   window.open('/login-dice');
                 }}
-              >{i18n.t('common:free register')}
+              >{i18n.t('common:free trial')}
               </div>
               <Link className="btn-item contact center-flex-box" to="/contact">{i18n.t('default:contact us')}</Link>
             </div>
