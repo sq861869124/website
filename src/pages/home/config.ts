@@ -182,8 +182,8 @@ const HomeConfig: IConfig = {
   log: {
     identifier: 'log-analysis',
     docProps: {
-      title: i18n.t('log analysis management'),
-      description: i18n.t('log analysis management desc'),
+      title: i18n.t('log service'),
+      description: i18n.t('log service desc'),
       list: [{
         icon: 'icon12',
         key: 'oneStopServiceForLogData',
@@ -258,10 +258,6 @@ const HomeConfig: IConfig = {
       icon: 'data-bank',
       title: i18n.t('data bank'),
       description: i18n.t('data bank desc'),
-    }, {
-      icon: 'full-link',
-      title: i18n.t('API full life cycle manage'),
-      description: i18n.t('API full life cycle manage desc'),
     }],
   },
 };

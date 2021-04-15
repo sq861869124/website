@@ -50,7 +50,8 @@ const localeMap: LocaleMap = {
   },
 };
 
-const defaultLocale = (window.localStorage.getItem('locale') || userLanguage) as ShortLocaleMark;
+// const defaultLocale = (window.localStorage.getItem('locale') || userLanguage) as ShortLocaleMark;
+const defaultLocale: ShortLocaleMark = 'zh';
 window.localStorage.setItem('locale', defaultLocale);
 let currentLocale = localeMap[defaultLocale];
 export const setLocale = (lng: ShortLocaleMark) => {

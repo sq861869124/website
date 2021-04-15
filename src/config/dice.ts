@@ -454,7 +454,7 @@ export const productData = {
       {
         img: 'sjtj',
         title: i18n.t('statistics'),
-        desc: i18n.t('Statistics module collects fast data application code'),
+        desc: i18n.t('statistics module collects fast data application code'),
       },
     ],
   },

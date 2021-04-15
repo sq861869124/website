@@ -20,6 +20,13 @@ import { goTo } from 'common/utils';
 
 export type IVersion = 'freeVersion' | 'enterpriseEdition' | 'privateDeploymentVersion';
 export type abilityScope = 'devOps' | 'microService' | 'multi-cloudManagement';
+export type ISpecType = 'mini'|'normal'|'pro'| 'plus';
+
+export const versionMap: {[k in IVersion]: string} = {
+  freeVersion: '免费版',
+  enterpriseEdition: '企业版',
+  privateDeploymentVersion: '私有部署版',
+};
 
 export type Item = {
   [k in IVersion]: boolean;
@@ -29,12 +36,12 @@ export type Item = {
   key: string;
 };
 
-export interface SpceItem{
+export interface SpecItem{
   key: string;
   name: string;
   freeVersion: string;
   enterpriseEdition: {
-    [k: string]: string;
+    [k in ISpecType]: string | Array<string>;
   };
   privateDeploymentVersion: string;
 }
@@ -52,28 +59,48 @@ const render = (dataIndex: string, value: boolean, record: IAbilitiesTreeItem, _
   return value ? <Icon className="able-mark" type="check" /> : null;
 };
 
-const enterpriseEditionSpec = {
-  A: {
-    key: 'A',
-    cpuCore: '<=80 Core',
+const renderSpec = (cellData: any, record: SpecItem): React.ReactNode => {
+  if (record.key === 'cpu') {
+    const [value, description] = cellData;
+    return (
+      <>
+        <p>{value}</p>
+        {
+          description ? <p>{description}</p> : null
+        }
+      </>
+    );
+  }
+  return cellData;
+};
+
+const enterpriseEditionSpec: {[k in ISpecType]: {
+  key: k;
+  cpuCore: Array<string>;
+  price: string;
+  monitorStorage: string;
+}} = {
+  mini: {
+    key: 'mini',
+    cpuCore: ['<= 80 Core', '按 8 核算，10 节点'],
     price: '88,999',
     monitorStorage: '600 G',
   },
-  B: {
-    key: 'B',
-    cpuCore: '<=240 Core',
+  normal: {
+    key: 'normal',
+    cpuCore: ['<= 240 Core', '按 8 核算，30 节点'],
     price: '233,700',
     monitorStorage: '1500 G',
   },
-  C: {
-    key: 'C',
-    cpuCore: '<=400 Core',
+  pro: {
+    key: 'pro',
+    cpuCore: ['<= 400 Core', '按 8 核算，50 节点'],
     price: '369,500',
     monitorStorage: '2400 G',
   },
-  D: {
-    key: 'D',
-    cpuCore: '<=800 Core',
+  plus: {
+    key: 'plus',
+    cpuCore: ['<= 800 Core', '按 8 核算，100 节点'],
     price: '699,500',
     monitorStorage: '4000 G',
   },
@@ -88,37 +115,37 @@ const versionInfo: {
   }
 } = {
   freeVersion: {
-    name: '免费版',
+    name: versionMap.freeVersion,
     bottomComp: <Button type="primary" onClick={() => { window.open('/login-dice'); }}>立即体验</Button>,
     tip: 'DevOps 平台部分内容',
     pricingStrategies: [{
       key: 'A',
-      priceInPc: <div className="price-in-pc pa20"><p><span className="small">￥</span><span className="large">0</span></p><span className="tips">免费功能将持续开放</span></div>,
-      price: '始终免费、免费功能将持续开放',
+      priceInPc: <div className="price-in-pc pa20"><p><span className="small">￥</span><span className="large">0</span></p><span className="tips">免费功能将持续增加</span></div>,
+      price: '始终免费、免费功能将持续增加',
       specification: '用户数 <= 50人',
     }],
   },
   enterpriseEdition: {
-    name: '企业版',
+    name: versionMap.enterpriseEdition,
     bottomComp: <Button type="primary" onClick={() => { window.open('/contact'); }}>申请试用</Button>,
     pricingStrategies: Object.values(enterpriseEditionSpec).map((t) => {
       return {
         key: t.key,
         price: `￥${t.price}/年`,
         priceInPc: <div className="price-in-pc pa20"><p className=""><span className="small">￥</span><span className="large">{t.price}</span><span className="small">起</span></p><span className="tips">每年</span></div>,
-        specification: `CPU 核数 ${t.cpuCore}`,
+        specification: `CPU 核数 ${t.cpuCore.join('，')}`,
         gift: `监控存储${t.monitorStorage}`,
       };
     }),
   },
   privateDeploymentVersion: {
-    name: '私有部署版',
-    bottomComp: <Button type="primary" onClick={() => { goTo('/contact'); }}>联系我们</Button>,
+    name: versionMap.privateDeploymentVersion,
+    bottomComp: <Button type="primary" onClick={() => { goTo('/contact'); }}>商务咨询</Button>,
     tip: '在企业版的基础之上还包含',
     pricingStrategies: [{
       key: 'A',
-      priceInPc: <div className="price-in-pc pa20">如需定价信息<br />请询问我们的销售人员</div>,
-      price: '如需定价信息，请询问我们的销售人员',
+      priceInPc: <div className="price-in-pc pa20">如需定价信息<br />请询问我们的商务</div>,
+      price: '如需定价信息，请询问我们的商务',
       specification: '无人员数和节点数限制',
     }],
   },
@@ -130,99 +157,104 @@ const versionColumns: ColumnsType<IAbilitiesTreeItem> = [
     dataIndex: 'name',
     width: 600,
   }, {
-    title: '免费版本',
+    title: versionMap.freeVersion,
     dataIndex: 'freeVersion',
     width: 200,
     render: (...rest) => render('freeVersion', ...rest),
   }, {
-    title: '标准版本',
+    title: versionMap.enterpriseEdition,
     dataIndex: 'enterpriseEdition',
     width: 200,
     render: (...rest) => render('enterpriseEdition', ...rest),
   }, {
-    title: '私有部署版',
+    title: versionMap.privateDeploymentVersion,
     dataIndex: 'privateDeploymentVersion',
     width: 200,
     render: (...rest) => render('privateDeploymentVersion', ...rest),
   },
 ];
-export const specData: SpceItem[] = [
+export const specData: SpecItem[] = [
   {
     key: 'price',
     name: '价格',
     freeVersion: '-',
     enterpriseEdition: {
-      A: `￥${enterpriseEditionSpec.A.price}`,
-      B: `￥${enterpriseEditionSpec.B.price}`,
-      C: `￥${enterpriseEditionSpec.C.price}`,
-      D: `￥${enterpriseEditionSpec.D.price}`,
+      mini: `￥${enterpriseEditionSpec.mini.price}`,
+      normal: `￥${enterpriseEditionSpec.normal.price}`,
+      pro: `￥${enterpriseEditionSpec.pro.price}`,
+      plus: `￥${enterpriseEditionSpec.plus.price}`,
     },
     privateDeploymentVersion: '-',
   },
   {
     key: 'cpu',
-    name: 'CUP核数',
+    name: '总 CUP 核数',
     freeVersion: '-',
     enterpriseEdition: {
-      A: enterpriseEditionSpec.A.cpuCore,
-      B: enterpriseEditionSpec.B.cpuCore,
-      C: enterpriseEditionSpec.C.cpuCore,
-      D: enterpriseEditionSpec.D.cpuCore,
+      mini: enterpriseEditionSpec.mini.cpuCore,
+      normal: enterpriseEditionSpec.normal.cpuCore,
+      pro: enterpriseEditionSpec.pro.cpuCore,
+      plus: enterpriseEditionSpec.plus.cpuCore,
     },
-    privateDeploymentVersion: '无限制',
+    privateDeploymentVersion: '-',
   },
   {
     key: 'monitorStorage',
-    name: '监控存储',
+    name: '监控和日志存储',
     freeVersion: '-',
     enterpriseEdition: {
-      A: enterpriseEditionSpec.A.monitorStorage,
-      B: enterpriseEditionSpec.B.monitorStorage,
-      C: enterpriseEditionSpec.C.monitorStorage,
-      D: enterpriseEditionSpec.D.monitorStorage,
+      mini: enterpriseEditionSpec.mini.monitorStorage,
+      normal: enterpriseEditionSpec.normal.monitorStorage,
+      pro: enterpriseEditionSpec.plus.monitorStorage,
+      plus: enterpriseEditionSpec.pro.monitorStorage,
     },
-    privateDeploymentVersion: '无限制',
+    privateDeploymentVersion: '-',
   },
 ];
-export const specColumns: ColumnsType<any> = [
+export const specColumns: ColumnsType<SpecItem> = [
   {
     title: '规格&价格',
     dataIndex: 'name',
     align: 'center',
   },
   {
-    title: '免费版',
+    title: versionMap.freeVersion,
     dataIndex: 'freeVersion',
     align: 'center',
   },
   {
-    title: '企业版',
+    title: versionMap.enterpriseEdition,
     align: 'center',
     children: [
       {
-        title: '规格A',
+        title: 'MINI',
         align: 'center',
-        dataIndex: ['enterpriseEdition', 'A'],
+        dataIndex: ['enterpriseEdition', 'mini'],
+        render: renderSpec,
       },
       {
-        title: '规格B',
+        title: 'NORMAL',
         align: 'center',
-        dataIndex: ['enterpriseEdition', 'B'],
+        dataIndex: ['enterpriseEdition', 'normal'],
+        render: renderSpec,
       },
       {
-        title: '规格C',
+        title: 'PRO',
         align: 'center',
-        dataIndex: ['enterpriseEdition', 'C'],
+        dataIndex: ['enterpriseEdition', 'pro'],
+        render: renderSpec,
       },
       {
-        title: '规格D',
+        title: 'PLUS',
         align: 'center',
-        dataIndex: ['enterpriseEdition', 'D'],
+        dataIndex: ['enterpriseEdition', 'plus'],
+        render: renderSpec,
       },
     ],
   },
   {
-    title: '私有部署版',
+    title: versionMap.privateDeploymentVersion,
+    align: 'center',
     dataIndex: 'privateDeploymentVersion',
   },
 ];
@@ -242,7 +274,7 @@ const abilities: Item[] = [
   { scope: 'microService', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: '注册中心', key: 'registryCenter' },
   { scope: 'microService', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: 'API 网关管理', key: 'apiGatewayManagement' },
   { scope: 'microService', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: 'APM （应用拓扑、主动监控、全链路诊断和追踪、可视化大盘和告警）', key: 'apm' },
-  { scope: 'microService', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: '日志分析', key: 'logAnalysis' },
+  { scope: 'microService', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: '日志服务', key: 'logService' },
   { scope: 'multi-cloudManagement', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: '混合云管理', key: 'hybridCloudManagement' },
   { scope: 'multi-cloudManagement', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: '多集群管理', key: 'multiClusterManagement' },
   { scope: 'multi-cloudManagement', freeVersion: false, enterpriseEdition: true, privateDeploymentVersion: true, name: '资源调度管理', key: 'resourceSchedulingManagement' },

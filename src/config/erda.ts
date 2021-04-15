@@ -36,7 +36,7 @@ export interface IHeaderItem {
 export const headerMenus: IHeaderItem[] = [
   // { name: 'Why Erda Cloud？', url: '/why-erda' },
   {
-    name: i18n.t('Product'),
+    name: i18n.t('product'),
     subList: [
       { name: i18n.t('DevOps Platform'), img: 'dev', description: i18n.t('header devOps desc') },
       { name: i18n.t('Microservice Platform'), img: 'microservice', description: i18n.t('header ms desc') },
@@ -44,7 +44,7 @@ export const headerMenus: IHeaderItem[] = [
       { name: i18n.t('FastData Platform'), img: 'fdp', description: i18n.t('header fdp desc') },
     ],
   },
-  { name: i18n.t('Pricing'), url: '/price' },
+  { name: i18n.t('pricing'), url: '/price' },
   { name: i18n.t('Documentation'), url: docUrl, jumpOut: true },
   { name: i18n.t('Marketplace'), url: '/market/addon' },
   { name: i18n.t('Success Story'), url: '/customer-case' },
