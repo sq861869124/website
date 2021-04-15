@@ -36,18 +36,18 @@ export interface IHeaderItem {
 export const headerMenus: IHeaderItem[] = [
   // { name: 'Why Erda Cloud？', url: '/why-erda' },
   {
-    name: i18n.t('product'),
+    name: i18n.t('Product'),
     subList: [
-      { name: i18n.t('DevOps'), img: 'dev', description: i18n.t('header devOps desc') },
-      { name: i18n.t('microservice'), img: 'microservice', description: i18n.t('header ms desc') },
-      { name: i18n.t('DataCenter'), img: 'duoyun', description: i18n.t('header multi-cloud desc') },
-      { name: i18n.t('fast data platform'), img: 'fdp', description: i18n.t('header fdp desc') },
+      { name: i18n.t('DevOps Platform'), img: 'dev', description: i18n.t('header devOps desc') },
+      { name: i18n.t('Microservice Platform'), img: 'microservice', description: i18n.t('header ms desc') },
+      { name: i18n.t('Cloud Management Platform'), img: 'duoyun', description: i18n.t('header multi-cloud desc') },
+      { name: i18n.t('FastData Platform'), img: 'fdp', description: i18n.t('header fdp desc') },
     ],
   },
-  { name: i18n.t('price'), url: '/price' },
-  { name: i18n.t('documentation'), url: docUrl, jumpOut: true },
-  { name: i18n.t('service market'), url: '/market/addon' },
-  { name: i18n.t('success case'), url: '/customer-case' },
+  { name: i18n.t('Pricing'), url: '/price' },
+  { name: i18n.t('Documentation'), url: docUrl, jumpOut: true },
+  { name: i18n.t('Marketplace'), url: '/market/addon' },
+  { name: i18n.t('Success Story'), url: '/customer-case' },
   // { name: '探索', url: '/', status: 'unrealized' },
   { name: 'GitHub', url: 'https://github.com/erda-project/erda', jumpOut: true },
 ];
@@ -119,7 +119,7 @@ export const footerMenus: Ifooter = {
         name: i18n.t('email'),
         value: '',
       }, {
-        name: i18n.t('adress'),
+        name: i18n.t('address'),
         value: i18n.t('company address'),
       }],
     },
@@ -134,34 +134,12 @@ export const footerMenus: Ifooter = {
           width: 110,
           height: 110,
         },
-        description: i18n.t('scan and follow WeChat public account'),
+        description: i18n.t('scan and follow WeChat Official Account'),
       },
     ],
     subLink: [],
   },
 };
-
-export const popular = {
-  name: i18n.t('popular searches'),
-  searchUrl: 'https://www.baidu.com/s?wd=%E4%BA%91%E7%AE%A1%E5%B9%B3%E5%8F%B0',
-  children: [
-    { name: i18n.t('cloud management platform'), url: '' },
-    { name: 'DevOps', url: '' },
-    { name: i18n.t('microservice governance'), url: '' },
-    { name: i18n.t('API manage'), url: '' },
-    { name: i18n.t('API gateway'), url: '' },
-    { name: i18n.t('automatic test'), url: '' },
-    { name: i18n.t('code hosting'), url: '' },
-    { name: 'CI/CD', url: '' },
-    { name: i18n.t('pipeline'), url: '' },
-    { name: i18n.t('operation and maintenance service'), url: '' },
-    { name: 'APM', url: '' },
-  ],
-};
-
-export const tomo = [
-  { name: i18n.t('Ali Cloud'), url: 'https://www.aliyun.com' },
-];
 
 export const copyRights = {
   text: '2012-2018 terminus.io',

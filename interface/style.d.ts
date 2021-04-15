@@ -3,3 +3,8 @@ declare module '*.module.scss' {
   export = content;
 }
 
+declare module '*.png' {
+  const content: any;
+  export = content;
+}
+

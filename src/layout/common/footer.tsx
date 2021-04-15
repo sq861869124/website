@@ -12,162 +12,65 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import { Icon as CustomIcon, IF } from 'common';
-import { useMobile } from 'common/utils';
+import React from 'react';
+import PageContent from '~/layout/common/page-content';
+import { Icon as CustomIcon } from 'common';
 import { config } from '~/config';
-import { Ifooter, IFooterItem, ISubItem } from '~/config/erda';
-import i18n from '~/i18n';
-
-
+import { Popover } from 'antd';
 import './footer.scss';
 
-interface IProps {
-  className?: string;
-  config: IFooterItem;
-}
-
-const FooterItem = ({ config: propsConf, className = '' }: IProps) => {
-  const { name, icon, subList } = propsConf;
-  const [imgVisible, setImgVisible] = React.useState(false);
-  const isMobile = useMobile();
-
-  React.useEffect(() => {
-    // 展示图片后，禁止body滚动
-    document.body.style.overflow = imgVisible ? 'hidden' : '';
-  }, [imgVisible]);
-
-  return (
-    <div className={`footer-item ${className}`}>
-      <div className="footer-item-title">
-        {
-          icon ? <CustomIcon color type={icon} /> : null
-        }
-        <span>{name}</span>
-      </div>
-      {
-        subList.map((sub: ISubItem) => {
-          const { img, name, url, jumpOut, className: subCls, props, width, height, value } = sub;
-          let link = name as any;
-          if (url) {
-            link = jumpOut
-              ? <a aria-label={`open ${name}`} href={url} target="_blank" rel="noopener noreferrer" {...props}>{name}</a>
-              : <Link aria-label={`go to ${name}`} to={url}>{name}</Link>;
-          }
-          const val = value ? `: ${value} ` : '';
-          return (
-            <React.Fragment key={name}>
-              <IF check={!isMobile}>
-                <div key={name} className={`footer-item-sub ${subCls}`}>{link}{val}</div>
-                {img ? <img src={img} height={height} width={width} className="footer-item-img" alt="footer-item-img" /> : null}
-                <IF.ELSE />
-                <div
-                  key={name}
-                  className={`footer-item-sub ${subCls}`}
-                  onClick={() => {
-                    img && setImgVisible(true);
-                  }}
-                >
-                  {link}
-                </div>
-
-                {img ? (
-                  <div
-                    className={`g-img-enlarge-mobile ${imgVisible ? '' : 'hidden'}`}
-                    onClick={() => setImgVisible(false)}
-                  >
-                    <img src={img} height={height} width={width} className="footer-item-img" alt="footer-item-img" />
-                  </div>
-                ) : null
-                }
-              </IF>
-            </React.Fragment>
-          );
-        })
-      }
-    </div>
-  );
-};
-
-const RightContent = ({ data }: { data: Ifooter['right'] }) => {
-  const { mainLink, subLink } = data;
-  return (
-    <>
-      <div className="center-flex-box main-link">
-        {
-          mainLink.map((item) => {
-            const { name, img, description } = item;
-            return (
-              <div className="scan-code-wrap" key={name}>
-                <img {...img} alt="" />
-                <p className="fz12 description">{description}</p>
-              </div>
-            );
-          })
-        }
-      </div>
-      <div className="sub-link mt16 center-flex-box">
-        {
-          subLink.map((item) => {
-            const { url, jumpOut, name } = item;
-            return jumpOut
-              ? <a className="link-item mx8" aria-label={`open ${name}`} href={url} target="_blank" rel="noopener noreferrer"><CustomIcon type={item.icon} /></a>
-              : <Link className="link-item mx8" aria-label={`go to ${name}`} to={url}><CustomIcon type={item.icon} /></Link>;
-          })
-        }
-      </div>
-    </>
-  );
-};
+const leftConf = [
+  { name: '© 2021 erda.cloud', url: config.terminusDomain },
+  { name: 'Term', url: config.temrUrl },
+  { name: 'Extend', url: config.extendUrl },
+  { name: 'Cli', url: config.cliUrl },
+  { name: 'Securify', url: config.securifyUrl },
+  { name: 'ChangeLog', url: config.changeLogUrl },
+  { name: '浙ICP备13004315号-6', url: 'https://beian.miit.gov.cn' },
+  { name: '浙公网安备 33010802003150号', url: 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802003150' },
+];
+const rightConf = [
+  {
+    name: 'WeChat',
+    comp: <img src="/images/common/wechat.png" width={120} height={120} />,
+    icon: 'wechat',
+  },
+  { name: 'GitHub', url: 'https://github.com/erda-project', icon: 'github' },
+];
 
 const Footer = () => {
-  const { footerMenus, popular, tomo = [], copyRights, police } = config;
-  const { left: footerConfig } = footerMenus;
-  const { name, children, searchUrl } = popular;
-
   return (
-    <footer className="site-footer">
-      <div className="footer-content">
-        <div className="footer-left">
-          {footerConfig.about ? <FooterItem config={footerConfig.about} /> : null}
-          <FooterItem config={footerConfig.resource} />
-          <FooterItem className="flex-1" config={footerConfig.contactUs} />
+    <div className="erda-temp-footer">
+      <PageContent className="full-height flex-box v-flex">
+        <div className="link-wrap flex-start">
+          {
+            leftConf.map((item) => {
+              return item.url ? (
+                <a className="ml16 fz12" target="_blank" rel="noopener noreferrer" key={item.name} href={item.url}>{item.name}</a>
+              ) : (
+                <span className="ml16 fz12" key={item.name}>{item.name}</span>
+              );
+            })
+          }
         </div>
-        <div className="footer-right">
-          <RightContent data={config.footerMenus.right} />
+        <div className="right-wrapper">
+          {
+            rightConf.map((item) => {
+              const { url, comp } = item;
+              return url ? (
+                <a className="ml16" target="_blank" rel="noopener noreferrer" key={item.name} href={item.url}>
+                  <CustomIcon className="fz24" type={item.icon} />
+                </a>
+              ) : (
+                <Popover key={item.name} content={comp}>
+                  <CustomIcon className="fz24" type={item.icon} />
+                </Popover>
+              );
+            })
+          }
         </div>
-      </div>
-      <div className="footer-links flex-start v-align fz14">
-        <div className="title">{name}:</div>
-        <div className="item">{
-          children.map((item) => {
-            const commonUrl = `${searchUrl}${encodeURIComponent(item.name)}`;
-            return <a className="ml8" href={item.url || commonUrl} target="_blank" rel="noopener noreferrer">{item.name}</a>;
-          })
-        }
-        </div>
-      </div>
-      {
-        tomo.length ? (
-          <div className="footer-links center-flex-box fz12 mt16">
-            <div className="title">{i18n.t('links')}</div>
-            <div className="item">{
-              tomo.map((item) => {
-                return <a className="ml8" href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a>;
-              })
-            }
-            </div>
-          </div>
-        ) : null
-      }
-      <div className="footer-links center-flex-box fz12 mt12">
-        <span className="title">© {copyRights.text}</span>
-        <a href={copyRights.recordLicenseAddress}>{copyRights.recordLicenseNumber}</a>
-        <span className="title mx4">|</span>
-        <a className="flex-box" href={police.url}><img src={police.img} width={14} height={14} alt="" />{police.text}</a>
-      </div>
-    </footer>
+      </PageContent>
+    </div>
   );
 };
 

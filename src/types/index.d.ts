@@ -16,6 +16,15 @@ declare module '*.json' {
   export default value;
 }
 
+declare module 'rc-util/lib/Dom/addEventListener'{
+  export interface IReturn{
+    remove(): any;
+  }
+  const fun: (target: Window, eventType: string, cb: (e: Event) => any, options?: boolean | AddEventListenerOptions) => IReturn;
+  export default fun;
+}
+
+
 declare interface IResponse<T> {
   success: boolean;
   err: {

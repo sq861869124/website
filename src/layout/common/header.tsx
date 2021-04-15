@@ -25,7 +25,7 @@ import UserInfo from '~/layout/common/user-info';
 import userStore from '~/models/user';
 import { useSiteEnv } from '~/models/env';
 import { Icon } from 'common';
-import i18n, {switchLocale} from '~/i18n';
+import i18n, { switchLocale } from '~/i18n';
 import './header.scss';
 
 let mobileMenuOpen = false;
@@ -100,14 +100,13 @@ const Header = ({ onChangeVisible, path }: IProps) => {
       <div className="site-header-wrap">
         <Link className="logo" aria-label="go to home page" to="/">
           <Icon className="site-logo" type="logo2" />
-          {/* <img width={160} height={45} className={`site-logo ${showColorful? 'show': 'hide'}`} src={`/images/logo-colorful.png`} alt=""/> */}
-          {/* <img width={160} height={45} className={`site-logo ${showColorful? 'hide': 'show'}`}src={`/images/logo-white.png`} alt=""/> */}
         </Link>
         <IntroMenu page={path} handlevisibleChange={handlevisibleChange} />
         {isEmpty(userData) ? <LoginPanel /> : <UserInfo data={userData} />}
-        <Popover content={i18n.t('common:switch language')} placement="bottom" getPopupContainer={(e) => e.parentElement}>
-          <Icon onClick={switchLocale} className="switch-lang ml12" type="i18n" />
-        </Popover>
+        {/* since the Marketplace and case don't support i18n, hide this button first */}
+        {/* <Popover content={i18n.t('common:switch language')} placement="bottom" getPopupContainer={(e) => e.parentElement}> */}
+        {/*  <Icon onClick={switchLocale} className="switch-lang ml12" type="i18n" /> */}
+        {/* </Popover> */}
         <IntroMobileMenu onToggle={(v: boolean) => { mobileMenuOpen = v; }} />
       </div>
     </header>

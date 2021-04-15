@@ -17,6 +17,7 @@ import PageContent from '~/layout/common/page-content';
 import { Button } from 'antd';
 import { CopmFadeInUp } from 'pages/component/animate-comp';
 import i18n from '~/i18n';
+import images from './images';
 
 const Banner = () => {
   return (
@@ -39,7 +40,7 @@ const Banner = () => {
           </Button>
         </CopmFadeInUp>
         <div className="earth">
-          <img width={550} height={550} src="/images/home/banner/earth.png" alt="" />
+          <img width={550} height={550} src={images.banner} alt="" />
         </div>
       </PageContent>
     </div>

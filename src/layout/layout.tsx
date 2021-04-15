@@ -14,7 +14,7 @@
 
 import * as React from 'react';
 import Header from '~/layout/common/header';
-import Footer from '~/layout/common/temp-footer';
+import Footer from 'layout/common/footer';
 import { SiteContext } from 'common/utils/site-context';
 import { withRouter } from 'react-router-dom';
 import classNames from 'classnames';

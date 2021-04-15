@@ -27,10 +27,10 @@ const LoginPanel = () => {
   return (
     <div className="site-loginpanel">
       <span className="login-item">
-        <a onClick={handleLogin} className="bold" target="_blank" rel="noopener noreferrer">{i18n.t('common:log in')}</a>
+        <a onClick={handleLogin} className="bold" target="_blank" rel="noopener noreferrer">{i18n.t('common:Sign In')}</a>
       </span>
       <Popover content={i18n.t('common:comming soon')} placement="bottom" getPopupContainer={(e) => e.parentElement}>
-        <a className="bold free-registration ml20">{i18n.t('common:free register')}</a>
+        <a className="bold free-registration ml20">{i18n.t('common:Sign Up')}</a>
       </Popover>
 
     </div>

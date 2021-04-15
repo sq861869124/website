@@ -19,7 +19,8 @@ import { CopmFadeInUp } from 'pages/component/animate-comp';
 import { useMobile } from 'common/utils';
 import { Link } from 'react-router-dom';
 import { Icon } from 'common';
-import i18n, { isZh } from '~/i18n';
+import i18n from '~/i18n';
+import imagesMap from './images';
 
 const config = {
   title: i18n.t('default:why choose erda cloud?'),
@@ -29,7 +30,6 @@ const config = {
 
 const MainCard = () => {
   const isMobild = useMobile();
-  const zn = isZh();
   return (
     <PageContent className="erda-home-main-card">
       <CopmFadeInUp>
@@ -44,11 +44,11 @@ const MainCard = () => {
       <div className="img-wrapper mt20">
         <CopmFadeInUp>
           {
-            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src="/images/home/main-l.png" />
+            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src={imagesMap.mainLeft} />
           }
-          <ImgLazy lazy={false} width={430} height={430} src={zn ? '/images/home/main-c.png' : '/images/home/main-c-en.png'} />
+          <ImgLazy lazy={false} width={430} height={430} src={imagesMap.mainCenter} />
           {
-            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src="/images/home/main-r.png" />
+            isMobild ? null : <ImgLazy lazy={false} width={295} height={430} src={imagesMap.mainRight} />
           }
         </CopmFadeInUp>
       </div>

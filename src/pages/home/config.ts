@@ -14,9 +14,8 @@
 
 import { IProps as IWingProps } from './double-wing';
 import { IProps as ITest } from './test-manage';
-import i18n, { isZh } from '~/i18n';
-
-const zn = isZh();
+import i18n from '~/i18n';
+import images from './images';
 
 interface IConfig {
   codeRepositories: IWingProps;
@@ -61,7 +60,7 @@ const HomeConfig: IConfig = {
     style: { backgroundColor: '#F7F9FF' },
     imgProps: {
       offSet: [-20, 0],
-      src: '/images/home/Pic3.png',
+      src: images.codeRepo,
       width: 620,
       height: 531,
       className: 'code-repositories-img',
@@ -93,7 +92,7 @@ const HomeConfig: IConfig = {
     },
     imgProps: {
       offSet: [-30, 0],
-      src: '/images/home/Pic7.png',
+      src: images.api,
       width: 620,
       height: 531,
       className: 'log-analysis-img',
@@ -130,7 +129,7 @@ const HomeConfig: IConfig = {
     reverse: true,
     imgProps: {
       offSet: [-30, 0],
-      src: '/images/home/Pic4.png',
+      src: images.cicd,
       width: 620,
       height: 531,
       className: 'cicd-img',
@@ -174,7 +173,7 @@ const HomeConfig: IConfig = {
     },
     imgProps: {
       offSet: [-56, 0],
-      src: zn ? '/images/home/Pic5.png' : '/images/home/Pic5-en.png',
+      src: images.monitor,
       width: 620,
       height: 531,
       className: 'monitor-img',
@@ -205,7 +204,7 @@ const HomeConfig: IConfig = {
     reverse: true,
     imgProps: {
       offSet: [-30, 0],
-      src: zn ? '/images/home/Pic-log.png' : '/images/home/Pic-log-en.png',
+      src: images.log,
       width: 620,
       height: 531,
       className: 'log-analysis-img',
@@ -236,7 +235,7 @@ const HomeConfig: IConfig = {
     },
     imgProps: {
       offSet: [-30, 0],
-      src: zn ? '/images/home/Pic9.png' : '/images/home/Pic9-en.png',
+      src: images.multiCloud,
       width: 620,
       height: 531,
       className: 'log-analysis-img',

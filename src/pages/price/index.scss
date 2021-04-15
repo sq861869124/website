@@ -54,7 +54,8 @@
     .version-columns {
       align-items: stretch;
       margin: 0 auto;
-      //padding: 0 100px;
+      padding: 0 0 20px;
+
       &-item {
         position: relative;
         width: 380px;
@@ -95,32 +96,49 @@
 
         .item-body {
           padding: 1.25rem 0;
+        }
 
-          .ability-item {
-            padding-left: 1.5rem;
+        .ability-item {
+          padding-left: 1.5rem;
 
-            .check-mark {
-              width: 1.5rem;
-              height: 1.5rem;
-              margin-right: 0.75rem;
-            }
+          .check-mark {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.75rem;
+          }
 
-            .ability-name {
-              color: #2f3c5f;
-              font-size: 1rem;
-              line-height: 1.5rem;
-              opacity: 0.7;
-            }
+          .ability-name {
+            color: #2f3c5f;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            opacity: 0.7;
           }
         }
 
         .pricing-strategy {
-          padding: 0 0 1.25rem;
+          padding: 1.25rem 0 1.25rem;
 
-          .line {
-            height: 1px;
-            margin: 0 1.5rem 1.25rem;
-            background: #ececec;
+          .price-in-pc {
+            font-weight: bolder;
+            font-size: 20px;
+            line-height: 1.5em;
+            text-align: center;
+
+            span {
+              margin-top: 10px;
+
+              &.small {
+                font-size: 20px;
+              }
+
+              &.large {
+                font-size: 50px;
+              }
+
+              &.tips {
+                color: $color-dark-6;
+              }
+            }
           }
 
           .item {
@@ -177,7 +195,8 @@
               }
             }
 
-            .desc {
+            .desc,
+            .gift {
               padding-left: 1rem;
             }
           }
@@ -212,6 +231,59 @@
           }
         }
       }
+    }
+  }
+
+  .spec-list {
+    .ant-table-thead {
+      tr {
+        [rowspan] {
+          vertical-align: middle;
+        }
+
+        th {
+          text-align: center;
+          border-bottom: 1px solid #f0f0f0;
+          border-left: 1px solid #f0f0f0;
+
+          &:first-child {
+            border-left: none;
+          }
+        }
+
+        &:last-child {
+          th {
+            &:first-child {
+              border-left: 1px solid #f0f0f0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .abilities-list {
+    .fixed-header {
+      position: fixed;
+      top: $header-height;
+      right: 0;
+      left: 0;
+      z-index: 10;
+
+      > div {
+        width: 1200px;
+        margin: 0 auto;
+        font-size: 14px;
+        background: #fafafa;
+      }
+    }
+
+    .level-root {
+      font-weight: 600;
+    }
+
+    .expanded-icon {
+      cursor: pointer;
     }
   }
 
@@ -251,13 +323,20 @@
         width: 100%;
         padding: 0;
 
+        .pricing-strategy {
+          padding-bottom: 0;
+        }
+
         &-item {
           box-sizing: border-box;
           width: 100%;
           margin-bottom: 2rem;
+          padding-bottom: 1rem;
 
           .experience {
-            bottom: 1.5rem;
+            position: relative;
+            bottom: 0;
+            padding: 0 1.5rem;
           }
         }
       }
