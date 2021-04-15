@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import * as React from 'react';
-import { Popover } from 'antd';
 import userStore from '~/models/user';
 
 import './loginPanel.scss';
@@ -29,10 +28,8 @@ const LoginPanel = () => {
       <span className="login-item">
         <a onClick={handleLogin} className="bold" target="_blank" rel="noopener noreferrer">{i18n.t('common:Sign In')}</a>
       </span>
-      <Popover content={i18n.t('common:comming soon')} placement="bottom" getPopupContainer={(e) => e.parentElement}>
-        <a className="bold free-registration ml20">{i18n.t('common:Sign Up')}</a>
-      </Popover>
-
+      {/* go to the login page temporarily, confirmed with PM */}
+      <a onClick={handleLogin} className="bold free-registration ml20">{i18n.t('common:Sign Up')}</a>
     </div>
   );
 };

@@ -41,7 +41,7 @@ export interface SpecItem{
   name: string;
   freeVersion: string;
   enterpriseEdition: {
-    [k in ISpecType]: string;
+    [k in ISpecType]: string | Array<string>;
   };
   privateDeploymentVersion: string;
 }
@@ -59,33 +59,48 @@ const render = (dataIndex: string, value: boolean, record: IAbilitiesTreeItem, _
   return value ? <Icon className="able-mark" type="check" /> : null;
 };
 
+const renderSpec = (cellData: any, record: SpecItem): React.ReactNode => {
+  if (record.key === 'cpu') {
+    const [value, description] = cellData;
+    return (
+      <>
+        <p>{value}</p>
+        {
+          description ? <p>{description}</p> : null
+        }
+      </>
+    );
+  }
+  return cellData;
+};
+
 const enterpriseEditionSpec: {[k in ISpecType]: {
   key: k;
-  cpuCore: string;
+  cpuCore: Array<string>;
   price: string;
   monitorStorage: string;
 }} = {
   mini: {
     key: 'mini',
-    cpuCore: '<=80 Core',
+    cpuCore: ['<= 80 Core', '按 8 核算，10 节点'],
     price: '88,999',
     monitorStorage: '600 G',
   },
   normal: {
     key: 'normal',
-    cpuCore: '<=240 Core',
+    cpuCore: ['<= 240 Core', '按 8 核算，30 节点'],
     price: '233,700',
     monitorStorage: '1500 G',
   },
   pro: {
     key: 'pro',
-    cpuCore: '<=400 Core',
+    cpuCore: ['<= 400 Core', '按 8 核算，50 节点'],
     price: '369,500',
     monitorStorage: '2400 G',
   },
   plus: {
     key: 'plus',
-    cpuCore: '<=800 Core',
+    cpuCore: ['<= 800 Core', '按 8 核算，100 节点'],
     price: '699,500',
     monitorStorage: '4000 G',
   },
@@ -105,8 +120,8 @@ const versionInfo: {
     tip: 'DevOps 平台部分内容',
     pricingStrategies: [{
       key: 'A',
-      priceInPc: <div className="price-in-pc pa20"><p><span className="small">￥</span><span className="large">0</span></p><span className="tips">免费功能将持续开放</span></div>,
-      price: '始终免费、免费功能将持续开放',
+      priceInPc: <div className="price-in-pc pa20"><p><span className="small">￥</span><span className="large">0</span></p><span className="tips">免费功能将持续增加</span></div>,
+      price: '始终免费、免费功能将持续增加',
       specification: '用户数 <= 50人',
     }],
   },
@@ -118,19 +133,19 @@ const versionInfo: {
         key: t.key,
         price: `￥${t.price}/年`,
         priceInPc: <div className="price-in-pc pa20"><p className=""><span className="small">￥</span><span className="large">{t.price}</span><span className="small">起</span></p><span className="tips">每年</span></div>,
-        specification: `CPU 核数 ${t.cpuCore}`,
+        specification: `CPU 核数 ${t.cpuCore.join('，')}`,
         gift: `监控存储${t.monitorStorage}`,
       };
     }),
   },
   privateDeploymentVersion: {
     name: versionMap.privateDeploymentVersion,
-    bottomComp: <Button type="primary" onClick={() => { goTo('/contact'); }}>联系我们</Button>,
+    bottomComp: <Button type="primary" onClick={() => { goTo('/contact'); }}>商务咨询</Button>,
     tip: '在企业版的基础之上还包含',
     pricingStrategies: [{
       key: 'A',
-      priceInPc: <div className="price-in-pc pa20">如需定价信息<br />请询问我们的销售人员</div>,
-      price: '如需定价信息，请询问我们的销售人员',
+      priceInPc: <div className="price-in-pc pa20">如需定价信息<br />请询问我们的商务</div>,
+      price: '如需定价信息，请询问我们的商务',
       specification: '无人员数和节点数限制',
     }],
   },
@@ -173,7 +188,7 @@ export const specData: SpecItem[] = [
   },
   {
     key: 'cpu',
-    name: 'CUP核数',
+    name: '总 CUP 核数',
     freeVersion: '-',
     enterpriseEdition: {
       mini: enterpriseEditionSpec.mini.cpuCore,
@@ -181,7 +196,7 @@ export const specData: SpecItem[] = [
       pro: enterpriseEditionSpec.pro.cpuCore,
       plus: enterpriseEditionSpec.plus.cpuCore,
     },
-    privateDeploymentVersion: '无限制',
+    privateDeploymentVersion: '-',
   },
   {
     key: 'monitorStorage',
@@ -193,10 +208,10 @@ export const specData: SpecItem[] = [
       pro: enterpriseEditionSpec.plus.monitorStorage,
       plus: enterpriseEditionSpec.pro.monitorStorage,
     },
-    privateDeploymentVersion: '无限制',
+    privateDeploymentVersion: '-',
   },
 ];
-export const specColumns: ColumnsType<any> = [
+export const specColumns: ColumnsType<SpecItem> = [
   {
     title: '规格&价格',
     dataIndex: 'name',
@@ -215,21 +230,25 @@ export const specColumns: ColumnsType<any> = [
         title: 'MINI',
         align: 'center',
         dataIndex: ['enterpriseEdition', 'mini'],
+        render: renderSpec,
       },
       {
         title: 'NORMAL',
         align: 'center',
         dataIndex: ['enterpriseEdition', 'normal'],
+        render: renderSpec,
       },
       {
         title: 'PRO',
         align: 'center',
         dataIndex: ['enterpriseEdition', 'pro'],
+        render: renderSpec,
       },
       {
         title: 'PLUS',
         align: 'center',
         dataIndex: ['enterpriseEdition', 'plus'],
+        render: renderSpec,
       },
     ],
   },

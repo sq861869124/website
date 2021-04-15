@@ -237,12 +237,9 @@
   .spec-list {
     .ant-table-thead {
       tr {
-        [rowspan] {
-          vertical-align: middle;
-        }
-
         th {
           text-align: center;
+          vertical-align: middle;
           border-bottom: 1px solid #f0f0f0;
           border-left: 1px solid #f0f0f0;
 
@@ -258,6 +255,12 @@
             }
           }
         }
+      }
+    }
+
+    tr {
+      td {
+        vertical-align: middle;
       }
     }
   }
