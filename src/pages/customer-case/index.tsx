@@ -20,6 +20,7 @@ import { get } from 'lodash';
 import { goTo } from 'common/utils';
 import { useLoading } from 'common/utils/use-loading';
 import { EmptyHolder } from 'common';
+import i18n from '~/i18n';
 import './index.scss';
 
 const CustomerCase = () => {
@@ -57,8 +58,8 @@ const CustomerCase = () => {
   return (
     <div className="erda-customer-case pt0">
       <div className="full-width-header  v-flex-box">
-        <div className="title">成功案例</div>
-        <p className="title-desc px20">已覆盖 100+ 大中型头部企业，覆盖了零售、地产、园区、金融、建筑等领域</p>
+        <div className="title">{i18n.t('success stories')}</div>
+        <p className="title-desc px20">{i18n.t('covered 100+ large and medium-sized head enterprises')}</p>
       </div>
       <PageContent className="case-body">
         <div className="nav-wrapper flex-box">
@@ -68,7 +69,7 @@ const CustomerCase = () => {
               onClick={() => {
                 handleClick(-1);
               }}
-            >全部
+            >{i18n.t('all')}
             </p>
             {
               industry.map((item) => {
@@ -109,7 +110,7 @@ const CustomerCase = () => {
           }
         </div>
         {
-          hasMore ? <Button loading={isLoading} className="load-more" onClick={handleLoadMore}>查看更多案例</Button> : null
+          hasMore ? <Button loading={isLoading} className="load-more" onClick={handleLoadMore}>{i18n.t('view more cases')}</Button> : null
         }
       </PageContent>
     </div>

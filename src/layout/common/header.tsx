@@ -14,6 +14,7 @@
 
 import * as React from 'react';
 import { throttle, isEmpty } from 'lodash';
+import { Popover } from 'antd';
 import classNames from 'classnames';
 import IntroMenu from './menu';
 import IntroMobileMenu from './menu-mobile';
@@ -24,6 +25,7 @@ import UserInfo from '~/layout/common/user-info';
 import userStore from '~/models/user';
 import { useSiteEnv } from '~/models/env';
 import { Icon } from 'common';
+import i18n, { switchLocale } from '~/i18n';
 import './header.scss';
 
 let mobileMenuOpen = false;

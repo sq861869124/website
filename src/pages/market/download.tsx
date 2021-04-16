@@ -19,6 +19,7 @@ import { isEmpty, get } from 'lodash';
 import QRCode from 'qrcode.react';
 import axios, { AxiosResponse } from 'axios';
 import moment from 'moment';
+import i18n from '~/i18n';
 import { handleError, judgeClient } from 'common/utils';
 import { useSiteEnv } from '~/models/env';
 import './download.scss';
@@ -102,28 +103,28 @@ const DownloadPage = ({ match }: any) => {
   };
   const handleDownload = () => {
     if (isEmpty(current)) {
-      message.error('请选择要下载的版本');
+      message.error(i18n.t('please select the version to download'));
       return;
     }
     const { meta = {}, url, type }: IObj = current.pkg || {};
     if (client === 'pc' && type !== 'data') {
-      message.info('请在移动端下载');
+      message.info(i18n.t('please download on the mobile terminal'));
       return;
     }
     const isInWeChat: boolean = /micromessenger/i.test(navigator.userAgent);
     if (isInWeChat) {
-      message.info(`请在${client === 'ios' ? 'Safari' : ''}浏览器中打开当前页面`);
+      message.info(i18n.t('please at {browser} open the current page in the browser', { browser: client === 'ios' ? 'Safari' : '' }));
       return;
     }
     let downloadUrl = url;
     if (client === 'ios') {
       const { installPlist = '' } = meta;
       if (!installPlist) {
-        message.info('下载链接不存在，请稍后刷新重试');
+        message.info(i18n.t('the download link does not exist, please refresh later and try again'));
         return;
       }
       if (installPlist.indexOf('https://') === -1) {
-        message.info('请使用HTTPS协议链接');
+        message.info(i18n.t('please use HTTPS protocol link'));
         return;
       }
       downloadUrl = `itms-services://?action=download-manifest&url=${installPlist}`;
@@ -177,22 +178,22 @@ const DownloadPage = ({ match }: any) => {
               }
             </div>
             <p className="app-name">{name}</p>
-            <p className="tips download-notice">扫描二维码下载</p>
-            <p className="tips download-notice">或用手机浏览器输入网址: {window.location.href}</p>
+            <p className="tips download-notice">{i18n.t('scan the QR code to download')}</p>
+            <p className="tips download-notice">{i18n.t('or use the mobile browser to enter the URL')} {window.location.href}</p>
             <div className="line" />
             {
               React.Children.count(versions) ? (
                 <>
                   <ul className="version-list">{versions}</ul>
                   <p className="tips version-notice">{byteToM(current.pkg)}</p>
-                  <p className="tips version-notice">更新于: {current.updatedAt ? moment(current.updatedAt).format('YYYY/MM/DD HH:mm') : '--'}</p>
+                  <p className="tips version-notice">{i18n.t('updated on')} {current.updatedAt ? moment(current.updatedAt).format('YYYY/MM/DD HH:mm') : '--'}</p>
                   <div className="button-wrap">
                     {
                       showDownload ? <Button type="primary" onClick={handleDownload}>下载{client === 'pc' ? '' : '安装'}</Button> : null
                     }
                   </div>
                 </>
-              ) : <p className="tips">暂时没有符合该机型的安装包</p>
+              ) : <p className="tips">{i18n.t('there is no installation package for this model at the moment')}</p>
             }
           </div>
         </div>

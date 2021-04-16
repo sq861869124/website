@@ -19,11 +19,12 @@ import { CopmFadeInUp } from 'pages/component/animate-comp';
 import { useMobile } from 'common/utils';
 import { Link } from 'react-router-dom';
 import { Icon } from 'common';
+import i18n from '~/i18n';
 import imagesMap from './images';
 
 const config = {
-  title: '为什么选择 Erda Cloud?',
-  description: '采用多云架构的一站式企业数字化平台，为企业提供 DevOps、微服务治理、多云管理以及快数据管理等云原生服务。',
+  title: i18n.t('default:why choose erda cloud?'),
+  description: i18n.t('a one-stop enterprise digital platform with a multi-cloud architecture'),
 };
 
 
@@ -37,7 +38,7 @@ const MainCard = () => {
       <CopmFadeInUp>
         <div className="card-desc mt16">
           {config.description}
-          <Link className="link-to" to="/why-erda">更多<Icon type="Rightarrow" /></Link>
+          <Link className="link-to" to="/why-erda">{i18n.t('more')}<Icon type="Rightarrow" /></Link>
         </div>
       </CopmFadeInUp>
       <div className="img-wrapper mt20">

@@ -15,6 +15,7 @@
 import React from 'react';
 import { Modal, Form, Input, message, Spin } from 'antd';
 import axios, { AxiosResponse } from 'axios';
+import i18n from '~/i18n';
 import { getFormFieldsValue } from 'common/utils';
 
 const FormItem = Form.Item;
@@ -86,7 +87,7 @@ const AuthModal = ({ visible, onCancel, apiPublishId, afterSummit }: IProps) => 
   return (
     <Modal
       visible={visible}
-      title="调用认证"
+      title={i18n.t('call authentication')}
       width={440}
       destroyOnClose
       onCancel={handleCancel}
@@ -95,12 +96,12 @@ const AuthModal = ({ visible, onCancel, apiPublishId, afterSummit }: IProps) => 
     >
       <Spin spinning={loading}>
         <FormItem
-          label="认证说明"
+          label={i18n.t('certification description')}
         >
           <p>API requires authorization. Enter your credentials to make calls to this API.</p>
         </FormItem>
         <FormItem
-          label="认证类型"
+          label={i18n.t('type of certification')}
         >
           <p>{authType}</p>
         </FormItem>
@@ -113,10 +114,10 @@ const AuthModal = ({ visible, onCancel, apiPublishId, afterSummit }: IProps) => 
           label="Value"
           name="value"
           rules={[{
-            required: true, message: '请输入',
+            required: true, message: i18n.t('please enter'),
           }]}
         >
-          <Input placeholder="请输入" />,
+          <Input placeholder={i18n.t('please enter')} />,
         </FormItem>
       </Spin>
     </Modal>

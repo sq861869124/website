@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import i18n from '~/i18n';
+
 /**
  * Created by 含光<jiankang.pjk@alibaba-inc.com> on 2021/3/3 17:58.
  */
 const RegularMap = {
-  mobile: { pattern: /^(1[3|4|5|7|8|9])\d{9}$/, message: '请输入正确的手机号码' },
-  email: { pattern: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/, message: '请输入正确email' },
+  mobile: { pattern: /^(1[3|4|5|7|8|9])\d{9}$/, message: i18n.t('please enter the correct phone number') },
+  email: { pattern: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/, message: i18n.t('please enter the correct email') },
 };
 
 export default RegularMap;

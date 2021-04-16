@@ -20,6 +20,7 @@ import { SpriteIcons } from 'common';
 import { config } from '~/config';
 import { getParentContainer } from 'common/utils';
 import PageContent from '~/layout/common/page-content';
+import i18n from '~/i18n';
 import './menu.scss';
 
 const { Item: MenuItem, SubMenu } = Menu;
@@ -100,7 +101,7 @@ const IntroMenu = ({ handlevisibleChange, page }: IMenu) => {
           if (status === 'unrealized') {
             return (
               <MenuItem key={name}>
-                <Popover placement="bottom" content={<p className="nowrap">敬请期待</p>} getPopupContainer={getParentContainer}>
+                <Popover placement="bottom" content={<p className="nowrap">{ i18n.t('comming soon') }</p>} getPopupContainer={getParentContainer}>
                   <a className="bold-600">{name}</a>
                 </Popover>
               </MenuItem>

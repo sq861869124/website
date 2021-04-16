@@ -16,6 +16,7 @@ import resolve from 'resolve-pathname';
 import useMedia from 'react-use/lib/useMedia';
 // import axios from 'axios';
 import { message } from 'antd';
+import i18n from '~/i18n';
 import { FormInstance } from 'interface/common';
 
 
@@ -48,8 +49,8 @@ export const getImageSrc = (path: string, name: string, focus?: boolean) => {
 };
 
 export const regRules = {
-  mobile: { pattern: /^(1[3|4|5|7|8|9])\d{9}$/, message: '请输入正确的手机号码' },
-  email: { pattern: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/, message: '请输入正确email' },
+  mobile: { pattern: /^(1[3|4|5|7|8|9])\d{9}$/, message: i18n.t('please enter the correct phone number') },
+  email: { pattern: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/, message: i18n.t('please enter the correct email') },
 };
 
 export const isPromise = (obj: PromiseLike<any>) => {
@@ -165,7 +166,7 @@ export const stringifyPro = (data: Object | any[], space: number, replace?: any)
 
 
 export const handleError = (error: {msg: string | undefined} = { msg: undefined }) => {
-  message.error(error.msg || '很抱歉，当前请求遇到问题，我们将尽快修复！');
+  message.error(error.msg || i18n.t('sorry, there is a problem with the current request'));
 };
 
 /**

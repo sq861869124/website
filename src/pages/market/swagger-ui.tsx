@@ -15,6 +15,7 @@
 import { map, isEmpty, cloneDeep } from 'lodash';
 import * as React from 'react';
 import { Collapse, Input, Select, Button, Tooltip, Row, Col, Spin } from 'antd';
+import i18n from '~/i18n';
 import { mock } from 'mock-json-schema';
 import { Copy, EmptyHolder } from '~/common';
 import SwaggerParser from 'swagger-parser';
@@ -104,7 +105,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
     if (isEmpty(filtered)) {
       return (
         <div className="empty-wrapper">
-          <EmptyHolder relative tip="没有匹配结果" />
+          <EmptyHolder relative tip={i18n.t('No matching results')} />
         </div>
       );
     }
@@ -262,7 +263,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
 
   if (parsing) {
     return (
-      <Spin size="large" spinning tip="解析中，请稍后..."><div className="loading-holder" /></Spin>
+      <Spin size="large" spinning tip={i18n.t('parsing, please wait...')}><div className="loading-holder" /></Spin>
     );
   }
 
@@ -273,7 +274,7 @@ const SwaggerUI = ({ data, canTest }: any) => {
         <Col span={7}>
           <div className="api-list">
             <div className="api-search pa8">
-              <Input placeholder="按路径或描述搜索" onChange={(e) => filterApi(e.target.value)} />
+              <Input placeholder={i18n.t('search by path or description')} onChange={(e) => filterApi(e.target.value)} />
             </div>
             {List}
           </div>

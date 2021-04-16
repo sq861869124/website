@@ -14,6 +14,7 @@
 
 import React from 'react';
 import { Button, Checkbox, Form } from 'antd';
+import i18n from '~/i18n';
 import InputWithUnderLine from '~/layout/common/inpput-with-under-line';
 import { getFormFieldsValue } from 'common/utils';
 
@@ -37,25 +38,25 @@ const AccountLogin = () => {
       <FormItem
         name="userNme"
       >
-        <InputWithUnderLine filedName="用户名/手机号/邮箱" />
+        <InputWithUnderLine filedName={i18n.t('Username/phone number/email')} />
       </FormItem>
       <FormItem
         name="password"
         className="mb0"
         rules={[{
-          required: true, message: '请输入密码',
+          required: true, message: i18n.t('please enter the password'),
         }]}
       >
-        <InputWithUnderLine type="password" filedName="密码" />
+        <InputWithUnderLine type="password" filedName={i18n.t('password')} />
       </FormItem>
       <FormItem
         name="remember"
         className="mb0"
         valuePropName="checked"
       >
-        <Checkbox>保持登录</Checkbox>
+        <Checkbox>{i18n.t('keep logged in')}</Checkbox>
       </FormItem>
-      <Button className="login-button" onClick={handleLogin} type="primary">立即登录</Button>
+      <Button className="login-button" onClick={handleLogin} type="primary">{i18n.t('log in immediately')}</Button>
     </Form>
   );
 };

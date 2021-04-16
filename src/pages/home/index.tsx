@@ -22,6 +22,7 @@ import { CopmFadeInUp } from 'pages/component/animate-comp';
 import HomeConfig from 'pages/home/config';
 import DoubleWing from 'pages/home/double-wing';
 import { Link } from 'react-router-dom';
+import i18n from '~/i18n';
 import './index.scss';
 
 
@@ -41,7 +42,7 @@ const Home = () => {
       <div className="contact-trial">
         <PageContent>
           <CopmFadeInUp>
-            <p className="title">您的团队在应用研发过程中还有什么困难？</p>
+            <p className="title">{i18n.t('what difficulties does your team have in the application development process?')}</p>
           </CopmFadeInUp>
           <CopmFadeInUp>
             <div className="center-flex-box btns mt36">
@@ -50,9 +51,9 @@ const Home = () => {
                 onClick={() => {
                   window.open('/login-dice');
                 }}
-              >免费试用
+              >{i18n.t('common:free trial')}
               </div>
-              <Link className="btn-item contact center-flex-box" to="/contact">联系我们</Link>
+              <Link className="btn-item contact center-flex-box" to="/contact">{i18n.t('default:contact us')}</Link>
             </div>
           </CopmFadeInUp>
         </PageContent>

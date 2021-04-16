@@ -16,6 +16,7 @@ import * as React from 'react';
 import Clipboard from 'clipboard';
 import { isString } from 'lodash';
 import { message } from 'antd';
+import i18n from '~/i18n';
 
 const selectorMap = {};
 const innerClassName = 'for-copy';
@@ -64,14 +65,14 @@ export class Copy extends React.PureComponent<IProps> {
         if (typeof onSuccess === 'function') {
           onSuccess(e);
         }
-        message.success(`复制${e.trigger.getAttribute('data-clipboard-tip') || tipName}成功`, 1);
+        message.success(i18n.t('copy {attribute} success', { attribute: e.trigger.getAttribute('data-clipboard-tip') || tipName }), 1);
         e.clearSelection();
       });
       this.clipboard.on('error', (e: any) => {
         if (typeof onError === 'function') {
           onError(e);
         }
-        message.error(`复制${e.trigger.getAttribute('data-clipboard-tip') || tipName}失败`, 1);
+        message.error(i18n.t('copy {attribute} success', { attribute: e.trigger.getAttribute('data-clipboard-tip') || tipName }), 1);
       });
     }
   }

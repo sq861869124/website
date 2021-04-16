@@ -15,6 +15,7 @@
 import React, { useState, useEffect, Fragment, memo } from 'react';
 import { isEmpty, find, cloneDeep } from 'lodash';
 import { Input } from 'antd';
+import i18n from '~/i18n';
 import { Icon as CustomIcon } from 'common';
 import './index.scss';
 
@@ -61,7 +62,7 @@ const KeyValueEdit = (props: IKeyValProps) => {
     return (
       <div className="key-value-edit">
         <p className="no-params">
-          当前请求无{type}
+          {i18n.t('no current request')}{type}
         </p>
       </div>
     );

@@ -15,47 +15,48 @@
 import React from 'react';
 import PageContent from '~/layout/common/page-content';
 import { SpriteIcons } from '~/common';
+import i18n from '~/i18n';
 import './index.scss';
 
 const config = [{
-  title: '免部署，免运维',
+  title: i18n.t('no deployment, no operation and maintenance'),
   bg: 'neetnot-deploy',
-  description: '专注于自己的业务应用，繁琐的运维工作交给平台完成',
+  description: i18n.t('focus on your own business applications'),
 }, {
-  title: '安全',
+  title: i18n.t('safety'),
   bg: 'safe',
-  description: '充分利用公有云平台安全架构，对平台进行了全方位的加固和保护',
+  description: i18n.t('make full use of the security'),
 }, {
-  title: '多云架构',
+  title: i18n.t('multi-cloud architecture'),
   bg: 'multi-cloud',
-  description: '业务应用解绑云厂商，轻松实现多云间的业务迁移，无需担心被单一云厂商锁死',
+  description: i18n.t('unbind business applications'),
 }, {
-  title: '一站式平台',
+  title: i18n.t('one-stop platform'),
   bg: 'one-site',
-  description: '平台功能完整，从开发到运维，从业务到数据实现了全面的覆盖',
+  description: i18n.t('the platform has complete functions'),
 }, {
-  title: '弹性缩扩容',
+  title: i18n.t('flexible scaling'),
   bg: 'scla',
-  description: '节点资源能够方便的进行动态扩缩容，各种业务大促活动轻松应对',
+  description: i18n.t('node resources can easily'),
 }, {
-  title: '自动化',
+  title: i18n.t('automation'),
   bg: 'auto',
-  description: '全自动化的开发流程，无需专业的运维工程师支持',
+  description: i18n.t('fully automated development process'),
 }, {
-  title: '云原生',
+  title: i18n.t('cloud native'),
   bg: 'cloud-origin',
-  description: '基于 Kubernetes + 云架构，天生云原生，生态友好',
+  description: i18n.t('based on kubernetes + cloud'),
 }, {
-  title: '专家服务',
+  title: i18n.t('expert service'),
   bg: 'expert-server',
-  description: '7*24小时专家在线服务',
+  description: i18n.t('7*24 hours expert online service'),
 }];
 
 const WhyErda = () => {
   return (
     <div className="erda-why-erda pt0">
       <div className="full-width-header v-flex-box">
-        <div className="title">为什么选择 Erda Cloud?</div>
+        <div className="title">{i18n.t('default:why choose erda cloud?')}</div>
       </div>
       <PageContent className="erda-why-erda-body">
         <div className="v-align-start reasions">

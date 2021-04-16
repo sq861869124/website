@@ -16,6 +16,7 @@ import React from 'react';
 import PageContent from '~/layout/common/page-content';
 import { Button } from 'antd';
 import { CopmFadeInUp } from 'pages/component/animate-comp';
+import i18n from '~/i18n';
 import images from './images';
 
 const Banner = () => {
@@ -27,7 +28,7 @@ const Banner = () => {
           <div className="erda-home-banner-title">Erda Cloud</div>
         </CopmFadeInUp>
         <CopmFadeInUp delay={100}>
-          <div className="erda-home-banner-desc mt16">基于多云架构的一站式企业数字化平台，为企业提供 DevOps、微服务治理、多云管理以及快数据管理等云厂商无绑定的 IT 服务</div>
+          <div className="erda-home-banner-desc mt16">{i18n.t('a one-stop enterprise digital platform based')}</div>
         </CopmFadeInUp>
         <CopmFadeInUp delay={200}>
           <Button
@@ -35,7 +36,7 @@ const Banner = () => {
             onClick={() => {
               window.open('/login-dice');
             }}
-          >免费试用
+          >{i18n.t('free trial')}
           </Button>
         </CopmFadeInUp>
         <div className="earth">

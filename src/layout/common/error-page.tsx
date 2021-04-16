@@ -15,6 +15,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Icon as CustomIcon } from 'common';
+import i18n from '~/i18n';
 
 import './error-page.scss';
 
@@ -25,8 +26,8 @@ const NotFound = () => {
       <div className="info gray-bg">
         <CustomIcon type="404" color />
         <div className="desc">
-          <span>啊哦，这里没有任何内容</span>
-          <Link aria-label="go back to home page" to="/"> 返回首页 </Link>
+          <span>{i18n.t('Oh oh, there is nothing here')}</span>
+          <Link aria-label="go back to home page" to="/"> {i18n.t('back to homepage')} </Link>
         </div>
       </div>
     </div>

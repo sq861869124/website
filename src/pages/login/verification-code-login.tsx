@@ -17,6 +17,7 @@ import { Button, Checkbox, Form } from 'antd';
 import InputWithUnderLine from '~/layout/common/inpput-with-under-line';
 import { getFormFieldsValue } from 'common/utils';
 import CountDonw from 'pages/component/count-down';
+import i18n from '~/i18n';
 
 const FormItem = Form.Item;
 
@@ -48,19 +49,19 @@ const VerificationCodeLogin = () => {
       <FormItem
         name="password"
         rules={[{
-          required: true, message: '请输入密码',
+          required: true, message: i18n.t('please enter the password'),
         }]}
       >
-        <InputWithUnderLine type="password" filedName="图片验证码" />
+        <InputWithUnderLine type="password" filedName={i18n.t('image verification code')} />
       </FormItem>
       <FormItem
         name="verification"
         className="mb0"
         rules={[{
-          required: true, message: '请输入密码',
+          required: true, message: i18n.t('please enter the password'),
         }]}
       >
-        <InputWithUnderLine suffix={<CountDonw triggerStart={getVerificationCode} template={'{countdown}秒后重新获取'} time={60} btnText="获取验证码" />} />
+        <InputWithUnderLine suffix={<CountDonw triggerStart={getVerificationCode} template={'{countdown}秒后重新获取'} time={60} btnText={i18n.t('get verification code')} />} />
       </FormItem>
       <FormItem
         name="remember"
