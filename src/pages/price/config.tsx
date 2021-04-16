@@ -66,7 +66,7 @@ const renderSpec = (cellData: any, record: SpecItem): React.ReactNode => {
       <>
         <p>{value}</p>
         {
-          description ? <p>{description}</p> : null
+          description ? <p className="dark-6">（{description}）</p> : null
         }
       </>
     );
@@ -188,7 +188,7 @@ export const specData: SpecItem[] = [
   },
   {
     key: 'cpu',
-    name: '总 CUP 核数',
+    name: '总 CPU 核数',
     freeVersion: '-',
     enterpriseEdition: {
       mini: enterpriseEditionSpec.mini.cpuCore,
